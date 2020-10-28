@@ -35,6 +35,17 @@ body {
 
 }
 
+.container-map{
+    display: flex;
+    justify-content: center;
+}
+
+.map {
+
+    width: 425px;
+    height: 350px;
+}
+
 
 @media screen and (max-width: 600px){
     .contact{
