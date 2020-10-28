@@ -17,4 +17,18 @@
 
 body {
     font-family: var(--font-text);
+    background-color: var(--secondary-color);
 }
+
+.contact  h2{
+    text-align: center;
+    color: var(--title-color);
+    padding-top: var(--spacing-2);
+}
+
+.contact p {
+    text-align: center;
+}
+
+
+
