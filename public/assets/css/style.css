@@ -23,22 +23,12 @@ body {
 .contact  h2{
     text-align: center;
     color: var(--title-color);
+    padding-top: var(--spacing-2);
 }
 
 .contact p {
     text-align: center;
-
-}
-.contact {
-    display:flex;
-    flex-direction: column;
-
 }
 
-@media screen and (max-width: 600px){
-    .contact{
-        display:flex;
-        flex-wrap: wrap;
-    }
 
-}
+
