@@ -1,7 +1,6 @@
 :root {
     --primary-color: #8C9DB0;
     --secondary-color: #D2D5DA;
-
     --spacing:8px;
     --spacing-2:calc(var(--spacing) * 2);
     --spacing-3:calc(var(--spacing) * 3);
