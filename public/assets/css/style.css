@@ -35,10 +35,13 @@ body {
 
 }
 
+
 @media screen and (max-width: 600px){
     .contact{
         display:flex;
         flex-wrap: wrap;
     }
+
+
 
 }
