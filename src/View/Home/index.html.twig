@@ -1,18 +1,15 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
-
-
-        <div class="contact">
-            <h2>Contact</h2>
-                <p>tel: 02 38 81 23 00 </p>
-                    <div class="container-map">
-                        <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                        src="https://www.openstreetmap.org/export/embed.html?bbox=1.9012275338172915%2C47.90511625471276%2C1.9030514359474184%2C47.906220243554245&amp;layer=mapnik&amp;marker=47.905668252076865%2C1.9021381437778473"
-                        style="border: 1px solid black"></iframe>
-                    </div>
-                <p>95 rue du faubourg Bannier 45000 ORLEANS</p>
+    <div class="contact">
+        <h2>Contact</h2>
+        <p>tel: 02 38 81 23 00 </p>
+        <div class="container-map">
+            <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=1.9012275338172915%2C47.90511625471276%2C1.9030514359474184%2C47.906220243554245&amp;layer=mapnik&amp;marker=47.905668252076865%2C1.9021381437778473"
+                    style="border: 1px solid black">
+            </iframe>
         </div>
-
+        <p>95 rue du Faubourg Bannier 45000 ORLEANS</p>
+    </div>
 {% endblock %}

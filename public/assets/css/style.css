@@ -20,43 +20,39 @@ body {
     background-color: var(--secondary-color);
 }
 
-.contact  h2{
+.contact h2 {
     text-align: center;
     color: var(--title-color);
 }
 
 .contact p {
     text-align: center;
-
 }
+
 .contact {
     display:flex;
     flex-direction: column;
-
 }
 
-.container-map{
+.container-map {
     display: flex;
     justify-content: center;
 }
 
 .map {
-
     width: 425px;
     height: 350px;
 }
 
 
 @media screen and (max-width: 600px){
-    .contact{
+    .contact {
         display:flex;
         flex-wrap: wrap;
     }
-    .map{
+    .map {
         display: flex;
         flex-wrap: wrap;
         width: 100vw;
-
     }
-
 }
