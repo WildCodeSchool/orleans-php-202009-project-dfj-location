@@ -17,4 +17,28 @@
 
 body {
     font-family: var(--font-text);
+    background-color: var(--secondary-color);
+}
+
+.contact  h2{
+    text-align: center;
+    color: var(--title-color);
+}
+
+.contact p {
+    text-align: center;
+
+}
+.contact {
+    display:flex;
+    flex-direction: column;
+
+}
+
+@media screen and (max-width: 600px){
+    .contact{
+        display:flex;
+        flex-wrap: wrap;
+    }
+
 }
