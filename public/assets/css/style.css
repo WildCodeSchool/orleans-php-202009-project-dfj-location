@@ -18,11 +18,22 @@
 
 body {
     font-family: var(--font-text);
+    background-color: var(--secondary-color);
 }
 
 h1, h2, h3 {
     font-family: var(--font-title);
     color: var(--title-color);
+}
+
+.contact  h2{
+    text-align: center;
+    color: var(--title-color);
+    padding-top: var(--spacing-2);
+}
+
+.contact p {
+    text-align: center;
 }
 
 .dropdown-menu {
@@ -39,3 +50,4 @@ h1, h2, h3 {
 .currentDay {
     font-weight: bold;
 }
+
