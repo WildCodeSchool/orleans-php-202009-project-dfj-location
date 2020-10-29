@@ -1,5 +1,43 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
+    <div class="contact container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+               <h2>Contact</h2>
+               <p>tel: 02 38 81 23 00 </p>
+               <p>95 rue du faubourg Bannier 45000 ORLEANS</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="time">
+        <h2>Horaires</h2>
+
+        <!-- Récupération du jour courant -->
+        {% set now = "now"|date("l") %}
+        <!-- Récupération des horaires -->
+        {% set nowTranscription = {'Monday' : 'Lundi : Fermé', 'Tuesday' : 'Mardi : 9h30 - 12h / 14h - 18h30',
+            'Wednesday' : 'Mercredi : 9h30 - 12h / 14h - 18h30', 'Thursday' : 'Jeudi : 9h30 - 12h / 14h - 18h30',
+            'Friday' : 'Vendredi : 9h30 - 12h / 14h - 18h30', 'Saturday' : 'Samedi : 9h30 - 12h / 14h - 18h',
+            'Sunday' : 'Dimanche : 9h - 10h30 / 17h - 18h30'} %}
+        {% set nowFrench = nowTranscription[now] %}
+        <div class="dropdown">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ nowFrench }}
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <ul>
+                    {% for time in nowTranscription %}
+                        <li class="dropdown-item-text {% if time == nowFrench %} currentDay {% endif %}">
+                            {{ time }}
+                        </li>
+                    {% endfor %}
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>  
+
 {% endblock %}

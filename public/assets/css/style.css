@@ -1,10 +1,12 @@
 :root {
     --primary-color: #8C9DB0;
     --secondary-color: #D2D5DA;
-    --spacing: 8px;
-    --spacing-2: calc(var(--spacing) * 2);
-    --spacing-3: calc(var(--spacing) * 3);
-    --spacing-4: calc(var(--spacing) * 4);
+    --title-color: #0D446D;
+
+    --spacing:8px;
+    --spacing-2:calc(var(--spacing) * 2);
+    --spacing-3:calc(var(--spacing) * 3);
+    --spacing-4:calc(var(--spacing) * 4);
 
     --font-text: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
@@ -16,6 +18,37 @@
 
 body {
     font-family: var(--font-text);
+    background-color: var(--secondary-color);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    color: var(--title-color);
+}
+
+.contact h2 {
+    text-align: center;
+    color: var(--title-color);
+    padding-top: var(--spacing-2);
+}
+
+.contact p {
+    text-align: center;
+}
+
+.dropdown-menu {
+    border: none;
+    background: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul {
+    padding: 0;
+}
+
+.currentDay {
+    font-weight: bold;
 }
 
 footer {
