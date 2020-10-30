@@ -22,7 +22,7 @@ body {
 }
 
 nav {
-    background-color: #8C9DB0;
+    background-color: var(--primary-color);
     height: var(--navbarHeight)
 }
 
