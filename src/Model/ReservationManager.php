@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Model;
+
+class ReservationManager extends AbstractManager
+{
+    public const TABLE = 'reservation';
+
+
+    public function insert(array $data): int
+    {
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
+            " (lastname_visitor,firstname_visitor,phone,email,bike_id,number_bike,withdrawal_date,duration,comment) 
+        VALUES (:lastname,:firstname,:tel,:email,:veloselect,:number,:date,:last,:message)");
+        $statement->bindValue('lastname', $data['lastname'], \PDO::PARAM_STR);
+        $statement->bindValue('firstname', $data['firstname'], \PDO::PARAM_STR);
+        $statement->bindValue('tel', $data['tel'], \PDO::PARAM_INT);
+        $statement->bindValue('email', $data['email'], \PDO::PARAM_STR);
+        $statement->bindValue('veloselect', $data['veloselect'], \PDO::PARAM_STR);
+        $statement->bindValue('number', $data['number'], \PDO::PARAM_INT);
+        $statement->bindValue('date', date('Y-m-d', strtotime($data['date'])));
+        $statement->bindValue('last', $data['last'], \PDO::PARAM_STR);
+        $statement->bindValue('message', $data['message'], \PDO::PARAM_STR);
+
+        if ($statement->execute()) {
+            return (int)$this->pdo->lastInsertId();
+        }
+    }
+}

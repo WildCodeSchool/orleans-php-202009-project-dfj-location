@@ -1,0 +1,61 @@
+h2{
+    text-align: center;
+    padding: var(--spacing-4);
+    margin: calc(var(--spacing-2) * 4);
+}
+body{
+    background-color: var(--primary-color);
+}
+
+input{
+    border: 1px solid var(--primary-color);
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.form-control{
+    width: 60vw;
+}
+.form-star{
+    display: block;
+    width: 300px;
+    margin: 20px;
+    height: auto;
+    text-align: center;
+}
+#submit{
+    padding: 15px 25px;
+    color: #141335;
+    background-color: var(--button-bg-color);
+    margin: 50px;
+    border-radius: 4px;
+}
+form button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.info-form{
+    display: flex;
+    justify-content: center;
+}
+
+.error{
+    display: flex;
+    justify-content: center;
+}
+.card-header{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+.card-footer{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+.card-body{
+    background-color: var(--light-);
+    color: var(--primary-color);
+}

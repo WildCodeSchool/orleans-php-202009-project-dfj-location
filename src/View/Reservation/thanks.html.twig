@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block title %}
+    {{ parent() }} | Merci pour votre reservation
+{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/form.css">
+{% endblock %}
+
+
+
+{% block content %}
+    <h2>Reservation reçue</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card text-center">
+                    <div class="card-header text-muted">
+                        DFJ  |  LOCATION
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Merci</h5>
+                        <p class="card-text">Bonjour {{ data.firstname_visitor }} {{ data.lastname_visitor }} , toute l'équipe de DFJ Location vous remercie d'avoir
+                            réservé votre vélo chez nous, pour une durée de {{ data.duration }}. Nous vous recontacterons dans les plus brefs
+                            délais pour valider votre reservation.</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        A BIENTÔT !
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
