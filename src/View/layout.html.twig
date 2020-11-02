@@ -20,7 +20,11 @@
 </head>
 
 <body>
-{% block header %}{% endblock %}
+
+
+{% block header %}
+    {% block navbar %}{% include 'includes/_navbar.html.twig' %}{% endblock %}
+{% endblock %}
 
 {% block content %}{% endblock %}
 

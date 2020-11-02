@@ -8,6 +8,8 @@
     --spacing-3:calc(var(--spacing) * 3);
     --spacing-4:calc(var(--spacing) * 4);
 
+    --navbarHeight: 80px;
+
     --font-text: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
 }
@@ -19,6 +21,38 @@
 body {
     font-family: var(--font-text);
     background-color: var(--secondary-color);
+}
+
+nav {
+    background-color: var(--primary-color);
+    height: var(--navbarHeight)
+}
+
+.navbar {
+    padding: 0;
+}
+
+.logo {
+    height: calc(var(--navbarHeight) - var(--spacing-2));
+}
+
+.navbar-brand {
+    padding-left: var(--spacing-2);
+}
+
+.navbar-toggler {
+    padding-right: var(--spacing-2);
+    border: none;
+}
+
+nav > div > ul > .link {
+    background-color: var(--primary-color);
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
+}
+
+.link > a {
+    font-family: var(--font-title);
 }
 
 h1, h2, h3 {
