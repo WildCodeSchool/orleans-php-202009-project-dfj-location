@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: sylvain
@@ -60,7 +61,7 @@ class ItemManager extends AbstractManager
      * @param array $item
      * @return bool
      */
-    public function update(array $item):bool
+    public function update(array $item): bool
     {
 
         // prepared request
