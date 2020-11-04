@@ -60,6 +60,11 @@ h1, h2, h3 {
     color: var(--title-color);
 }
 
+.nouveautés h2 {
+    padding-top: var(--spacing-2);
+    padding-bottom: var(--spacing);
+}
+
 .contact h2 {
     text-align: center;
     color: var(--title-color);
