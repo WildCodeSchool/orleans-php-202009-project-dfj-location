@@ -32,6 +32,15 @@ nav {
     padding: 0;
 }
 
+.card {
+    background-color: var(--primary-color);
+}
+
+.card-title {
+    color: var(--title-color);
+    font-family: var(--font-title);
+}
+
 .logo {
     height: calc(var(--navbarHeight) - var(--spacing-2));
 }
