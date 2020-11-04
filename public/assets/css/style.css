@@ -36,7 +36,7 @@ nav {
     background-color: var(--primary-color);
 }
 
-.card-title {
+.category .card-title {
     color: var(--title-color);
     font-family: var(--font-title);
 }
