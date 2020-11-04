@@ -35,6 +35,10 @@ h1, h2, h3 {
 .contact p {
     text-align: center;
 }
+.map {
+   padding-right: 0;
+    padding-left: 0;
+}
 
 .dropdown-menu {
     border: none;
