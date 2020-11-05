@@ -11,12 +11,12 @@
 
 
 {% block content %}
-    <h2>Reservation reçue</h2>
-    <div class="container-fluid">
+    <h1 class="my-5 text-center">Reservation reçue</h1>
+    <div class="container-fluid pb-5">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
                 <div class="card text-center">
-                    <div class="card-header text-muted">
+                    <div class="card-header">
                         DFJ  |  LOCATION
                     </div>
                     <div class="card-body">
@@ -24,9 +24,9 @@
                         <p class="card-text">Bonjour {{ data.firstname_visitor }} {{ data.lastname_visitor }} , toute l'équipe de DFJ Location vous remercie d'avoir
                             réservé votre vélo chez nous, pour une durée de {{ data.duration }}. Nous vous recontacterons dans les plus brefs
                             délais pour valider votre reservation.</p>
-                        <a href="../../Home/index/" class="btn btn-info">Retour</a>
+                        <a id="link" href="../../Home/index/" class="btn btn-info">Retour</a>
                     </div>
-                    <div class="card-footer text-muted">
+                    <div class="card-footer">
                         A BIENTÔT !
                     </div>
                 </div>
