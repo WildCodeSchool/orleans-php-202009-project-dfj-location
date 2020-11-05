@@ -15,6 +15,7 @@ CREATE TABLE `dfj_location`.`category` (
   `maximum_charge` INT,
   `autonomy` VARCHAR(100),
   `frame_size` VARCHAR(3),
+  `created_date` DATE NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT FK_CategoryBike FOREIGN KEY (category_id)
   REFERENCES category(id));
