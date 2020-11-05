@@ -82,6 +82,17 @@ h1, h2, h3 {
     text-align: center;
 }
 
+
+.map {
+    width: 100%;
+    height: 300px;
+}
+
+.dropdown-menu {
+    border: none;
+    background: none;
+}
+
 .time {
     list-style-type: none;
     line-height: 2;
