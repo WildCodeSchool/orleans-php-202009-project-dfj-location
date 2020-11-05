@@ -23,6 +23,9 @@ class HomeManager extends AbstractManager
     /**
      *  Initializes this class.
      */
+
+    public const BIKE_LIMIT = 4;
+
     public function __construct()
     {
         parent::__construct(self::TABLE);
@@ -31,6 +34,6 @@ class HomeManager extends AbstractManager
     public function selectNewestBikes()
     {
         return $this->pdo->query('SELECT name, image FROM ' . self::TABLE .
-            ' ORDER BY created_date DESC LIMIT 4 ')->fetchAll();
+            ' ORDER BY created_date DESC LIMIT ' . self::BIKE_LIMIT)->fetchAll();
     }
 }
