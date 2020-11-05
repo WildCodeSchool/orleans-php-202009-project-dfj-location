@@ -13,17 +13,17 @@ class BicycleController extends AbstractController
     /**
      * Display bicycle listing
      *
-     * @param string $category
+     * @param int $category
      * @return string
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function category(string $category)
+    public function category(int $category)
     {
         $bicycleManager = new BicycleManager();
         $bicycles = $bicycleManager->selectByCategory($category);
 
-        return $this->twig->render('Bicycle/index.html.twig', ['bicycles' => $bicycles, 'category' => $category]);
+        return $this->twig->render('Bicycle/index.html.twig', ['bicycles' => $bicycles]);
     }
 }

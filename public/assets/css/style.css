@@ -59,6 +59,8 @@ h1, h2, h3 {
 .bikes .card-title {
     color: var(--title-color);
     text-align: center;
+    font-size: 1.25rem;
+    font-family: var(--font-text);
 }
 
 .bikes .card-img-bottom {
