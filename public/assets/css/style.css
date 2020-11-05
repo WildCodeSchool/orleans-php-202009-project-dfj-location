@@ -33,6 +33,15 @@ nav {
     z-index: 2;
 }
 
+.category .card {
+    background-color: var(--primary-color);
+}
+
+.category .card-title {
+    color: var(--title-color);
+    font-family: var(--font-title);
+}
+
 .logo {
     height: calc(var(--navbarHeight) - var(--spacing-2));
 }
