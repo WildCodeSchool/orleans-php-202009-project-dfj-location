@@ -54,6 +54,7 @@ nav > div > ul > .link {
 
 .link > a {
     font-family: var(--font-title);
+    font-size : 1.25rem;
 }
 
 h1, h2, h3 {
