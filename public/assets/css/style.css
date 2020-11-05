@@ -1,14 +1,20 @@
 :root {
     --primary-color: #8C9DB0;
     --secondary-color: #D2D5DA;
+
     --button-bg-color : #d8dce2;
     --light- : #e8ecf0;
+
+    --title-color: #0D446D;
+
 
     --spacing:8px;
     --spacing-2:calc(var(--spacing) * 2);
     --spacing-3:calc(var(--spacing) * 3);
     --spacing-4:calc(var(--spacing) * 4);
     --spacing-form: 500px;
+
+    --navbarHeight: 80px;
 
     --font-text: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
@@ -20,4 +26,108 @@
 
 body {
     font-family: var(--font-text);
+
+
+    background-color: var(--secondary-color);
+}
+
+nav {
+    background-color: var(--primary-color);
+    height: var(--navbarHeight)
+}
+
+.navbar {
+    padding: 0;
+    z-index: 2;
+}
+
+.logo {
+    height: calc(var(--navbarHeight) - var(--spacing-2));
+}
+
+.navbar-brand {
+    padding-left: var(--spacing-2);
+}
+
+.navbar-toggler {
+    padding-right: var(--spacing-2);
+    border: none;
+}
+
+nav > div > ul > .link {
+    background-color: var(--primary-color);
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
+}
+
+.link > a {
+    font-family: var(--font-title);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    color: var(--title-color);
+}
+
+.contact h2 {
+    text-align: center;
+    color: var(--title-color);
+    padding-top: var(--spacing-2);
+    padding-bottom: var(--spacing);
+}
+
+.contact p {
+    text-align: center;
+}
+
+.time {
+    list-style-type: none;
+    line-height: 2;
+    padding-left: 0;
+}
+
+.time li {
+    text-align: start;
+}
+
+.currentDay {
+    font-weight: bold;
+}
+
+footer {
+    font-family: var(--font-text);
+    background-color: var(--primary-color);
+    height: 160px;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.instagramImage {
+    margin-left: var(--spacing-4);
+}
+
+.instagramImage, .facebookImage {
+    width: calc(var(--spacing) * 5);
+}
+
+.copyright {
+    margin-bottom: 0;
+}
+
+footer,.row {
+    margin: 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+}
+
+.instagramImage:hover, .facebookImage:hover {
+    transform: scale(1.2);
+}
+
+.instagramImage:active, .facebookImage:active {
+    opacity: 30%;
 }
