@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Database connection
  *
@@ -11,7 +12,7 @@
 
 namespace App\Model;
 
-use \PDO;
+use PDO;
 
 /**
  *
