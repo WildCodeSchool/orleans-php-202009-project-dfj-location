@@ -26,7 +26,7 @@ class ReservationController extends AbstractController
             }
         }
         return $this->twig->render('Reservation/reservation.html.twig', ['errors' => $errors ?? [],
-            'data' => $data ?? [], 'bikes' => $bikes]);
+            'data' => $data , 'bikes' => $bikes]);
     }
 
     public function done(int $id)
@@ -68,6 +68,6 @@ class ReservationController extends AbstractController
         if (empty($data['last'])) {
             $errors[] = "La durée de location est obligatoire";
         }
-        return $errors ?? [];
+        return $errors;
     }
 }
