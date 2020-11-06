@@ -12,7 +12,7 @@
 
 namespace App\Model;
 
-use \PDO;
+use PDO;
 
 /**
  *
