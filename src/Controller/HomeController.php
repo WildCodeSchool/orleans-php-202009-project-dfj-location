@@ -9,6 +9,8 @@
 
 namespace App\Controller;
 
+use App\Model\HomeManager;
+
 class HomeController extends AbstractController
 {
 
@@ -22,6 +24,10 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Home/index.html.twig');
+        $homeManager = new HomeManager();
+        $newBikes = $homeManager->selectNewestBikes();
+        return $this->twig->render('Home/index.html.twig', [
+            'newBikes' => $newBikes,
+        ]);
     }
 }
