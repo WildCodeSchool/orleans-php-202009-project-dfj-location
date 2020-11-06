@@ -29,5 +29,4 @@ class BicycleController extends AbstractController
 
         return $this->twig->render('Bicycle/index.html.twig', ['bicycles' => $bicycles]);
     }
-
 }
