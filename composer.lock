@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6096ccc13f48170021b0437faabec677",
+
+
+    "content-hash": "908db87b74c7b5e251d1912ead9828f6",
+
+
     "packages": [
         {
             "name": "symfony/polyfill-ctype",
@@ -69,6 +73,7 @@
             "support": {
                 "source": "https://github.com/symfony/polyfill-ctype/tree/v1.20.0"
             },
+
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -146,9 +151,11 @@
                 "portable",
                 "shim"
             ],
+
             "support": {
                 "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.20.0"
             },
+
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -177,6 +184,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/twigphp/Twig/zipball/5eb9ac5dfdd20c3f59495c22841adc5da980d312",
                 "reference": "5eb9ac5dfdd20c3f59495c22841adc5da980d312",
+
                 "shasum": ""
             },
             "require": {
@@ -232,6 +240,7 @@
                 "issues": "https://github.com/twigphp/Twig/issues",
                 "source": "https://github.com/twigphp/Twig/tree/v2.14.1"
             },
+
             "funding": [
                 {
                     "url": "https://github.com/fabpot",
@@ -242,11 +251,14 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-10-27T19:25:29+00:00"
+
         }
     ],
     "packages-dev": [
         {
+
             "name": "amphp/amp",
             "version": "v2.5.1",
             "source": {
@@ -258,12 +270,14 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/amphp/amp/zipball/ecdc3c476b3ccff02f8e5d5bcc04f7ccfd18751c",
                 "reference": "ecdc3c476b3ccff02f8e5d5bcc04f7ccfd18751c",
+
                 "shasum": ""
             },
             "require": {
                 "php": ">=7"
             },
             "require-dev": {
+
                 "amphp/php-cs-fixer-config": "dev-master",
                 "amphp/phpunit-util": "^1",
                 "ext-json": "*",
@@ -333,6 +347,7 @@
                     "type": "github"
                 }
             ],
+
             "time": "2020-11-03T16:23:45+00:00"
         },
         {
@@ -364,7 +379,10 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+
+
                     "dev-master": "1.x-dev"
+
                 }
             },
             "autoload": {
@@ -468,6 +486,7 @@
                 "multi-processing",
                 "multi-threading"
             ],
+
             "support": {
                 "issues": "https://github.com/amphp/parallel/issues",
                 "source": "https://github.com/amphp/parallel/tree/master"
@@ -498,6 +517,7 @@
                 "amphp/phpunit-util": "^1.0",
                 "friendsofphp/php-cs-fixer": "^2.9",
                 "phpunit/phpunit": "^6.5"
+
             },
             "type": "library",
             "autoload": {
@@ -830,7 +850,9 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-08-25T05:50:16+00:00"
+
         },
         {
             "name": "composer/xdebug-handler",
@@ -1028,6 +1050,7 @@
                 "source": "https://github.com/filp/whoops/tree/2.9.1"
             },
             "time": "2020-11-01T12:00:00+00:00"
+
         },
         {
             "name": "gitonomy/gitlib",
@@ -1076,12 +1099,14 @@
                 {
                     "name": "Julien Didier",
                     "email": "genzo.wm@gmail.com"
+
                 },
                 {
                     "name": "Grégoire Pineau",
                     "email": "lyrixx@lyrixx.info"
                 },
                 {
+
                     "name": "Alexandre Salomé",
                     "email": "alexandre.salome@gmail.com"
                 }
@@ -1148,6 +1173,7 @@
                 "release",
                 "versions"
             ],
+
             "support": {
                 "issues": "https://github.com/Jean85/pretty-package-versions/issues",
                 "source": "https://github.com/Jean85/pretty-package-versions/tree/1.5.1"
@@ -1247,7 +1273,9 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-07-23T08:41:23+00:00"
+
         },
         {
             "name": "nette/bootstrap",
@@ -1568,6 +1596,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+
                     "dev-master": "3.5-dev"
                 }
             },
@@ -2505,9 +2534,11 @@
                 "psr",
                 "psr-3"
             ],
+
             "support": {
                 "source": "https://github.com/php-fig/log/tree/1.1.3"
             },
+
             "time": "2020-03-23T09:12:05+00:00"
         },
         {
@@ -2557,9 +2588,11 @@
                 "parser",
                 "validator"
             ],
+
             "support": {
                 "issues": "https://github.com/Seldaek/jsonlint/issues",
                 "source": "https://github.com/Seldaek/jsonlint/tree/master"
+
             },
             "funding": [
                 {
@@ -2571,6 +2604,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-08-25T06:56:57+00:00"
         },
         {
@@ -2816,6 +2850,7 @@
                 "symfony/deprecation-contracts": "^2.1",
                 "symfony/polyfill-php80": "^1.15",
                 "symfony/service-contracts": "^1.1.6|^2"
+
             },
             "conflict": {
                 "symfony/config": "<5.1",
@@ -2828,9 +2863,11 @@
                 "symfony/service-implementation": "1.0"
             },
             "require-dev": {
+
                 "symfony/config": "^5.1",
                 "symfony/expression-language": "^4.4|^5.0",
                 "symfony/yaml": "^4.4|^5.0"
+
             },
             "suggest": {
                 "symfony/config": "",
@@ -2867,6 +2904,7 @@
             "support": {
                 "source": "https://github.com/symfony/dependency-injection/tree/v5.1.8"
             },
+
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3084,9 +3122,11 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher/tree/v4.4.16"
             },
+
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3101,6 +3141,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-10-24T11:50:19+00:00"
         },
         {
@@ -3163,6 +3204,7 @@
                 "interoperability",
                 "standards"
             ],
+
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v1.1.9"
             },
@@ -3225,9 +3267,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
+
             "support": {
                 "source": "https://github.com/symfony/filesystem/tree/v5.1.8"
             },
+
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3286,6 +3330,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+
             "support": {
                 "source": "https://github.com/symfony/finder/tree/v4.4.16"
             },
@@ -3354,6 +3399,7 @@
                 "configuration",
                 "options"
             ],
+
             "support": {
                 "source": "https://github.com/symfony/options-resolver/tree/v5.1.8"
             },
@@ -3371,6 +3417,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-10-24T12:01:57+00:00"
         },
         {
@@ -3433,9 +3480,11 @@
                 "portable",
                 "shim"
             ],
+
             "support": {
                 "source": "https://github.com/symfony/polyfill-php73/tree/v1.20.0"
             },
+
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3453,6 +3502,7 @@
             "time": "2020-10-23T14:02:19+00:00"
         },
         {
+
             "name": "symfony/polyfill-php80",
             "version": "v1.20.0",
             "source": {
@@ -3468,10 +3518,12 @@
             },
             "require": {
                 "php": ">=7.1"
+
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
+
                     "dev-main": "1.20-dev"
                 },
                 "thanks": {
@@ -3531,6 +3583,7 @@
                 {
                     "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                     "type": "tidelift"
+
                 }
             ],
             "time": "2020-10-23T14:02:19+00:00"
@@ -3578,6 +3631,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+
             "support": {
                 "source": "https://github.com/symfony/process/tree/v5.1.8"
             },
@@ -3657,6 +3711,7 @@
                 "interoperability",
                 "standards"
             ],
+
             "support": {
                 "source": "https://github.com/symfony/service-contracts/tree/master"
             },
@@ -3699,6 +3754,7 @@
                 "symfony/console": "<4.4"
             },
             "require-dev": {
+
                 "symfony/console": "^4.4|^5.0"
             },
             "suggest": {
@@ -3732,6 +3788,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+
             "support": {
                 "source": "https://github.com/symfony/yaml/tree/v5.1.8"
             },
@@ -3749,6 +3806,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-10-24T12:03:25+00:00"
         }
     ],
@@ -3762,5 +3820,6 @@
         "ext-pdo": "*"
     },
     "platform-dev": [],
+
     "plugin-api-version": "2.0.0"
 }
