@@ -9,9 +9,9 @@
 
 namespace App\Controller;
 
-use App\Model\HomeManager;
+use App\Model\CategoryManager;
 
-class HomeController extends AbstractController
+class CategoryController extends AbstractController
 {
 
     /**
@@ -24,10 +24,10 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        $homeManager = new HomeManager();
-        $newBikes = $homeManager->selectNewestBikes();
-        return $this->twig->render('Home/index.html.twig', [
-            'newBikes' => $newBikes,
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAll();
+        return $this->twig->render('Category/index.html.twig', [
+            'categories' => $categories,
         ]);
     }
 }
