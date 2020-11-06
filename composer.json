@@ -1,10 +1,10 @@
 {
-  "name": "lloyfell/orleans-php-202009-project-dfj-location",
+  "name": "aurel/simple-mvc",
   "description": "Simple from scratch PHP MVC",
   "authors": [
     {
-      "name": "Flichyn",
-      "email": "nicolasflichy@gmail.com"
+      "name": "Aurelien",
+      "email": "barbier.aurelien@wildcodeschool.fr"
     }
   ],
   "minimum-stability": "stable",
