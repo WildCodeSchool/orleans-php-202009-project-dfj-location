@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} {{ parent() }} | Nos {{ category }}{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h1 class="text-center my-5">Nos {{ bicycles[0].model }}</h1>
+        <div class="row bikes pb-5">
+            {% for bicycle in bicycles %}
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title text-truncate">{{ bicycle.name }}</h2>
+                        </div>
+                        <img src="{{ bicycle.image }}" class="card-img-bottom" alt="{{ bicycle.name }}">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

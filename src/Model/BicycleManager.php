@@ -11,7 +11,9 @@ class BicycleManager extends AbstractManager
      *
      */
     protected const TABLE = 'bike';
+
     protected const TABLE1 = 'category';
+
 
     /**
      *  Initializes this class.
@@ -19,6 +21,7 @@ class BicycleManager extends AbstractManager
     public function __construct()
     {
         parent::__construct(self::TABLE);
+
         parent::__construct(self::TABLE1);
     }
 
@@ -26,5 +29,21 @@ class BicycleManager extends AbstractManager
     {
         return $this->pdo->query('SELECT bike.name, bike.id, category.name as model FROM ' . self::TABLE1 .
             ' JOIN ' . self::TABLE . ' ON category.id=bike.category_id ')->fetchAll();
+
+    }
+
+    public function selectByCategory(int $category): array
+    {
+        // prepared request
+        $statement = $this->pdo->prepare(
+            'SELECT b.id, b.name, b.image, c.name as model FROM ' . self::TABLE . ' b ' .
+            'JOIN category c ON b.category_id=c.id WHERE c.id=:category ' .
+            'ORDER BY b.name'
+        );
+        $statement->bindValue('category', $category, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetchAll();
+
     }
 }
