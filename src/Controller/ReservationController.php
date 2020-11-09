@@ -48,10 +48,10 @@ class ReservationController extends AbstractController
     {
         $errors = [];
         if (empty($data['lastname'])) {
-            $errors[] = "Entrez votre nom s.v.p";
+            $errors[] = "Le nom est obligatoire";
         }
         if (empty($data['firstname'])) {
-            $errors[] = "Entrez votre prénom s.v.p";
+            $errors[] = "Le prénom est obligatoire";
         }
         if (empty($data['tel'])) {
             $errors[] = "Le numéro de telephone est obligatoire pour réserver";
@@ -59,14 +59,14 @@ class ReservationController extends AbstractController
         if (empty($data['email'])) {
             $errors[] = "L'adresse email est obligatoire pour réserver";
         }
+        if (!filter_var($data['email'],FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "le format de l'email est invalide";
+        }
         if (empty($data['bike'])) {
             $errors[] = "Le choix du vélo est obligatoire";
         }
         if (empty($data['number'] && $data['number'] >= 0)) {
             $errors[] = "Le nombre doit être positif";
-        }
-        if (empty($data['last'])) {
-            $errors[] = "La durée de location est obligatoire";
         }
         return $errors;
     }

@@ -29,7 +29,7 @@ CREATE TABLE `dfj_location`.`category` (
   `bike_id` INT NOT NULL,
   `number_bike` INT NOT NULL,
   `withdrawal_date` DATE NOT NULL,
-  `duration` VARCHAR(100) NOT NULL,
+  `duration` VARCHAR(100),
   `comment` TEXT,
   `is_validated` BOOL DEFAULT 0,
   PRIMARY KEY (`id`),
