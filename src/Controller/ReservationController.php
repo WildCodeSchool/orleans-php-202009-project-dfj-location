@@ -59,7 +59,7 @@ class ReservationController extends AbstractController
         if (empty($data['email'])) {
             $errors[] = "L'adresse email est obligatoire pour réserver";
         }
-        if (!filter_var($data['email'],FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $errors[] = "le format de l'email est invalide";
         }
         if (empty($data['bike'])) {

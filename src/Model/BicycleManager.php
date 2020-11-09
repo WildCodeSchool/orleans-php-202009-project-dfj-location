@@ -19,7 +19,6 @@ class BicycleManager extends AbstractManager
     public function __construct()
     {
         parent::__construct(self::TABLE);
-
     }
 
     public function selectAllWithCategories()
