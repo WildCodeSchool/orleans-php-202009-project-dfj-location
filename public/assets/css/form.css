@@ -1,60 +1,60 @@
 
-input{
+input {
     border: 1px solid var(--primary-color);
 
 }
-label{
+label {
     color: var(--title-color);
 }
-form{
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
-.form-control{
+.form-control {
     width: 60vw;
 }
-.form-star{
+.form-star {
     display: block;
     width: 300px;
     margin: 20px;
     height: auto;
     text-align: center;
 }
-.btn{
+.btn {
     padding: 15px 25px;
     color: #141335;
     background-color: var(--button-bg-color);
     margin: 50px;
     border-radius: 4px;
 }
-form button:hover{
+form button:hover {
     opacity: 0.8;
     cursor: pointer;
 }
-.info-form{
+.info-form {
     display: flex;
     justify-content: center;
 }
 
-.error{
+.error {
     display: flex;
     justify-content: center;
 }
-.card-header{
+.card-header {
     color: var(--secondary-color);
     background-color: var(--primary-color);
 }
-.card-footer{
+.card-footer {
     color: var(--secondary-color);
     background-color: var(--primary-color);
 }
-.card-body{
+.card-body {
     background-color: var(--light);
     color: var(--primary-color);
 }
-.btn-info{
+.btn-info {
     color: #141335;
     background-color: var(--button-bg-color);
 }

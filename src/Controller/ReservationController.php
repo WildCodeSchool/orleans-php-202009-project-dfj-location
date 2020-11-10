@@ -53,6 +53,14 @@ class ReservationController extends AbstractController
         if (empty($data['firstname'])) {
             $errors[] = "Le prénom est obligatoire";
         }
+        $NameMaxLength = 100;
+        if ($data['firstname'] || $data['lastname'] > $NameMaxLength) {
+            $errors[] = "le nom et/ou prenom ne doivent pas depasser 100 caractères";
+        }
+        $phoneMaxLength = 20;
+        if ($data['tel'] > $phoneMaxLength) {
+            $errors[] = "le numero de telephone ne doit pas contenir plus de 20 caractères";
+        }
         if (empty($data['tel'])) {
             $errors[] = "Le numéro de telephone est obligatoire pour réserver";
         }
