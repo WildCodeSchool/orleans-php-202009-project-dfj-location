@@ -1,7 +1,8 @@
-:root {
-    --primary-color: #8C9DB0;
-    --secondary-color: #D2D5DA;
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
 
+:root {
+    --primary-color: #4a80a0;;
+    --secondary-color: #f7f7fc;
     --button-bg-color : #8C9DB0;
     --light : #e8ecf0;
 
@@ -69,8 +70,12 @@ nav > div > ul > .link {
     padding-right: var(--spacing-4);
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: var(--light);
+}
+
 .link > a {
-    font-family: var(--font-title);
+    font-family:'Overpass', sans-serif;
     font-size : 1.25rem;
 }
 
@@ -120,31 +125,45 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
-.bikes .card {
-    background-color: var(--primary-color);
-    margin-bottom: var(--spacing-3);
-}
-
-.bikes .card-title {
-    color: var(--title-color);
-    text-align: center;
-    font-size: 1.25rem;
-    font-family: var(--font-text);
-}
-
 .bikes .card-img-bottom {
     padding-left: var(--spacing-2);
     padding-right: var(--spacing-2);
     padding-bottom: var(--spacing-2);
 }
 
-footer {
+.bikes .card {
+    margin-bottom: var(--spacing-3);
+}
+
+.card-inverse .card-img-overlay {
+    background-color: rgba(18, 24, 43, 0.65);
+}
+
+.bikes .card-title {
+    color: var(--light);
+    font-size: 1.25rem;
     font-family: var(--font-text);
+}
+
+.card-inverse:hover {
+    transform: scale(1.02);
+}
+
+.card-inverse:hover .card-img-overlay {
+    background: none;
+}
+
+.card-inverse:hover .card-img-overlay h2{
+    display: none;
+}
+
+footer {
+    font-family: 'Overpass', sans-serif;
     background-color: var(--primary-color);
     height: 160px;
     margin: 0;
     padding: 0;
-    color: black;
+    color: var(--light);
 }
 
 .instagramImage {
@@ -156,6 +175,7 @@ footer {
 }
 
 .copyright {
+    font-family:'Overpass', sans-serif;
     margin-bottom: 0;
 }
 
@@ -164,8 +184,8 @@ footer,.row {
 }
 
 footer a {
+    color: var(--light);
     text-decoration: none;
-    color: black;
 }
 
 .instagramImage:hover, .facebookImage:hover {
