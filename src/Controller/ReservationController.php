@@ -57,14 +57,14 @@ class ReservationController extends AbstractController
         }
         $nameMaxLength = 100;
         if ($data['firstname'] || $data['lastname'] > $nameMaxLength) {
-            $errors[] = "le nom et le prenom ne doivent pas depasser 100 caractères";
+            $errors[] = "le nom et le prénom ne doivent pas dépasser 100 caractères";
         }
         $phoneMaxLength = 20;
         if ($data['tel'] > $phoneMaxLength) {
-            $errors[] = "le numero de telephone ne doit pas contenir plus de 20 caractères";
+            $errors[] = "le numero de télephone ne doit pas contenir plus de 20 caractères";
         }
         if (empty($data['tel'])) {
-            $errors[] = "Le numéro de telephone est obligatoire pour réserver";
+            $errors[] = "Le numéro de télephone est obligatoire pour réserver";
         }
         if (empty($data['email'])) {
             $errors[] = "L'adresse email est obligatoire pour réserver";
