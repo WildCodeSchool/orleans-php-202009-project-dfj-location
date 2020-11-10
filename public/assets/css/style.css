@@ -190,4 +190,14 @@ footer a {
 .instagramImage:active, .facebookImage:active {
     opacity: 30%;
 }
+table td {
+    max-width: 200px;
+    text-align: center;
+}
+table th {
+    text-align: center;
+}
+table {
+    margin: auto;
+}
 
