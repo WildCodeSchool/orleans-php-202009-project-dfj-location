@@ -1,11 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
+
+
 :root {
-    --primary-color: #8C9DB0;
-    --secondary-color: #D2D5DA;
+    --primary-color: #4a80a0;
+    --secondary-color: #f7f7fc;
 
     --button-bg-color : #8C9DB0;
     --light : #e8ecf0;
 
-    --title-color: #0D446D;
+    --title-color: #0d446d;
 
 
     --spacing:8px;
@@ -70,8 +75,14 @@ nav > div > ul > .link {
 }
 
 .link > a {
-    font-family: var(--font-title);
     font-size : 1.25rem;
+    color: var(--light);
+    font-family:'Overpass', sans-serif;
+
+    font-weight: bolder;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: var(--light);
 }
 
 h1, h2, h3 {
@@ -121,13 +132,14 @@ h1, h2, h3 {
 }
 
 .bikes .card {
-    background-color: var(--primary-color);
     margin-bottom: var(--spacing-3);
+}
+.card-inverse .card-img-overlay {
+    background-color: rgba(18, 24, 43, 0.65);
 }
 
 .bikes .card-title {
-    color: var(--title-color);
-    text-align: center;
+    color: #F1F1F5;
     font-size: 1.25rem;
     font-family: var(--font-text);
 }
@@ -156,7 +168,9 @@ footer {
 }
 
 .copyright {
+    font-family:'Overpass', sans-serif;
     margin-bottom: 0;
+    color: var(--light);
 }
 
 footer,.row {
@@ -164,8 +178,9 @@ footer,.row {
 }
 
 footer a {
+    font-family:'Overpass', sans-serif;
     text-decoration: none;
-    color: black;
+    color: var(--light);
 }
 
 .instagramImage:hover, .facebookImage:hover {

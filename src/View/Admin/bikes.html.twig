@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block title %}
+    {{ parent() }} | Administrateur
+{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="my-5 text-center"> Administrer les vélos </h1>
+
+<main class="container">
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nom Complet</th>
+            <th scope="col">Categorie</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for bike in bikes %}
+        <tr>
+            <th scope="row">{{ bike.name }}</th>
+            <td>{{ bike.model }}</td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
+</main>
+
+
+
+
+
+
+
+{% endblock %}
