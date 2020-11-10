@@ -25,6 +25,7 @@ class ReservationManager extends AbstractManager
             return (int)$this->pdo->lastInsertId();
         }
     }
+
     public function selectAll(): array
     {
         return parent::selectAll();

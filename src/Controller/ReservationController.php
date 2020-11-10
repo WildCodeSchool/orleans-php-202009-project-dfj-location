@@ -36,6 +36,7 @@ class ReservationController extends AbstractController
 
         return $this->twig->render('Reservation/thanks.html.twig', ['data' => $reservation]);
     }
+
     public function select()
     {
         $select = new ReservationManager('bike');

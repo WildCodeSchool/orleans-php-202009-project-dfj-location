@@ -1,16 +1,15 @@
 
 input {
     border: 1px solid var(--primary-color);
-
 }
 label {
     color: var(--title-color);
 }
+
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 .form-control {
     width: 60vw;
@@ -37,7 +36,6 @@ form button:hover {
     display: flex;
     justify-content: center;
 }
-
 .error {
     display: flex;
     justify-content: center;

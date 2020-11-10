@@ -11,8 +11,6 @@ class BicycleManager extends AbstractManager
      *
      */
     protected const TABLE = 'bike';
-
-
     /**
      *  Initializes this class.
      */
