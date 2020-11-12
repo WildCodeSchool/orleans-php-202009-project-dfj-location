@@ -20,7 +20,7 @@ class AdminCategoryController extends AbstractController
     {
         $adminCategoryManager = new CategoryManager();
         $categories = $adminCategoryManager->selectAll();
-        return $this->twig->render('Admin/indexcategory.html.twig', [ 'categories' => $categories]);
+        return $this->twig->render('Admin/indexCategory.html.twig', ['categories' => $categories]);
     }
 
     public function add()
