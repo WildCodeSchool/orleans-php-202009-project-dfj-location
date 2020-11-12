@@ -36,4 +36,3 @@ class CategoryManager extends AbstractManager
         return $this->pdo->query('SELECT * FROM ' . self::TABLE)->fetchAll();
     }
 }
-

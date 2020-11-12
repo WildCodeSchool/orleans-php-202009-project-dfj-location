@@ -23,4 +23,3 @@ class AdminCategoryController extends AbstractController
         return $this->twig->render('Admin/indexcategory.html.twig', [ 'categories' => $categories]);
     }
 }
-
