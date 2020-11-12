@@ -1,3 +1,19 @@
+parameters:
+    git_dir: .
+    bin_dir: vendor/bin
+    grumphp:
+        tasks:
+            phpcs:
+                standard: ./phpcs.xml
+            phpstan:
+                configuration: ./phpstan.neon
+                level: 5
+            phpmd:
+                whitelist_patterns:
+                    - 'src'
+                ruleset:
+                    - 'phpmd.xml'
+
 grumphp:
     tasks:
         phpcs:
