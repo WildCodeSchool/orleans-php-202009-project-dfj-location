@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    {{ parent() }} | Merci pour votre reservation
+    {{ parent() }} | Merci pour votre réservation
 {% endblock %}
 {% block stylesheet %}
     <link rel="stylesheet" href="/assets/css/form.css">
@@ -19,7 +19,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Merci</h5>
                         <p class="card-text">Bonjour {{ data.firstname_visitor }} {{ data.lastname_visitor }}, toute l'équipe de DFJ Location vous remercie d'avoir
-                            réservé votre vélo chez nous, pour une durée de {{ data.duration }}. Nous vous recontacterons dans les plus brefs
+                            réservé votre vélo chez nous. Nous vous recontacterons à l'adresse "{{ data.email }}" dans les plus brefs
                             délais pour valider votre réservation.</p>
                         <a id="link" href="../../Home/index/" class="btn btn-info">Retour</a>
                     </div>

@@ -1,6 +1,5 @@
 {% extends 'layout.html.twig' %}
 
-
 {% block title %}
     {{ parent() }} | Reservation
 {% endblock %}
@@ -8,7 +7,6 @@
 {% block stylesheet %}
     <link rel="stylesheet" href="/assets/css/form.css">
 {% endblock %}
-
 
 {% block content %}
     <a id="return"></a>
@@ -25,11 +23,11 @@
 <form action="" method="POST">
     <div class="form-group">
         <label for="lastname">Nom</label>
-        <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Bilbo" required value="{{ data.lastname }}">
+        <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Dupond" required value="{{ data.lastname }}">
     </div>
     <div class="form-group">
         <label for="firstname">Prénom</label>
-        <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Baggins" required value="{{ data.firstname }}">
+        <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Nicolas" required value="{{ data.firstname }}">
     </div>
     <div class="form-group">
         <label for="tel">Télephone</label>
@@ -37,10 +35,10 @@
     </div>
     <div class="form-group">
         <label for="email">Courriel</label>
-        <input class="form-control" type="email" name="email" id="email" placeholder="monsieur.baggins@gmail.com" required value="{{ data.email }}">
+        <input class="form-control" type="email" name="email" id="email" placeholder="monsieur.dupond@gmail.com" required value="{{ data.email }}">
     </div>
     <div class="form-group">
-        <label for="bike">Choisissez votre vélo:</label>
+        <label for="bike">Choisissez votre vélo :</label>
         <select class="form-control" id="bike" name="bike">
             {% for bike in bikes %}
             <option {{ data.bike == bike.id ? 'selected'}} value="{{ bike.id }}">{{ bike.model }} ---  {{ bike.name }}</option>
@@ -56,66 +54,14 @@
         <input class="form-control" type="date" name="date" id="date" placeholder="19/10/2020" required>
     </div>
     <div class="form-group">
-        <label for="last">Durée de location</label>
-        <select class="form-control form-control-sm" name="last" id="last" required>
-            <optgroup label="Adulte VTT ou VTC">
-                <option value="">Choisissez la durée</option>
-                <option value="1/2 Journée">1/2 Journée (15,00€) </option>
-                <option value="1 Journée*">1 Journée* (17,00€) </option>
-                <option value="2 Jours">2 Jours (26,00€) </option>
-                <option value="3 Jours">3 Jours (34,00€) </option>
-                <option value="4 Jours">4 Jours (42,00€) </option>
-                <option value="5 Jours">5 Jours (49,00€) </option>
-                <option value="6 Jours">6 Jours (58,00€) </option>
-                <option value="1 Semaine">1 Semaine (66,00€) </option>
-                <option value="2 Semaines">2 Semaines (136,00€) </option>
-                <option value="Jour supplemantaire">Jour supplemantaire (10,00€) </option>
-            </optgroup>
-            <optgroup label="Enfant (max 20 pouces) VTT ou VTC">
-                <option value="1/2 Journée">1/2 Journée (12,00€) </option>
-                <option value="1 Journée*">1 Journée* (15,00€) </option>
-                <option value="2 Jours">2 Jours (22,00€) </option>
-                <option value="3 Jours">3 Jours (26,00€) </option>
-                <option value="4 Jours">4 Jours (31,00€) </option>
-                <option value="5 Jours">5 Jours (36,00€) </option>
-                <option value="6 Jours">6 Jours (41,00€) </option>
-                <option value="1 Semaine">1 Semaine (45,00€) </option>
-                <option value="2 Semaines">2 Semaines (94,00€) </option>
-                <option value="Jour supplemantaire">Jour supplemantaire (5,00€) </option>
-            </optgroup>
-            <optgroup label="Adulte Tandem">
-                <option value="1 Journée*">1 Journée* (29,00€) </option>
-                <option value="2 Jours">2 Jours (48,00€) </option>
-                <option value="3 Jours">3 Jours (58,00€) </option>
-                <option value="4 Jours">4 Jours (68,00€) </option>
-                <option value="5 Jours">5 Jours (78,00€) </option>
-                <option value="6 Jours">6 Jours (88,00€) </option>
-                <option value="1 Semaine">1 Semaine (98,00€) </option>
-                <option value="Jour supplemantaire">Jour supplemantaire (10,00€) </option>
-            </optgroup>
-            <optgroup label="Adulte Vélo électrique">
-                <option value="1/2 Journée*">1/2 Journée* (20,00€) </option>
-                <option value="1 Jours">1 Jours (30,00€) </option>
-                <option value="2 Jours">2 Jours (47,00€) </option>
-                <option value="3 Jours">3 Jours (65,00€) </option>
-                <option value="4 Jours">4 Jours (85,00€) </option>
-                <option value="5 Jours">5 Jours (105,00€) </option>
-                <option value="6 Jours">6 Jours (123,00€) </option>
-                <option value="1 Semaine">1 Semaine (142,00€) </option>
-                <option value="Jour supplemantaire">Jour supplemantaire (10,00€) </option>
-            </optgroup>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="message">Commentaires : (optionnel)</label>
+        <label for="message">Commentaire : (optionnel)</label>
         <textarea class="form-control" id="message" name="message" placeholder="Entrez votre message ici">{{ data.message }}</textarea>
     </div>
-
     <button class="btn" id="submit">Réserver</button>
 </form>
 <div class="info-form">
-    <p class="form-star">* : 1 Journée - Dimanche et jours fériés retrait ou retour = 4€ supplémantaires.
-        Pour tout retrait la veille ou restitution le lendemain , il faudra vous acquitter
+    <p class="form-star">* : 1 Journée - Dimanche et jours fériés retrait ou retour = 4€ supplémentaires.
+        Pour tout retrait la veille ou restitution le lendemain, il faudra vous acquitter
         d'un supplément de 4,00€ par vélo. </p>
 </div>
 {% endblock %}
