@@ -40,4 +40,3 @@ class AdminCategoryController extends AbstractController
         ]);
     }
 }
-
