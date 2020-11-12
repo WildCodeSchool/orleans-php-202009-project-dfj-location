@@ -1,0 +1,26 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}DFJ Location | Admin - Créer une catégorie{% endblock %}
+
+{% block content %}
+    <a id="return"></a>
+    <h1 class="my-5 text-center">Créer une catégorie</h1>
+    <div class="error">
+        {% if errors is not empty %}
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input class="form-control" type="text" name="name" id="name" placeholder="Nom de la catégorie"
+                   required value="{{ category.name }}">
+        </div>
+
+        <button class="btn">Créer</button>
+    </form>
+{% endblock %}
