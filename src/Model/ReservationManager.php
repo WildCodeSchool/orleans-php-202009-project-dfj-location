@@ -7,6 +7,8 @@ use App\Controller\BicycleController;
 class ReservationManager extends AbstractManager
 {
     public const TABLE = 'reservation';
+    public const RESERVATION_ACCEPTED = 'Acceptée';
+    public const RESERVATION_REFUSED = 'Refusée';
 
     /**
      *  Initializes this class.
@@ -44,18 +46,11 @@ class ReservationManager extends AbstractManager
         return $statement->fetch();
     }
 
-    public function acceptReservation(int $id)
+    public function acceptReservation(int $id, string $action)
     {
-        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET is_validated = 'OK' WHERE id=:id");
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET is_validated =:action  WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
-
-        return $statement->execute();
-    }
-
-    public function refuseReservation($id)
-    {
-        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET is_validated = 'KO' WHERE id=:id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->bindValue('action', $action, \PDO::PARAM_STR);
 
         return $statement->execute();
     }

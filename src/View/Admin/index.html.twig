@@ -1,4 +1,4 @@
-{% extends 'layoutAdmin.html.twig' %}
+  {% extends 'layoutAdmin.html.twig' %}
 
 {% block title %} {{ parent() }}Réservations{% endblock %}
 
@@ -23,7 +23,7 @@
                 <td scope="row">{{ reservation.category }} - {{ reservation.bicycle }}</td>
                 <td scope="row">{{ reservation.number_bike }}</td>
                 <td scope="row">{{ reservation.stock }}</td>
-                <td scope="row">{{ reservation.is_validated == 'OK' ? 'Validée' : reservation.is_validated == 'KO' ? 'Refusée' : 'A valider' }}</td>
+                <td scope="row">{{ reservation.is_validated is null ? 'A valider' : reservation.is_validated }}</td>
             </tr>
             </tbody>
             {% endfor %}

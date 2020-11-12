@@ -42,12 +42,7 @@ class AdminReservationController extends AbstractController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
-            $success = false;
-            if ($data['action'] == 'Accepter') {
-                $success = $reservationManager->acceptReservation((int)$data['id']);
-            } else {
-                $success = $reservationManager->refuseReservation((int)$data['id']);
-            }
+            $success = $reservationManager->acceptReservation((int)$data['id'], $data['action']);
             if ($success) {
                 header("Location:/adminReservation/index");
             }

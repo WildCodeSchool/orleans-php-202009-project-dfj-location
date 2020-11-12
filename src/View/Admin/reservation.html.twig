@@ -22,20 +22,17 @@
         </div>
         {% if reservation.is_validated is null %}
             <div class="row mt-4">
-                <div class="col-1 mr-1">
-                    <form action="" method="post">
-                        <input type="hidden" name="id" value="{{ reservation.id }}">
-                        <input type="hidden" name="action" value="Accepter">
-                        <button class="btn btn-info">Accepter</button>
-                    </form>
-                </div>
-                <div class="col">
-                    <form action="" method="post">
-                        <input type="hidden" name="id" value="{{ reservation.id }}">
-                        <input type="hidden" name="action" value="Refuser">
-                        <button class="btn btn-danger">Refuser</button>
-                    </form>
-                </div>
+                <form action="" method="post">
+                    <input type="hidden" name="id" value="{{ reservation.id }}">
+                    <div class="col">
+                        <button class="btn btn-info" name="action" value="{{ constant('App\\Model\\ReservationManager::RESERVATION_ACCEPTED') }}">
+                            Accepter
+                        </button>
+                        <button class="btn btn-danger" name="action" value="{{ constant('App\\Model\\ReservationManager::RESERVATION_REFUSED') }}">
+                            Refuser
+                        </button>
+                    </div>
+                </form>
             </div>
         {% endif %}
     </main>
