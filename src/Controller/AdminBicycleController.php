@@ -15,7 +15,18 @@ class AdminBicycleController extends AbstractController
     {
         $adminBikeManager = new BicycleManager();
         $bikes = $adminBikeManager->selectAllWithCategories();
-
-        return $this->twig->render('Admin/bikes.html.twig', ['bikes' => $bikes]);
+        $error = "";
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = array_map('trim', $_POST);
+            $reservationManager = new ReservationManager('reservation');
+            if ($reservationManager->isReservedBike($data['id'])) {
+                $error = "Ce vélo est réservé, il est donc impossible de le supprimer !";
+            } else {
+                $bicycleManager = new BicycleManager();
+                $bicycleManager->delete($data['id']);
+                header('Location:/AdminBicycle/index');
+            }
+        }
+        return $this->twig->render('Admin/bikes.html.twig', ['error' => $error, 'bikes' => $bikes]);
     }
 }

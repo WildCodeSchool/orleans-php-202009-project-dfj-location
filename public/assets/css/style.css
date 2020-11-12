@@ -6,21 +6,15 @@
 :root {
     --primary-color: #4a80a0;
     --secondary-color: #f7f7fc;
-
     --button-bg-color : #8C9DB0;
     --light : #e8ecf0;
-
     --title-color: #0d446d;
-
-
     --spacing:8px;
     --spacing-2:calc(var(--spacing) * 2);
     --spacing-3:calc(var(--spacing) * 3);
     --spacing-4:calc(var(--spacing) * 4);
     --spacing-form: 500px;
-
     --navbarHeight: 80px;
-
     --font-text: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
 }
@@ -31,8 +25,6 @@
 
 body {
     font-family: var(--font-text);
-
-
     background-color: var(--secondary-color);
 }
 
@@ -78,10 +70,10 @@ nav > div > ul > .link {
     font-size : 1.25rem;
     color: var(--light);
     font-family:'Overpass', sans-serif;
-
     font-weight: bolder;
 }
-.navbar-light .navbar-nav .nav-link{
+
+.navbar-light .navbar-nav .nav-link {
     color: var(--light);
 }
 
@@ -105,7 +97,6 @@ h1, h2, h3 {
 .contact p {
     text-align: center;
 }
-
 
 .map {
     width: 100%;
@@ -134,6 +125,7 @@ h1, h2, h3 {
 .bikes .card {
     margin-bottom: var(--spacing-3);
 }
+
 .card-inverse .card-img-overlay {
     background-color: rgba(18, 24, 43, 0.65);
 }
@@ -190,17 +182,32 @@ footer a {
 .instagramImage:active, .facebookImage:active {
     opacity: 30%;
 }
+
 table td {
     max-width: 200px;
     text-align: center;
 }
+
 table th {
     text-align: center;
 }
+
 table {
     margin: auto;
 }
-table .btn:hover{
+
+table .btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: whitesmoke;
+    color: darkred;
+}
+
+.alert:empty {
+    display: none;
+}
+
+.container a:hover {
     opacity: 0.8;
     cursor: pointer;
     background-color: whitesmoke;
