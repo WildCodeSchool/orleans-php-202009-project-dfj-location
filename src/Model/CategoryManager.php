@@ -30,11 +30,6 @@ class CategoryManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function listCategory()
-    {
-        return $this->pdo->query('SELECT * FROM ' . self::TABLE)->fetchAll();
-    }
-
     public function insert($category)
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (name) VALUES (:name)");
