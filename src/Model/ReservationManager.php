@@ -6,7 +6,6 @@ class ReservationManager extends AbstractManager
 {
     public const TABLE = 'reservation';
 
-
     public function insert(array $data): int
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
