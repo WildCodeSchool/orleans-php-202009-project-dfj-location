@@ -7,7 +7,7 @@ use App\Model\BicycleManager;
 
 class ReservationController extends AbstractController
 {
-    public function iDo()
+    public function booking()
     {
         $bikeManager = new BicycleManager();
         $bikes = $bikeManager->selectAllWithCategories();
