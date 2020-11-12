@@ -200,4 +200,9 @@ table th {
 table {
     margin: auto;
 }
-
+table .btn:hover{
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: whitesmoke;
+    color: darkred;
+}
