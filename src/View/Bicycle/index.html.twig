@@ -8,11 +8,11 @@
         <div class="row bikes pb-5">
             {% for bicycle in bicycles %}
                 <div class="col-sm-6 col-md-6 col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 class="card-title text-truncate">{{ bicycle.name }}</h2>
+                    <div class="card bg-dark text-white card-inverse">
+                        <img src="{{ bicycle.image }}" class="card-img" alt="{{ bicycle.name }}">
+                        <div class="card-img-overlay d-flex">
+                            <h2 class="card-title text-truncate align-self-center mx-auto">{{ bicycle.name }}</h2>
                         </div>
-                        <img src="{{ bicycle.image }}" class="card-img-bottom" alt="{{ bicycle.name }}">
                     </div>
                 </div>
             {% endfor %}

@@ -7,7 +7,7 @@ use App\Model\BicycleManager;
 
 class ReservationController extends AbstractController
 {
-    public function iDo()
+    public function booking()
     {
         $bikeManager = new BicycleManager();
         $bikes = $bikeManager->selectAllWithCategories();
@@ -30,7 +30,6 @@ class ReservationController extends AbstractController
     {
         $reservationManager = new ReservationManager('reservation');
         $reservation = $reservationManager->selectOneById($id);
-
         return $this->twig->render('Reservation/thanks.html.twig', ['data' => $reservation]);
     }
 
@@ -38,7 +37,6 @@ class ReservationController extends AbstractController
     {
         $select = new ReservationManager('bike');
         $id = $select->selectAll();
-
         return $this->twig->render('Reservation/reservation.html.twig', ['data' => $id]);
     }
     /**
@@ -50,10 +48,13 @@ class ReservationController extends AbstractController
     {
         $errors = [];
         if (empty($data['lastname'])) {
-            $errors[] = "Le nom est obligatoire";
+            $errors[] = "Entrez votre nom s.v.p";
         }
         if (empty($data['firstname'])) {
-            $errors[] = "Le prénom est obligatoire";
+            $errors[] = "Entrez votre prénom s.v.p";
+        }
+        if (empty($data['tel'])) {
+            $errors[] = "Le numéro de telephone est obligatoire pour réserver";
         }
         $nameMaxLength = 100;
         if ($data['firstname'] || $data['lastname'] > $nameMaxLength) {

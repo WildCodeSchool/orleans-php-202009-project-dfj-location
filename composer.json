@@ -16,7 +16,7 @@
   "require-dev": {
     "phpmd/phpmd": "^2.7",
     "phpro/grumphp": "^1.0",
-    "phpstan/phpstan": "^0.11.2",
+    "phpstan/phpstan": "^0.12",
     "squizlabs/php_codesniffer": "*",
     "filp/whoops": "^2.4"
   },
