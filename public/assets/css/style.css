@@ -5,18 +5,13 @@
     --secondary-color: #f7f7fc;
     --button-bg-color : #8C9DB0;
     --light : #e8ecf0;
-
     --title-color: #0D446D;
-
-
     --spacing:8px;
     --spacing-2:calc(var(--spacing) * 2);
     --spacing-3:calc(var(--spacing) * 3);
     --spacing-4:calc(var(--spacing) * 4);
     --spacing-form: 500px;
-
     --navbarHeight: 80px;
-
     --font-text: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
 }
@@ -27,8 +22,6 @@
 
 body {
     font-family: var(--font-text);
-
-
     background-color: var(--secondary-color);
 }
 
@@ -153,7 +146,7 @@ h1, h2, h3 {
     background: none;
 }
 
-.card-inverse:hover .card-img-overlay h2{
+.card-inverse:hover .card-img-overlay h2 {
     display: none;
 }
 

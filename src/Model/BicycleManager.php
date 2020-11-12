@@ -14,14 +14,12 @@ class BicycleManager extends AbstractManager
 
     protected const TABLE1 = 'category';
 
-
     /**
      *  Initializes this class.
      */
     public function __construct()
     {
         parent::__construct(self::TABLE);
-
         parent::__construct(self::TABLE1);
     }
 

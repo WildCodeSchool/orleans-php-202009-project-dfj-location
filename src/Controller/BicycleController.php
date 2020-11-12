@@ -10,9 +10,6 @@ use App\Model\BicycleManager;
  */
 class BicycleController extends AbstractController
 {
-
-
-
     /**
      * Display bicycle listing
      *
