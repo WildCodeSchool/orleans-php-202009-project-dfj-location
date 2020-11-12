@@ -3,6 +3,10 @@ input {
     border: 1px solid var(--primary-color);
 }
 
+label {
+    color: var(--title-color);
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -21,7 +25,7 @@ form {
     text-align: center;
 }
 
-#submit {
+.btn {
     padding: 15px 25px;
     color: #141335;
     background-color: var(--button-bg-color);
@@ -59,7 +63,7 @@ form button:hover {
     color: var(--primary-color);
 }
 
-#link {
+.btn-info {
     color: #141335;
     background-color: var(--button-bg-color);
 }

@@ -12,7 +12,6 @@ class BicycleController extends AbstractController
 {
     /**
      * Display bicycle listing
-     *
      * @param int $category
      * @return string
      * @throws \Twig\Error\LoaderError
@@ -23,7 +22,6 @@ class BicycleController extends AbstractController
     {
         $bicycleManager = new BicycleManager();
         $bicycles = $bicycleManager->selectByCategory($category);
-
         return $this->twig->render('Bicycle/index.html.twig', ['bicycles' => $bicycles]);
     }
 }
