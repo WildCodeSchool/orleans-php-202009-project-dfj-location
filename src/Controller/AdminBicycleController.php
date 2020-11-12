@@ -18,18 +18,4 @@ class AdminBicycleController extends AbstractController
 
         return $this->twig->render('Admin/bikes.html.twig', ['bikes' => $bikes]);
     }
-
-    public function delete(int $id)
-    {
-        $error = "";
-        $reservationManager = new ReservationManager('reservation');
-        if ($reservationManager->isReservedBike($id)) {
-            $error = "Ce vélo est réservé, il est donc impossible de le supprimer";
-        } else {
-            $bicycleManager = new BicycleManager();
-            $bicycleManager->delete($id);
-            header('Location:/AdminBicycle/index');
-        }
-        return $error;
-    }
 }
