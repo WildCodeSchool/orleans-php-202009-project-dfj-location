@@ -19,11 +19,11 @@ class AdminBicycleController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
             $reservationManager = new ReservationManager('reservation');
-            if ($reservationManager->isReservedBike($data['id'])) {
+            if ($reservationManager->isReservedBike((int)$data['id'])) {
                 $error = "Ce vélo est réservé, il est donc impossible de le supprimer !";
             } else {
                 $bicycleManager = new BicycleManager();
-                $bicycleManager->delete($data['id']);
+                $bicycleManager->delete((int)$data['id']);
                 header('Location:/AdminBicycle/index');
             }
         }

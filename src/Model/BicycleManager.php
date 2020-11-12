@@ -22,8 +22,7 @@ class BicycleManager extends AbstractManager
     public function selectByCategory(int $category): array
     {
         // prepared request
-        $statement = $this->pdo->prepare(
-            'SELECT b.id, b.name, b.image, c.name as model FROM ' . self::TABLE . ' b ' .
+        $statement = $this->pdo->prepare('SELECT b.id, b.name, b.image, c.name as model FROM ' . self::TABLE . ' b ' .
             'JOIN category c ON b.category_id=c.id WHERE c.id=:category ' .
             'ORDER BY b.name'
         );
@@ -33,7 +32,7 @@ class BicycleManager extends AbstractManager
         return $statement->fetchAll();
     }
 
-    public function delete(string $id)
+    public function delete(int $id)
     {
         // prepared request
         $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id=:id");

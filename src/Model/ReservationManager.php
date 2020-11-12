@@ -31,10 +31,10 @@ class ReservationManager extends AbstractManager
     }
 
     /**
-     * @param string $id
+     * @param int $id
      * @return bool
      */
-    public function isReservedBike(string $id): bool
+    public function isReservedBike(int $id): bool
     {
         $statement = $this->pdo->prepare("SELECT id FROM " . self::TABLE . " WHERE bike_id = :id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
