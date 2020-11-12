@@ -30,4 +30,9 @@ class HomeController extends AbstractController
             'newBikes' => $newBikes,
         ]);
     }
+
+    public function legalMentions()
+    {
+        return $this->twig->render('Home/legal-mentions.html.twig');
+    }
 }

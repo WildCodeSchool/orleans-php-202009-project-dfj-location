@@ -11,13 +11,18 @@ class BicycleManager extends AbstractManager
      *
      */
     protected const TABLE = 'bike';
-
     /**
      *  Initializes this class.
      */
     public function __construct()
     {
         parent::__construct(self::TABLE);
+    }
+
+    public function selectAllWithCategories()
+    {
+        return $this->pdo->query('SELECT bike.name, bike.id, category.name as model FROM ' . CategoryManager::TABLE .
+            ' JOIN ' . self::TABLE . ' ON category.id=bike.category_id ')->fetchAll();
     }
 
     public function selectByCategory(int $category): array
