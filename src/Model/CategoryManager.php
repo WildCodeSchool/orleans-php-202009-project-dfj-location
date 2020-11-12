@@ -22,7 +22,6 @@ class CategoryManager extends AbstractManager
      * @param string $table
      */
     public const TABLE = 'category';
-
     /**
      *  Initializes this class.
      */
@@ -34,5 +33,13 @@ class CategoryManager extends AbstractManager
     public function listCategory()
     {
         return $this->pdo->query('SELECT * FROM ' . self::TABLE)->fetchAll();
+    }
+
+    public function insert($category)
+    {
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (name) VALUES (:name)");
+        $statement->bindValue('name', $category['name'], \PDO::PARAM_STR);
+
+        $statement->execute();
     }
 }
