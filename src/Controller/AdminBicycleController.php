@@ -3,15 +3,13 @@
 namespace App\Controller;
 
 use App\Model\BicycleManager;
+use App\Model\ReservationManager;
 
 class AdminBicycleController extends AbstractController
 {
-
     public const TABLE = 'bike';
 
     protected const TABLE1 = 'reservation';
-
-
 
     public function index()
     {
@@ -19,13 +17,5 @@ class AdminBicycleController extends AbstractController
         $bikes = $adminBikeManager->selectAllWithCategories();
 
         return $this->twig->render('Admin/bikes.html.twig', ['bikes' => $bikes]);
-    }
-
-
-    public function delete(int $id)
-    {
-            $bicycleManager = new BicycleManager();
-            $bicycleManager->delete($id);
-            header('Location:/AdminBicycle/index');
     }
 }

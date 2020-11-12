@@ -11,9 +11,6 @@ class ReservationController extends AbstractController
     {
         $bikeManager = new BicycleManager();
         $bikes = $bikeManager->selectAllWithCategories();
-
-
-
         $errors = [];
         $data = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -36,6 +33,7 @@ class ReservationController extends AbstractController
 
         return $this->twig->render('Reservation/thanks.html.twig', ['data' => $reservation]);
     }
+
     public function select()
     {
         $select = new ReservationManager('bike');

@@ -10,9 +10,6 @@ use App\Model\BicycleManager;
  */
 class BicycleController extends AbstractController
 {
-
-
-
     /**
      * Display bicycle listing
      *
@@ -22,6 +19,7 @@ class BicycleController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
+
     public function category(int $category)
     {
         $bicycleManager = new BicycleManager();

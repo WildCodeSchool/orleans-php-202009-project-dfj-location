@@ -2,17 +2,9 @@
 
 namespace App\Model;
 
-/**
- *
- */
 class BicycleManager extends AbstractManager
 {
-    /**
-     *
-     */
     public const TABLE = 'bike';
-
-
     /**
      *  Initializes this class.
      */
@@ -39,13 +31,5 @@ class BicycleManager extends AbstractManager
         $statement->execute();
 
         return $statement->fetchAll();
-    }
-
-    public function delete(int $id)
-    {
-        // prepared request
-        $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id=:id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
-        $statement->execute();
     }
 }
