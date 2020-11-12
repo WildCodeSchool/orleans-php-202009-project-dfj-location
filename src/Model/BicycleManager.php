@@ -5,8 +5,9 @@ namespace App\Model;
 class BicycleManager extends AbstractManager
 {
     public const TABLE = 'bike';
-
-
+    /**
+     *  Initializes this class.
+     */
     public function __construct()
     {
         parent::__construct(self::TABLE);
