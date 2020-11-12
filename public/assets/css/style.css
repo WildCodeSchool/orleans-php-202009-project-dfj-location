@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
 
-
 :root {
     --primary-color: #4a80a0;
     --secondary-color: #f7f7fc;
@@ -97,7 +96,6 @@ h1, h2, h3 {
 .contact p {
     text-align: center;
 }
-
 
 .map {
     width: 100%;
