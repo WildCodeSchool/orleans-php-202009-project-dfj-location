@@ -22,7 +22,7 @@ class CategoryManager extends AbstractManager
      * @param string $table
      */
     public const TABLE = 'category';
-
+    
     /**
      *  Initializes this class.
      */
