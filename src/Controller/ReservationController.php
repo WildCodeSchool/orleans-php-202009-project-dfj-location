@@ -17,7 +17,7 @@ class ReservationController extends AbstractController
             $data = array_map('trim', $_POST);
             $errors = $this->validate($data);
             if (empty($errors)) {
-                $reservationManager = new ReservationManager('reservation');
+                $reservationManager = new ReservationManager();
                 $id = $reservationManager->insert($data);
                 header("Location:/reservation/done/" . $id);
             }
@@ -28,7 +28,7 @@ class ReservationController extends AbstractController
 
     public function done(int $id)
     {
-        $reservationManager = new ReservationManager('reservation');
+        $reservationManager = new ReservationManager();
         $reservation = $reservationManager->selectOneById($id);
 
         return $this->twig->render('Reservation/thanks.html.twig', ['data' => $reservation]);
@@ -36,7 +36,7 @@ class ReservationController extends AbstractController
 
     public function select()
     {
-        $select = new ReservationManager('bike');
+        $select = new ReservationManager();
         $id = $select->selectAll();
 
         return $this->twig->render('Reservation/reservation.html.twig', ['data' => $id]);
