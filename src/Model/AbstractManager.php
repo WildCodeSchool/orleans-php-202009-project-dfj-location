@@ -31,7 +31,6 @@ abstract class AbstractManager
      */
     protected $className;
 
-
     /**
      * Initializes Manager Abstract class.
      * @param string $table

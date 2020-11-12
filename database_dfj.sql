@@ -1,5 +1,3 @@
-
-
 CREATE DATABASE IF NOT EXISTS dfj_location;
 
 CREATE TABLE `dfj_location`.`category` (
