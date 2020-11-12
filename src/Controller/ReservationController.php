@@ -41,7 +41,11 @@ class ReservationController extends AbstractController
 
         return $this->twig->render('Reservation/reservation.html.twig', ['data' => $id]);
     }
-
+    /**
+     * @SuppressWarnings(PHPMD)
+     * @param array $data
+     * @return array
+     */
     private function validate(array $data)
     {
         $errors = [];
@@ -51,8 +55,16 @@ class ReservationController extends AbstractController
         if (empty($data['firstname'])) {
             $errors[] = "Le prénom est obligatoire";
         }
+        $nameMaxLength = 100;
+        if ($data['firstname'] || $data['lastname'] > $nameMaxLength) {
+            $errors[] = "le nom et le prénom ne doivent pas dépasser 100 caractères";
+        }
+        $phoneMaxLength = 20;
+        if ($data['tel'] > $phoneMaxLength) {
+            $errors[] = "le numero de télephone ne doit pas contenir plus de 20 caractères";
+        }
         if (empty($data['tel'])) {
-            $errors[] = "Le numéro de telephone est obligatoire pour réserver";
+            $errors[] = "Le numéro de télephone est obligatoire pour réserver";
         }
         if (empty($data['email'])) {
             $errors[] = "L'adresse email est obligatoire pour réserver";

@@ -8,7 +8,6 @@
 
     "content-hash": "908db87b74c7b5e251d1912ead9828f6",
 
-
     "packages": [
         {
             "name": "symfony/polyfill-ctype",
@@ -251,9 +250,7 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2020-10-27T19:25:29+00:00"
-
         }
     ],
     "packages-dev": [
@@ -379,7 +376,6 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-
 
                     "dev-master": "1.x-dev"
 
@@ -850,7 +846,6 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2020-08-25T05:50:16+00:00"
 
         },
@@ -1273,7 +1268,6 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2020-07-23T08:41:23+00:00"
 
         },
@@ -1596,7 +1590,6 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-
                     "dev-master": "3.5-dev"
                 }
             },
@@ -2588,11 +2581,10 @@
                 "parser",
                 "validator"
             ],
-
+ 
             "support": {
                 "issues": "https://github.com/Seldaek/jsonlint/issues",
                 "source": "https://github.com/Seldaek/jsonlint/tree/master"
-
             },
             "funding": [
                 {
@@ -2863,11 +2855,9 @@
                 "symfony/service-implementation": "1.0"
             },
             "require-dev": {
-
                 "symfony/config": "^5.1",
                 "symfony/expression-language": "^4.4|^5.0",
                 "symfony/yaml": "^4.4|^5.0"
-
             },
             "suggest": {
                 "symfony/config": "",
@@ -3122,7 +3112,6 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher/tree/v4.4.16"
             },
@@ -3141,7 +3130,6 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2020-10-24T11:50:19+00:00"
         },
         {
@@ -3204,7 +3192,6 @@
                 "interoperability",
                 "standards"
             ],
-
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v1.1.9"
             },
@@ -3267,11 +3254,9 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-
             "support": {
                 "source": "https://github.com/symfony/filesystem/tree/v5.1.8"
             },
-
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3330,7 +3315,6 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-
             "support": {
                 "source": "https://github.com/symfony/finder/tree/v4.4.16"
             },
@@ -3417,7 +3401,6 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2020-10-24T12:01:57+00:00"
         },
         {
@@ -3480,7 +3463,6 @@
                 "portable",
                 "shim"
             ],
-
             "support": {
                 "source": "https://github.com/symfony/polyfill-php73/tree/v1.20.0"
             },
@@ -3631,7 +3613,6 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-
             "support": {
                 "source": "https://github.com/symfony/process/tree/v5.1.8"
             },
@@ -3711,7 +3692,6 @@
                 "interoperability",
                 "standards"
             ],
-
             "support": {
                 "source": "https://github.com/symfony/service-contracts/tree/master"
             },
@@ -3754,7 +3734,6 @@
                 "symfony/console": "<4.4"
             },
             "require-dev": {
-
                 "symfony/console": "^4.4|^5.0"
             },
             "suggest": {
@@ -3788,7 +3767,6 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-
             "support": {
                 "source": "https://github.com/symfony/yaml/tree/v5.1.8"
             },
@@ -3806,7 +3784,6 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2020-10-24T12:03:25+00:00"
         }
     ],
