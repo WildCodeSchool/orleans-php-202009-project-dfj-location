@@ -1,0 +1,67 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Reservation
+{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/form.css">
+{% endblock %}
+
+{% block content %}
+    <a id="return"></a>
+    <h1 class="my-5 text-center">Réservation</h1>
+    <div class="error">
+    {% if errors is not empty %}
+        <ul>
+        {% for error in errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+<form action="" method="POST">
+    <div class="form-group">
+        <label for="lastname">Nom</label>
+        <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Dupond" required value="{{ data.lastname }}">
+    </div>
+    <div class="form-group">
+        <label for="firstname">Prénom</label>
+        <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Nicolas" required value="{{ data.firstname }}">
+    </div>
+    <div class="form-group">
+        <label for="tel">Télephone</label>
+        <input class="form-control" type="tel" name="tel" id="tel" placeholder="06.02.56.74.98" required value="{{ data.tel }}">
+    </div>
+    <div class="form-group">
+        <label for="email">Courriel</label>
+        <input class="form-control" type="email" name="email" id="email" placeholder="monsieur.dupond@gmail.com" required value="{{ data.email }}">
+    </div>
+    <div class="form-group">
+        <label for="bike">Choisissez votre vélo :</label>
+        <select class="form-control" id="bike" name="bike">
+            {% for bike in bikes %}
+            <option {{ data.bike == bike.id ? 'selected'}} value="{{ bike.id }}">{{ bike.model }} ---  {{ bike.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="number">Nombre</label>
+        <input class="form-control" type="number" min="1" name="number" id="number" placeholder="1" required value="{{ data.number }}" >
+    </div>
+    <div class="form-group">
+        <label for="date">Date de retrait</label>
+        <input class="form-control" type="date" name="date" id="date" placeholder="19/10/2020" required>
+    </div>
+    <div class="form-group">
+        <label for="message">Commentaire : (optionnel)</label>
+        <textarea class="form-control" id="message" name="message" placeholder="Entrez votre message ici">{{ data.message }}</textarea>
+    </div>
+    <button class="btn">Réserver</button>
+</form>
+<div class="info-form">
+    <p class="form-star">* : 1 Journée - Dimanche et jours fériés retrait ou retour = 4€ supplémentaires.
+        Pour tout retrait la veille ou restitution le lendemain, il faudra vous acquitter
+        d'un supplément de 4,00€ par vélo. </p>
+</div>
+{% endblock %}

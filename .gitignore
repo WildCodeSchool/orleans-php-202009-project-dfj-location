@@ -4,4 +4,4 @@
 *.cache
 db.php
 .idea
-.ds_Store
+.DS_Store
