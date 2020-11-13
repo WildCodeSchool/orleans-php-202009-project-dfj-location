@@ -167,3 +167,7 @@ footer a {
 .instagramImage:active, .facebookImage:active {
     opacity: 30%;
 }
+
+.alert:empty {
+    display: none;
+}
