@@ -99,11 +99,6 @@ h1, h2, h3 {
     height: 300px;
 }
 
-.dropdown-menu {
-    border: none;
-    background: none;
-}
-
 .time {
     list-style-type: none;
     line-height: 2;
@@ -187,4 +182,8 @@ footer a {
 
 .instagramImage:active, .facebookImage:active {
     opacity: 30%;
+}
+
+.contact-details {
+    font-size: 1.75rem;
 }
