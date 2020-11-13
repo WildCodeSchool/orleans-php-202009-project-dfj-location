@@ -1,0 +1,39 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %} {{ parent() }}Réservation {{ reservation.id }}{% endblock %}
+
+{% block content %}
+    <main class="container">
+        <h1 class="my-5 text-center">Réservation #{{ reservation.id }}</h1>
+        <div class="row">
+            <div class="col-7">
+                <div><h2 class="contact-details">Détails</h2></div>
+                <div class="mt-3"><strong>Date de retrait :</strong> {{ reservation.withdrawal }}</div>
+                <div class="mt-2"><strong>Modèle demandé :</strong> {{ reservation.category }} - {{ reservation.bicycle }}</div>
+                <div class="mt-2"><strong>Nombre demandé :</strong> {{ reservation.number_bike }}</div>
+                <div class="mt-2"><strong>Stock actuel :</strong> {{ reservation.stock }}</div>
+            </div>
+            <div class="col">
+                <div><h2 class="contact-details">Coordonnées</h2></div>
+                <div class="mt-3"><strong>Nom :</strong> {{ reservation.firstname_visitor ~ ' ' ~ reservation.lastname_visitor }}</div>
+                <div class="mt-2"><strong>Téléphone :</strong> {{ reservation.phone }}</div>
+                <div class="mt-2"><strong>Courriel :</strong> {{ reservation.email }}</div>
+            </div>
+        </div>
+        {% if reservation.is_validated is null %}
+            <div class="row mt-4">
+                <form action="" method="post">
+                    <input type="hidden" name="id" value="{{ reservation.id }}">
+                    <div class="col">
+                        <button class="btn btn-info" name="action" value="{{ constant('App\\Model\\ReservationManager::RESERVATION_ACCEPTED') }}">
+                            Accepter
+                        </button>
+                        <button class="btn btn-danger" name="action" value="{{ constant('App\\Model\\ReservationManager::RESERVATION_REFUSED') }}">
+                            Refuser
+                        </button>
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+    </main>
+{% endblock %}
