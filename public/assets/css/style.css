@@ -83,6 +83,10 @@ h1, h2, h3 {
     padding-bottom: var(--spacing);
 }
 
+.alert:empty {
+    display: none;
+}
+
 .contact h2 {
     text-align: center;
     color: var(--title-color);
