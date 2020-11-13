@@ -6,7 +6,7 @@ CREATE TABLE `dfj_location`.`category` (
   `image` TEXT NOT NULL,
   PRIMARY KEY (`id`));
   
-  CREATE TABLE `dfj_location`.`bike` (
+CREATE TABLE `dfj_location`.`bike` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `image` TEXT NOT NULL,
@@ -16,11 +16,12 @@ CREATE TABLE `dfj_location`.`category` (
   `autonomy` VARCHAR(100),
   `frame_size` VARCHAR(3),
   `created_date` DATE NOT NULL,
+  `stock` INT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT FK_CategoryBike FOREIGN KEY (category_id)
   REFERENCES category(id));
   
-   CREATE TABLE `dfj_location`.`reservation` (
+CREATE TABLE `dfj_location`.`reservation` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `firstname_visitor` VARCHAR(100) NOT NULL,
   `lastname_visitor` VARCHAR(100) NOT NULL,
@@ -31,7 +32,7 @@ CREATE TABLE `dfj_location`.`category` (
   `withdrawal_date` DATE NOT NULL,
   `duration` VARCHAR(100),
   `comment` TEXT,
-  `is_validated` BOOL DEFAULT 0,
+  `is_validated` VARCHAR(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT FK_BikeReservation FOREIGN KEY (bike_id)
   REFERENCES bike(id));

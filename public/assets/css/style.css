@@ -3,7 +3,7 @@
 
 
 :root {
-    --primary-color: #4a80a0;
+    --primary-color: #4a80a0;;
     --secondary-color: #f7f7fc;
     --button-bg-color : #8C9DB0;
     --light : #e8ecf0;
@@ -18,7 +18,7 @@
     --font-title: 'Righteous', cursive;
     --btn-bg-color: whitesmoke;
     --card-title-color:#F1F1F5;
-    --card-background:rgba(18, 24, 43, 0.65);
+    --card-background-color : rgba(18, 24, 43, 0.65);
 }
 
 * {
@@ -68,6 +68,10 @@ nav > div > ul > .link {
     padding-right: var(--spacing-4);
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: var(--light);
+}
+
 .link > a {
     font-size : 1.25rem;
     color: var(--light);
@@ -105,11 +109,6 @@ h1, h2, h3 {
     height: 300px;
 }
 
-.dropdown-menu {
-    border: none;
-    background: none;
-}
-
 .time {
     list-style-type: none;
     line-height: 2;
@@ -124,33 +123,50 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
-.bikes .card {
-    margin-bottom: var(--spacing-3);
-}
-
-.card-inverse .card-img-overlay {
-    background-color: var(--card-background);
-}
-
-.bikes .card-title {
-    color: var(--card-title-color);
-    font-size: 1.25rem;
-    font-family: var(--font-text);
-}
-
 .bikes .card-img-bottom {
     padding-left: var(--spacing-2);
     padding-right: var(--spacing-2);
     padding-bottom: var(--spacing-2);
 }
 
-footer {
+.bikes .card {
+    margin-bottom: var(--spacing-3);
+}
+
+.card-inverse .card-img-overlay {
+    background-color: var(--card-background-color);
+}
+
+.bikes .card-title {
+    color: var(--card-title-color);
+    background-color: var(--card-background-color);
+}
+
+.bikes .card-title {
+    color: var(--light);
+    font-size: 1.25rem;
     font-family: var(--font-text);
+}
+
+.card-inverse:hover {
+    transform: scale(1.02);
+}
+
+.card-inverse:hover .card-img-overlay {
+    background: none;
+}
+
+.card-inverse:hover .card-img-overlay h2 {
+    display: none;
+}
+
+footer {
+    font-family: 'Overpass', sans-serif;
     background-color: var(--primary-color);
     height: 160px;
     margin: 0;
     padding: 0;
-    color: black;
+    color: var(--light);
 }
 
 .instagramImage {
@@ -214,4 +230,7 @@ table .btn:hover {
     cursor: pointer;
     background-color: var(--btn-bg-color);
     color: darkred;
+
+.contact-details {
+    font-size: 1.75rem;
 }
