@@ -35,7 +35,14 @@ class CategoryManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (name) VALUES (:name)");
         $statement->bindValue('name', $category['name'], \PDO::PARAM_STR);
+        $statement->execute();
+    }
 
+    public function update($category)
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name = :name WHERE id=:id");
+        $statement->bindValue('id', $category['id'], \PDO::PARAM_INT);
+        $statement->bindValue('name', $category['name'], \PDO::PARAM_STR);
         $statement->execute();
     }
 }
