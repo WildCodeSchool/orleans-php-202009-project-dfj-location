@@ -20,7 +20,7 @@ class AdminBicycleController extends AbstractController
     {
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAll();
-
+        $bike = [];
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $bike = array_map('trim', $_POST);
             $errors = $this->validateBike($bike);
@@ -31,10 +31,8 @@ class AdminBicycleController extends AbstractController
                 header("location:/AdminBicycle/index");
             }
         }
-
-        return $this->twig->render('Admin/add-bike.html.twig', [
-            'errors' => $errors ?? [],
-            'categories' => $categories
+        return $this->twig->render('Admin/add-bike.html.twig', ['errors' => $errors ?? [],
+            'bike' => $bike, 'categories' => $categories
 
         ]);
     }

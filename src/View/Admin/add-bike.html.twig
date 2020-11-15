@@ -8,23 +8,26 @@
                 <li>{{ error }}</li>
             {%- endfor -%}
         </ul>
-        <form action="" method="POST">
+        <form action="" method="POST" novalidate>
             <div class="form-group">
                 <label for="name">Nom du vélo</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Nom" required>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nom" required
+                       value="{{ bike.name }}">
             </div>
             <div class="form-group">
                 <label for="weight">Poids</label>
-                <input type="number" class="form-control" id="weight" name="weight" placeholder="Poids" required>
+                <input type="number" class="form-control" id="weight" name="weight" placeholder="Poids" required
+                value="{{ bike.weight }}">
             </div>
             <div class="form-group">
                 <label for="stock">Nombre de vélo</label>
                 <input type="number" class="form-control" id="stock" name="stock"
-                       placeholder="Nombre de vélo" required>
+                       placeholder="Nombre de vélo" required value="{{ bike.stock }}">
             </div>
             <div class="form-group">
                 <label for="category_id">Catégorie</label>
-                <select class="form-control" id="category_id" name="category_id" required>
+                <select class="form-control" id="category_id" name="category_id" required
+                        value="{{ bike.category.id }}">
                     <option>catégorie</option>
                     {% for category in categories %}
                         <option{{ category == category.id ? 'selected' }} value="{{ category.id }}">
@@ -36,17 +39,17 @@
             <div class="form-group">
                 <label for="maximum_charge">Charge maximal (optionnel)</label>
                 <input type="text" class="form-control" id="maximum_charge" name="maximum_charge"
-                       placeholder="Charge maximum">
+                       placeholder="Charge maximum" value="{{ bike.maximum_charge }}">
             </div>
             <div class="form-group">
                 <label for="autonomy">Autonomie (optionnel)</label>
                 <input type="text" class="form-control" id="autonomy" name="autonomy"
-                       placeholder="Autonomie ">
+                       placeholder="Autonomie " value="{{ bike.autonomy }}">
             </div>
             <div class="form-group">
                 <label for="frame_size">Taille du cadre (optionnel)</label>
                 <input type="text" class="form-control" id="frame_size" name="frame_size"
-                       placeholder="Taille du cadre">
+                       placeholder="Taille du cadre" value="{{ bike.frame_size }}">
             </div>
             <div class="form-group">
                 <label for="created_date">Date de création (optionnel)</label>
@@ -56,7 +59,7 @@
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="text" class="form-control" id="image" name="image"
-                       placeholder="https://exemple.com/image.jpg" required>
+                       placeholder="https://exemple.com/image.jpg" required value="{{ bike.image }}">
             </div>
             <div class=" form-group text-center">
                 <button class=" btn btn-info ">Ajouter</button>
