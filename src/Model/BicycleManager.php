@@ -6,6 +6,7 @@ class BicycleManager extends AbstractManager
 {
     public const TABLE = 'bike';
 
+
     protected const TABLE1 = 'category';
 
     /**
