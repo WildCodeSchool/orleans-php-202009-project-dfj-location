@@ -35,17 +35,7 @@ class AdminBicycleController extends AbstractController
                 $bicycleManager->delete((int)$data['id']);
                 header('Location:/AdminBicycle/index');
             }
-          return $error;
-      }
-    
-    protected const TABLE1 = 'reservation';
-
-    public function index()
-    {
-        $adminBikeManager = new BicycleManager();
-        $bikes = $adminBikeManager->selectAllWithCategories();
-
-        return $this->twig->render('Admin/bikes.html.twig', ['bikes' => $bikes]);
-
+            return $error;
+        }
     }
 }
