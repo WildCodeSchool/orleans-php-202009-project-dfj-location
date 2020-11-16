@@ -9,8 +9,6 @@ class AdminBicycleController extends AbstractController
 {
     public const TABLE = 'bike';
 
-    public const TABLE1 = 'reservation';
-
     public function index()
     {
         $error = "";

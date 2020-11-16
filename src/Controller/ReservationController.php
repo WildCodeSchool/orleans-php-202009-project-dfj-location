@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\ReservationManager;
 use App\Model\BicycleManager;
+use Nette\Utils\DateTime;
 
 class ReservationController extends AbstractController
 {
@@ -57,11 +58,11 @@ class ReservationController extends AbstractController
             $errors[] = "Le numéro de telephone est obligatoire pour réserver";
         }
         $nameMaxLength = 100;
-        if ($data['firstname'] || $data['lastname'] > $nameMaxLength) {
+        if (strlen($data['firstname']) || strlen($data['lastname']) > $nameMaxLength) {
             $errors[] = "le nom et le prénom ne doivent pas dépasser 100 caractères";
         }
         $phoneMaxLength = 20;
-        if ($data['tel'] > $phoneMaxLength) {
+        if (strlen($data['tel']) > $phoneMaxLength) {
             $errors[] = "le numero de télephone ne doit pas contenir plus de 20 caractères";
         }
         if (empty($data['tel'])) {
