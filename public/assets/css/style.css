@@ -28,6 +28,10 @@ body {
     background-color: var(--secondary-color);
 }
 
+section {
+    min-height: 72.7582292849vh;
+}
+
 nav {
     background-color: var(--primary-color);
     height: var(--navbarHeight)
@@ -156,9 +160,8 @@ h1, h2, h3 {
 footer {
     font-family: 'Overpass', sans-serif;
     background-color: var(--primary-color);
-    height: 160px;
-    margin: 0;
     padding: 0;
+    height: 160px;
     color: var(--light);
 }
 
