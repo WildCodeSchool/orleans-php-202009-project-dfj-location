@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\CategoryManager;
 use App\Model\ReservationManager;
 use App\Model\BicycleManager;
 use Nette\Utils\DateTime;
@@ -12,6 +13,8 @@ class ReservationController extends AbstractController
     {
         $bikeManager = new BicycleManager();
         $bikes = $bikeManager->selectAllWithCategories();
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAll();
         $errors = [];
         $data = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,7 +27,7 @@ class ReservationController extends AbstractController
             }
         }
         return $this->twig->render('Reservation/reservation.html.twig', ['errors' => $errors ?? [],
-            'data' => $data , 'bikes' => $bikes]);
+            'data' => $data , 'categories' => $categories, 'bikes' => $bikes]);
     }
 
     public function done(int $id)
