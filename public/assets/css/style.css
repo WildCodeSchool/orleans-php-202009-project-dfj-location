@@ -38,6 +38,10 @@ nav {
     z-index: 2;
 }
 
+section {
+    padding-top: var(--navbarHeight);
+}
+
 .category .card {
     background-color: var(--primary-color);
 }
