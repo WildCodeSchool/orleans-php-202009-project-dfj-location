@@ -15,6 +15,14 @@ class AdminCategoryController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
+
+    public function index()
+    {
+        $adminCategoryManager = new CategoryManager();
+        $categories = $adminCategoryManager->selectAll();
+        return $this->twig->render('Admin/indexCategory.html.twig', ['categories' => $categories]);
+    }
+
     public function add()
     {
         $categoryManager = new CategoryManager();
