@@ -183,4 +183,11 @@ footer a {
 .instagramImage:active, .facebookImage:active {
     opacity: 30%;
 }
-
+@media screen and (max-width: 500px){
+    #carouselExampleCaptions .carousel-inner {
+        height: 300px;
+    }
+}
+.carousel-inner .carousel-item{
+    height: 1000px;
+}
