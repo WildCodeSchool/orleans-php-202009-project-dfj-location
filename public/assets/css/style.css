@@ -230,7 +230,7 @@ table .btn:hover {
     cursor: pointer;
     background-color: var(--btn-bg-color);
     color: darkred;
-
+}
 
 .contact-details {
     font-size: 1.75rem;
