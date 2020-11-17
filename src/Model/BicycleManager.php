@@ -37,4 +37,13 @@ class BicycleManager extends AbstractManager
 
         return $statement->fetchAll();
     }
+
+    public function getCategory(int $bicycle)
+    {
+        $statement = $this->pdo->prepare('SELECT category_id FROM ' . self::TABLE . ' WHERE id=:id');
+        $statement->bindValue('id', $bicycle, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
 }

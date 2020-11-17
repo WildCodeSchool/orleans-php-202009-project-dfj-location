@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS dfj_location;
 CREATE TABLE `dfj_location`.`category` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
-  `image` TEXT NOT NULL,
+  `image` TEXT,
   PRIMARY KEY (`id`));
   
 CREATE TABLE `dfj_location`.`bike` (
@@ -15,8 +15,8 @@ CREATE TABLE `dfj_location`.`bike` (
   `maximum_charge` INT,
   `autonomy` VARCHAR(100),
   `frame_size` VARCHAR(3),
-  `created_date` DATE NOT NULL,
-  `stock` INT NOT NULL,
+  `created_date` DATE DEFAULT NULL,
+  `stock` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   CONSTRAINT FK_CategoryBike FOREIGN KEY (category_id)
   REFERENCES category(id));
@@ -30,9 +30,27 @@ CREATE TABLE `dfj_location`.`reservation` (
   `bike_id` INT NOT NULL,
   `number_bike` INT NOT NULL,
   `withdrawal_date` DATE NOT NULL,
-  `duration` VARCHAR(100),
+  `duration_id` INT,
   `comment` TEXT,
   `is_validated` VARCHAR(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT FK_BikeReservation FOREIGN KEY (bike_id)
-  REFERENCES bike(id));
+  REFERENCES bike(id)
+  CONSTRAINT FK_DurationReservation FOREIGN KEY (duration_id)
+  REFERENCES duration(id));
+
+CREATE TABLE `dfj_location`.`duration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `dfj_location`.`prices` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `category_id` int NOT NULL,
+  `duration_id` int NOT NULL,
+  `price` float(5,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `FK_CategoryPrice` FOREIGN KEY (category_id)
+  REFERENCES category(id),
+  CONSTRAINT `FK_DurationPrice` FOREIGN KEY (duration_id)
+  REFERENCES duration(id));

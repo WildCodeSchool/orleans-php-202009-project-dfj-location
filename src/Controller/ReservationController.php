@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Model\CategoryManager;
+use App\Model\DurationManager;
+use App\Model\PriceManager;
 use App\Model\ReservationManager;
 use App\Model\BicycleManager;
 
@@ -11,11 +14,14 @@ class ReservationController extends AbstractController
     {
         $bikeManager = new BicycleManager();
         $bikes = $bikeManager->selectAllWithCategories();
+        $durationManager = new DurationManager();
+        $durations = $durationManager->selectAll();
         $errors = [];
         $data = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
-            $errors = $this->validate($data);
+            $idCategory = $bikeManager->getCategory((int)$data['bike']);
+            $errors = $this->validate($data, $idCategory['category_id']);
             if (empty($errors)) {
                 $reservationManager = new ReservationManager();
                 $id = $reservationManager->insert($data);
@@ -23,28 +29,23 @@ class ReservationController extends AbstractController
             }
         }
         return $this->twig->render('Reservation/reservation.html.twig', ['errors' => $errors ?? [],
-            'data' => $data , 'bikes' => $bikes]);
+            'data' => $data , 'bikes' => $bikes, 'durations' => $durations]);
     }
 
     public function done(int $id)
     {
         $reservationManager = new ReservationManager();
-        $reservation = $reservationManager->selectOneById($id);
+        $reservation = $reservationManager->selectWithPrice($id);
         return $this->twig->render('Reservation/thanks.html.twig', ['data' => $reservation]);
     }
 
-    public function select()
-    {
-        $select = new ReservationManager();
-        $id = $select->selectAll();
-        return $this->twig->render('Reservation/reservation.html.twig', ['data' => $id]);
-    }
     /**
      * @SuppressWarnings(PHPMD)
      * @param array $data
+     * @param string $idCategory
      * @return array
      */
-    private function validate(array $data)
+    private function validate(array $data, string $idCategory)
     {
         $errors = [];
         if (empty($data['lastname'])) {
@@ -57,12 +58,12 @@ class ReservationController extends AbstractController
             $errors[] = "Le numéro de telephone est obligatoire pour réserver";
         }
         $nameMaxLength = 100;
-        if ($data['firstname'] || $data['lastname'] > $nameMaxLength) {
-            $errors[] = "le nom et le prénom ne doivent pas dépasser 100 caractères";
+        if (strlen($data['firstname']) > $nameMaxLength || strlen($data['lastname']) > $nameMaxLength) {
+            $errors[] = "le nom et le prénom ne doivent pas dépasser $nameMaxLength caractères";
         }
         $phoneMaxLength = 20;
-        if ($data['tel'] > $phoneMaxLength) {
-            $errors[] = "le numero de télephone ne doit pas contenir plus de 20 caractères";
+        if (strlen($data['tel']) > $phoneMaxLength) {
+            $errors[] = "le numero de télephone ne doit pas contenir plus de $phoneMaxLength caractères";
         }
         if (empty($data['tel'])) {
             $errors[] = "Le numéro de télephone est obligatoire pour réserver";
@@ -78,6 +79,19 @@ class ReservationController extends AbstractController
         }
         if (empty($data['number'] && $data['number'] >= 0)) {
             $errors[] = "Le nombre doit être positif";
+        }
+        if (empty($data['duration'])) {
+            $errors[] = "Le choix de la durée est obligatoire";
+        }
+        if (
+            ($data['duration'] == DurationManager::ID_HALF_DAY || $data['duration'] == DurationManager::ID_TWO_WEEKS)
+            && $idCategory == CategoryManager::ID_TANDEM
+        ) {
+            $errors[] = "Le " . CategoryManager::TANDEM . " ne peut être réservé " .
+                DurationManager::HALF_DAY . " ou " . DurationManager::TWO_WEEKS;
+        }
+        if ($data['duration'] == DurationManager::ID_TWO_WEEKS && $idCategory == CategoryManager::ID_ELECTRIC) {
+            $errors[] = "Le " . CategoryManager::ELECTRIC . " ne peut être réservé " . DurationManager::TWO_WEEKS;
         }
         return $errors;
     }

@@ -30,6 +30,22 @@ class ReservationManager extends AbstractManager
         )->fetchAll();
     }
 
+    public function selectWithPrice(int $id)
+    {
+        $statement = $this->pdo->prepare(
+            'SELECT r.firstname_visitor, r.lastname_visitor, r.email, (r.number_bike * p.price) as price' .
+            ' FROM ' . self::TABLE . ' r' .
+            ' JOIN ' . BicycleManager::TABLE . ' b ON r.bike_id = b.id' .
+            ' JOIN ' . PriceManager::TABLE . ' p ON b.category_id = p.category_id' .
+            ' JOIN ' . DurationManager::TABLE . ' d ON p.duration_id = d.id AND r.duration_id = d.id' .
+            ' WHERE r.id=:id'
+        );
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
+
     public function selectOneById(int $id)
     {
         $statement = $this->pdo->prepare(
@@ -58,8 +74,8 @@ class ReservationManager extends AbstractManager
     public function insert(array $data): int
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
-            " (lastname_visitor,firstname_visitor,phone,email,bike_id,number_bike,withdrawal_date,comment) 
-        VALUES (:lastname,:firstname,:tel,:email,:bike,:number,:date,:message)");
+            " (lastname_visitor,firstname_visitor,phone,email,bike_id,number_bike,withdrawal_date,duration_id,comment) 
+        VALUES (:lastname,:firstname,:tel,:email,:bike,:number,:date,:duration,:message)");
         $statement->bindValue('lastname', ucfirst($data['lastname']), \PDO::PARAM_STR);
         $statement->bindValue('firstname', ucfirst($data['firstname']), \PDO::PARAM_STR);
         $statement->bindValue('tel', $data['tel'], \PDO::PARAM_INT);
@@ -67,6 +83,7 @@ class ReservationManager extends AbstractManager
         $statement->bindValue('bike', $data['bike'], \PDO::PARAM_STR);
         $statement->bindValue('number', $data['number'], \PDO::PARAM_INT);
         $statement->bindValue('date', date('Y-m-d', strtotime($data['date'])));
+        $statement->bindValue('duration', $data['duration'], \PDO::PARAM_STR);
         $statement->bindValue('message', $data['message'], \PDO::PARAM_STR);
 
         if ($statement->execute()) {
