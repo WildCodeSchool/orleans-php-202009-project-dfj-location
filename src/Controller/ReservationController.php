@@ -14,8 +14,13 @@ class ReservationController extends AbstractController
     {
         $bikeManager = new BicycleManager();
         $bikes = $bikeManager->selectAllWithCategories();
+
         $durationManager = new DurationManager();
         $durations = $durationManager->selectAll();
+
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAll();
+
         $errors = [];
         $data = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -28,8 +33,13 @@ class ReservationController extends AbstractController
                 header("Location:/reservation/done/" . $id);
             }
         }
-        return $this->twig->render('Reservation/reservation.html.twig', ['errors' => $errors ?? [],
-            'data' => $data , 'bikes' => $bikes, 'durations' => $durations]);
+        return $this->twig->render('Reservation/reservation.html.twig', [
+          'errors' => $errors ?? [],
+          'data' => $data ,
+          'categories' => $categories,
+          'bikes' => $bikes,
+          'durations' => $durations
+        ]);
     }
 
     public function done(int $id)
