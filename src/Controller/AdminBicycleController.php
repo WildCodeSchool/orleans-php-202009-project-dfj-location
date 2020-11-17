@@ -61,7 +61,7 @@ class AdminBicycleController extends AbstractController
             $errors[] = 'le nombre de vélo ne peut être inférieur à 0';
         }
 
-        if (!empty($bike['category_id'] === 'catégorie')) {
+        if (empty($bike['category_id'])) {
             $errors[] = 'La selection de la catégorie est obligatoire.';
         }
 
