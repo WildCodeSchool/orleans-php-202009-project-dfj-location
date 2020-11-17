@@ -21,7 +21,7 @@ class BicycleManager extends AbstractManager
     public function selectAllWithCategories()
     {
         return $this->pdo->query('SELECT bike.name, bike.id, category.name as model FROM ' . self::TABLE1 .
-            ' JOIN ' . self::TABLE . ' ON category.id=bike.category_id ')->fetchAll();
+            ' JOIN ' . self::TABLE . ' ON category.id=bike.category_id')->fetchAll();
     }
 
     public function selectByCategory(int $category): array
