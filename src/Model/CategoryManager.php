@@ -22,6 +22,7 @@ class CategoryManager extends AbstractManager
      * @param string $table
      */
     public const TABLE = 'category';
+
     /**
      *  Initializes this class.
      */
@@ -34,7 +35,32 @@ class CategoryManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (name) VALUES (:name)");
         $statement->bindValue('name', $category['name'], \PDO::PARAM_STR);
+        $statement->execute();
+    }
+
+    public function update($category)
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name = :name WHERE id=:id");
+        $statement->bindValue('id', $category['id'], \PDO::PARAM_INT);
+        $statement->bindValue('name', $category['name'], \PDO::PARAM_STR);
+        $statement->execute();
+    }
+
+    public function delete(int $id)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    }
+
+    public function hasBike(int $id)
+    {
+        $statement = $this->pdo->prepare("SELECT id FROM " . BicycleManager::TABLE . " WHERE category_id = :id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
 
         $statement->execute();
+
+        return $statement->rowCount() > 0;
     }
 }
