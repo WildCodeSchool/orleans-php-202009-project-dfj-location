@@ -7,6 +7,7 @@ use App\Model\DurationManager;
 use App\Model\PriceManager;
 use App\Model\ReservationManager;
 use App\Model\BicycleManager;
+use Nette\Utils\DateTime;
 
 class ReservationController extends AbstractController
 {
