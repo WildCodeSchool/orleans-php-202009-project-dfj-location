@@ -240,17 +240,7 @@ table .btn:hover {
     margin-bottom: 20px;
 }
 
-@media screen and (max-width: 600px) {
-    .vertical-line {
-        display: none;
-    }
-}
-
 .horaire-title {
     margin-bottom: 70px;
 }
-@media screen and (max-width: 600px){
-    .horaire-title {
-        margin-bottom: 0;
-    }
-}
+
