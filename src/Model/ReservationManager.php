@@ -95,4 +95,18 @@ class ReservationManager extends AbstractManager
     {
         return parent::selectAll();
     }
+
+    /**
+     * @param int $id
+     * @return bool
+     */
+    public function isReservedBike(int $id): bool
+    {
+        $statement = $this->pdo->prepare("SELECT id FROM " . self::TABLE . " WHERE bike_id = :id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+
+        $statement->execute();
+
+        return $statement->rowCount() > 0;
+    }
 }
