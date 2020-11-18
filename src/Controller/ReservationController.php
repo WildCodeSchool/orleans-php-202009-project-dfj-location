@@ -9,7 +9,7 @@ use Nette\Utils\DateTime;
 
 class ReservationController extends AbstractController
 {
-    public function booking()
+    public function booking(int $idBicycle = null)
     {
         $bikeManager = new BicycleManager();
         $bikes = $bikeManager->selectAllWithCategories();
@@ -27,7 +27,7 @@ class ReservationController extends AbstractController
             }
         }
         return $this->twig->render('Reservation/reservation.html.twig', ['errors' => $errors ?? [],
-            'data' => $data , 'categories' => $categories, 'bikes' => $bikes]);
+            'data' => $data , 'categories' => $categories, 'bikes' => $bikes, 'selectionnedBike' => $idBicycle]);
     }
 
     public function done(int $id)

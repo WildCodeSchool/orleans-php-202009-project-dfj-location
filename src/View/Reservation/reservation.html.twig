@@ -44,7 +44,7 @@
                     <optgroup label="{{ category.name }}">
                         {% for bike in bikes %}
                             {% if bike.model == category.name %}
-                                <option {{ data.bike == bike.id ? 'selected'}} value="{{ bike.id }}">{{ bike.name }}</option>
+                                <option {{ data.bike == bike.id or selectionnedBike == bike.id ? 'selected'}} value="{{ bike.id }}">{{ bike.name }}</option>
                             {% endif %}
                         {% endfor %}
                     </optgroup>
