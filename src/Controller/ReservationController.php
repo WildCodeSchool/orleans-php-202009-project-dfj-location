@@ -21,7 +21,7 @@ class ReservationController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
             $idCategory = $bikeManager->getCategory((int)$data['bike']);
-            $errors = $this->validate($data, $idCategory['category_id']);
+            $errors = $this->validate($data, (int)$idCategory['category_id']);
             if (empty($errors)) {
                 $reservationManager = new ReservationManager();
                 $id = $reservationManager->insert($data);
@@ -42,10 +42,10 @@ class ReservationController extends AbstractController
     /**
      * @SuppressWarnings(PHPMD)
      * @param array $data
-     * @param string $idCategory
+     * @param int $idCategory
      * @return array
      */
-    private function validate(array $data, string $idCategory)
+    private function validate(array $data, int $idCategory)
     {
         $errors = [];
         if (empty($data['lastname'])) {
@@ -83,15 +83,8 @@ class ReservationController extends AbstractController
         if (empty($data['duration'])) {
             $errors[] = "Le choix de la durée est obligatoire";
         }
-        if (
-            ($data['duration'] == DurationManager::ID_HALF_DAY || $data['duration'] == DurationManager::ID_TWO_WEEKS)
-            && $idCategory == CategoryManager::ID_TANDEM
-        ) {
-            $errors[] = "Le " . CategoryManager::TANDEM . " ne peut être réservé " .
-                DurationManager::HALF_DAY . " ou " . DurationManager::TWO_WEEKS;
-        }
-        if ($data['duration'] == DurationManager::ID_TWO_WEEKS && $idCategory == CategoryManager::ID_ELECTRIC) {
-            $errors[] = "Le " . CategoryManager::ELECTRIC . " ne peut être réservé " . DurationManager::TWO_WEEKS;
+        if (!(new PriceManager())->hasPrice((int)$data['duration'], (int)$idCategory)) {
+            $errors[] = "Le vélo sélectionné ne peut être réservé pour la durée sélectionnée";
         }
         return $errors;
     }

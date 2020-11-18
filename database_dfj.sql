@@ -44,7 +44,7 @@ CREATE TABLE `dfj_location`.`duration` (
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`));
 
-CREATE TABLE `dfj_location`.`prices` (
+CREATE TABLE `dfj_location`.`price` (
   `id` int NOT NULL AUTO_INCREMENT,
   `category_id` int NOT NULL,
   `duration_id` int NOT NULL,
