@@ -9,26 +9,28 @@ class AdminBicycleController extends AbstractController
 {
     public const TABLE = 'bike';
 
-    public function editorBike()
+    public function editBike(int $id)
     {
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAll();
-        $bike = [];
+
+        $adminBicycleManager = new AdminBicycleManager();
+        $editBike = $adminBicycleManager->selectOneById($id);
+
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $bike = array_map('trim', $_POST);
             $errors = $this->validateBike($bike);
 
             if (empty($errors)) {
-                $adminBicycleManager = new AdminBicycleManager();
-                $adminBicycleManager->update($bike);
+                $adminBicycleManager->update($bike, $id);
                 header("location:/AdminBicycle/index");
             }
         }
         return $this->twig->render('Admin/editor-bike.html.twig', ['errors' => $errors ?? [],
-            'bike' => $bike, 'categories' => $categories
-
+            'bike' => $editBike, 'categories' => $categories
         ]);
     }
+
     /**
      * @SuppressWarnings(PHPMD)
      * @param array $bike

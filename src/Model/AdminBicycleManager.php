@@ -17,14 +17,14 @@ class AdminBicycleManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function update(array $bike): bool
+    public function update(array $bike, int $id): bool
     {
 
         // prepared request
-        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET 'name' = :name, weight = :weight,
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name = :name, weight = :weight,
         category_id = :category_id, image = :image, maximum_charge = :maximum_charge, autonomy = :autonomy,
         frame_size = :frame_size, stock = :stock WHERE id=:id");
-        $statement->bindValue('id', $bike['id'], \PDO::PARAM_INT);
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->bindValue('name', $bike['name'], \PDO::PARAM_STR);
         $statement->bindValue('weight', $bike['weight']);
         $statement->bindValue('category_id', $bike['category_id'], \PDO::PARAM_INT);
