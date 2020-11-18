@@ -33,7 +33,6 @@ class AdminBicycleController extends AbstractController
         }
         return $this->twig->render('Admin/add-bike.html.twig', ['errors' => $errors ?? [],
             'bike' => $bike, 'categories' => $categories
-
         ]);
     }
     /**
@@ -68,7 +67,6 @@ class AdminBicycleController extends AbstractController
         if (empty($bike['image']) || !filter_var($bike['image'], FILTER_VALIDATE_URL)) {
             $errors[] = 'L\'image doit être une URL valide et le champs ne doit pas être vide.';
         }
-
         return $errors;
     }
 }
