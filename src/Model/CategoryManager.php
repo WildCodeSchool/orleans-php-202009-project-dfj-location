@@ -54,13 +54,10 @@ class CategoryManager extends AbstractManager
         $statement->execute();
     }
 
-    public function hasBike(int $id)
+    public function numberOfBikeInCategory()
     {
-        $statement = $this->pdo->prepare("SELECT id FROM " . BicycleManager::TABLE . " WHERE category_id = :id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
-
-        $statement->execute();
-
-        return $statement->rowCount() > 0;
+        return $this->pdo->query('SELECT ' . self::TABLE . '.id as id,COUNT(bike.id) as nb_bike FROM '
+            . BicycleManager::TABLE . ' RIGHT JOIN ' . self::TABLE . ' ON ' . self::TABLE . '.id=category_id GROUP BY '
+            . self::TABLE . '.name;')->fetchAll();
     }
 }

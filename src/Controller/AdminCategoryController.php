@@ -18,11 +18,11 @@ class AdminCategoryController extends AbstractController
 
     public function index()
     {
-        $error = '';
+
         $adminCategoryManager = new CategoryManager();
         $categories = $adminCategoryManager->selectAll();
-        $error = $this->remove();
-        return $this->twig->render('Admin/indexCategory.html.twig', ['error' => $error,
+        $nbBikes = $adminCategoryManager->numberOfBikeInCategory();
+        return $this->twig->render('Admin/indexCategory.html.twig', ['nbBikes' => $nbBikes,
             'categories' => $categories]);
     }
 
@@ -79,17 +79,10 @@ class AdminCategoryController extends AbstractController
 
     public function remove()
     {
-        $error = "";
+        $categoryManager = new CategoryManager();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = array_map('trim', $_POST);
-            $categoryManager = new CategoryManager();
-            if ($categoryManager->hasBike((int)$data['id'])) {
-                $error = "Cette catégorie est utilisée, il est donc impossible de la supprimer !";
-            } else {
-                $categoryManager->delete((int)$data['id']);
-                header('Location:/AdminCategory/index');
-            }
-            return $error;
+            $categoryManager->delete((int)$_POST['id']);
+            header('Location:/AdminCategory/index');
         }
     }
 }
