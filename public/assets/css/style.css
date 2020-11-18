@@ -20,6 +20,8 @@
     --btn-color : darkred;
     --card-title-color:#F1F1F5;
     --card-background-color : rgba(18, 24, 43, 0.65);
+    --btn-bg-color: whitesmoke;
+    --btn-color : darkred;
 }
 
 * {
@@ -96,6 +98,10 @@ h1, h2, h3 {
 .news h2 {
     padding-top: var(--spacing-2);
     padding-bottom: var(--spacing);
+}
+
+.alert:empty {
+    display: none;
 }
 
 .contact h2 {
