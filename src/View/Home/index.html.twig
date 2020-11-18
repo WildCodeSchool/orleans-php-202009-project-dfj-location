@@ -64,14 +64,14 @@
 
     <div class="contact container-fluid">
         <div class="row pb-5">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 d-flex">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Contact</h2>
+                        <h2 class="mb-3">Contact</h2>
                         <p>Téléphone: 02 38 81 23 00 </p>
                         <p>95 rue du Faubourg Bannier 45000 ORLEANS</p>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 mb-5 ml-1">
                         <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=1.8985506892204287%2C47.91220726474316%2C1.9007930159568789%2C47.9134585186023&amp;layer=mapnik&amp;marker=47.912832811183776%2C1.8996720726136118" style="border: 1px solid black">
                         </iframe>
                         <br/>
@@ -81,7 +81,7 @@
                     </div>
                 </div>
             </div>
-
+            <span class="vertical-line"></span>
 
             <!-- Récupération du jour courant -->
             {% set now = "now"|date("l") %}
@@ -91,11 +91,11 @@
                 'Friday' : 'Vendredi : 9h30 - 12h / 14h - 18h30', 'Saturday' : 'Samedi : 9h30 - 12h / 14h - 18h',
                 'Sunday' : 'Dimanche : 9h - 10h30 / 17h - 18h30'} %}
             {% set nowFrench = nowTranscription[now] %}
-            <div class="col-12 col-md-6">
-                <h2>Horaires</h2>
-                <ul class="time d-flex flex-column align-items-center">
+            <div class="col-12 col-md-5">
+                <h2 class="horaire-title">Horaires</h2>
+                <ul class="time d-flex flex-column align-items-center mt-5">
                     {% for time in nowTranscription %}
-                        <li class="{% if time == nowFrench %} currentDay {% endif %}">
+                        <li class="{% if time == nowFrench %} currentDay {% endif %} mb-3">
                             {{ time }}
                         </li>
                     {% endfor %}
