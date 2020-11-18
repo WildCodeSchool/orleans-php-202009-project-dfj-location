@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\CategoryManager;
 use App\Model\ReservationManager;
 use App\Model\BicycleManager;
 use Cassandra\Date;
@@ -12,6 +13,8 @@ class ReservationController extends AbstractController
     {
         $bikeManager = new BicycleManager();
         $bikes = $bikeManager->selectAllWithCategories();
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAll();
         $errors = [];
         $data = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,7 +27,7 @@ class ReservationController extends AbstractController
             }
         }
         return $this->twig->render('Reservation/reservation.html.twig', ['errors' => $errors ?? [],
-            'data' => $data , 'bikes' => $bikes]);
+            'data' => $data , 'categories' => $categories, 'bikes' => $bikes]);
     }
 
     public function done(int $id)
@@ -57,14 +60,14 @@ class ReservationController extends AbstractController
         if (empty($data['tel'])) {
             $errors[] = "Le numéro de telephone est obligatoire pour réserver";
         }
-        /*$nameMaxLength = 100;
-        if ($data['firstname'] || $data['lastname'] > $nameMaxLength) {
+        $nameMaxLength = 100;
+        if (strlen($data['firstname']) || strlen($data['lastname']) > $nameMaxLength) {
             $errors[] = "le nom et le prénom ne doivent pas dépasser 100 caractères";
         }
         $phoneMaxLength = 20;
-        if ($data['tel'] > $phoneMaxLength) {
+        if (strlen($data['tel']) > $phoneMaxLength) {
             $errors[] = "le numero de télephone ne doit pas contenir plus de 20 caractères";
-        }*/
+        }
         if (empty($data['tel'])) {
             $errors[] = "Le numéro de télephone est obligatoire pour réserver";
         }
