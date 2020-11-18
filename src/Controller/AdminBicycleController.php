@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Model\AdminBicycleManager;
 use App\Model\CategoryManager;
+use App\Model\BicycleManager;
+use App\Model\ReservationManager;
 
 class AdminBicycleController extends AbstractController
 {
@@ -35,6 +37,7 @@ class AdminBicycleController extends AbstractController
             'bike' => $bike, 'categories' => $categories
         ]);
     }
+
     /**
      * @SuppressWarnings(PHPMD)
      * @param array $bike
@@ -68,8 +71,9 @@ class AdminBicycleController extends AbstractController
             $errors[] = 'L\'image doit être une URL valide et le champs ne doit pas être vide.';
         }
         return $errors;
+    }
 
-      public function index()
+    public function index()
     {
         $error = "";
         $adminBikeManager = new BicycleManager();
