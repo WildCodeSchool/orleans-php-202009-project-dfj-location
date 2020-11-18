@@ -77,7 +77,6 @@ class AdminCategoryController extends AbstractController
         ]);
     }
 
-
     public function remove()
     {
         $error = "";
