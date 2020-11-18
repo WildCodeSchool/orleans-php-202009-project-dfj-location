@@ -190,6 +190,11 @@ footer a {
     color: var(--light);
 }
 
+.admin {
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
 .instagramImage:hover, .facebookImage:hover {
     transform: scale(1.2);
 }
