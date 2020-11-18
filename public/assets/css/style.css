@@ -190,6 +190,11 @@ footer a {
     color: var(--light);
 }
 
+footer a:hover {
+    color: black;
+    text-decoration: none;
+}
+
 .instagramImage:hover, .facebookImage:hover {
     transform: scale(1.2);
 }
