@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Qui sommes-nous ?{% endblock %}
+
+{% block content %}
+    <h1 class="text-center my-5">Qui sommes-nous ?</h1>
+
+    <div class="container-fluid">
+
+        <div class="row pb-5 justify-content-center align-items-center">
+            {# <div class="col-lg-3 offset-lg-2 col-md-6 col-sm-12"> #}
+            <img class="aboutUs-images" src="/assets/images/famille1.jpg" alt="Famille à vélo">
+            <p class="aboutUs-paragraph text-left py-4">DFJ Location est une entreprise de location de vélos, tandems, et
+                vélos électriques. Venez profiter
+                de tout ce qu'Orléans et son agglomération ont à vous offrir !</p>
+        </div>
+
+        <div class="row flex-row-reverse pb-5 justify-content-center align-items-center">
+            {# <div class="col-lg-3 offset-lg-2 col-md-6 col-sm-12"> #}
+            <img class="aboutUs-images" src="/assets/images/cathedrale1.jpg" alt="Famille à vélo">
+            <p class="aboutUs-paragraph text-left py-4">Nos services vous permettront de découvrir la
+                ville de Jeanne d'Arc sous un nouvel angle. Redécouvrez
+                la cathédrale Sainte-Croix, la place du Martroi, le parc Pasteur, et tous les lieux qui font le
+                charme du centre-ancien depuis plusieurs siècles !</p>
+        </div>
+
+        <div class="row pb-5 justify-content-center align-items-center">
+            {# <div class="col-lg-3 offset-lg-2 col-md-6 col-sm-12"> #}
+            <img class="aboutUs-images" src="/assets/images/Velos.jpg" alt="Famille à vélo">
+            <p class="aboutUs-paragraph text-left py-4">Orléans, ce n'est pas que son centre-ancien... C'est aussi les bords
+                de Loire, et la Loire À Vélo !
+                Profitez du populaire itinéraire longeant la Loire de Nevers à Nantes ! N'oubliez pas non plus de
+                passer par l'Île Charlemagne, lieu incontournable de la ville proposant divers loisirs !</p>
+        </div>
+    </div>
+
+{% endblock %}

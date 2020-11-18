@@ -171,6 +171,16 @@ h1, h2, h3 {
     display: none;
 }
 
+.aboutUs-images {
+    width: 600px;
+}
+
+.aboutUs-paragraph {
+    width: 600px;
+    font-size: 20px;
+    padding: 0 var(--spacing-3);
+}
+
 footer {
     font-family: 'Overpass', sans-serif;
     background-color: var(--primary-color);
