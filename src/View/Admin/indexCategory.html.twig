@@ -7,9 +7,6 @@
 {% block content %}
     <h1 class="my-5 text-center"> Administrer les catégories </h1>
     <main class="container-fluid justify-content-center col-5 pb-5">
-        {%- if error is not empty -%}
-            <div class="mt-3 alert alert-danger">{{ error }}</div>
-        {%- endif -%}
         <a class="btn btn-info mb-3" title="ajouter une catégorie" href="/AdminCategory/add" role="button">
             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
                  xmlns="http://www.w3.org/2000/svg">
