@@ -24,7 +24,7 @@ class ReservationController extends AbstractController
             }
         }
         return $this->twig->render('Reservation/reservation.html.twig', ['errors' => $errors ?? [],
-            'data' => $data , 'bikes' => $bikes]);
+            'data' => $data, 'bikes' => $bikes]);
     }
 
     public function done(int $id)
@@ -40,6 +40,7 @@ class ReservationController extends AbstractController
         $id = $select->selectAll();
         return $this->twig->render('Reservation/reservation.html.twig', ['data' => $id]);
     }
+
     /**
      * @SuppressWarnings(PHPMD)
      * @param array $data
@@ -57,14 +58,14 @@ class ReservationController extends AbstractController
         if (empty($data['tel'])) {
             $errors[] = "Le numéro de telephone est obligatoire pour réserver";
         }
-        /*$nameMaxLength = 100;
-        if ($data['firstname'] || $data['lastname'] > $nameMaxLength) {
+        $nameMaxLength = 100;
+        if (strlen($data['firstname']) > $nameMaxLength || strlen($data['lastname']) > $nameMaxLength) {
             $errors[] = "le nom et le prénom ne doivent pas dépasser 100 caractères";
         }
         $phoneMaxLength = 20;
-        if ($data['tel'] > $phoneMaxLength) {
+        if (strlen($data['tel']) > $phoneMaxLength) {
             $errors[] = "le numero de télephone ne doit pas contenir plus de 20 caractères";
-        }*/
+        }
         if (empty($data['tel'])) {
             $errors[] = "Le numéro de télephone est obligatoire pour réserver";
         }
@@ -74,7 +75,7 @@ class ReservationController extends AbstractController
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $errors[] = "le format de l'email est invalide";
         }
-        $today =  date('Y-m-d');
+        $today = date('Y-m-d');
         if ($data['date'] < $today) {
             $errors[] = "La date selectionnée ne peut être inférieure à la date actuelle";
         }
