@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\ReservationManager;
 use App\Model\BicycleManager;
+use Cassandra\Date;
 
 class ReservationController extends AbstractController
 {
@@ -56,14 +57,14 @@ class ReservationController extends AbstractController
         if (empty($data['tel'])) {
             $errors[] = "Le numéro de telephone est obligatoire pour réserver";
         }
-        $nameMaxLength = 100;
+        /*$nameMaxLength = 100;
         if ($data['firstname'] || $data['lastname'] > $nameMaxLength) {
             $errors[] = "le nom et le prénom ne doivent pas dépasser 100 caractères";
         }
         $phoneMaxLength = 20;
         if ($data['tel'] > $phoneMaxLength) {
             $errors[] = "le numero de télephone ne doit pas contenir plus de 20 caractères";
-        }
+        }*/
         if (empty($data['tel'])) {
             $errors[] = "Le numéro de télephone est obligatoire pour réserver";
         }
@@ -72,6 +73,10 @@ class ReservationController extends AbstractController
         }
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $errors[] = "le format de l'email est invalide";
+        }
+        $today =  date('Y-m-d');
+        if ($data['date'] < $today) {
+            $errors[] = "La date selectionnée ne peut être inférieure à la date actuelle";
         }
         if (empty($data['bike'])) {
             $errors[] = "Le choix du vélo est obligatoire";
