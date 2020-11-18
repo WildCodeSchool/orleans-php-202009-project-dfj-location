@@ -16,9 +16,9 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/assets/images/martroi1.jpg" class="d-block w-100" alt="hypercentre">
+                <img src="/assets/images/loire1.jpg" class="d-block w-100" alt="hypercentre">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Un centre ville agréable</h5>
+                    <h5>La Loire à Vélo immense route touristique cyclable (600 kms en region Centre)</h5>
                 </div>
             </div>
             <div class="carousel-item">
@@ -30,7 +30,7 @@
             <div class="carousel-item">
                 <img src="/assets/images/orleansbynight1.jpg" class="d-block w-100" alt="place du martroi">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Orléans by night</h5>
+                    <h5>Orléans By Night</h5>
                     <p></p>
                 </div>
             </div>
@@ -94,6 +94,7 @@
             <div class="col-12 col-md-5">
                 <h2 class="horaire-title">Horaires</h2>
                 <ul class="time d-flex flex-column align-items-center mt-5">
+
                     {% for time in nowTranscription %}
                         <li class="{% if time == nowFrench %} currentDay {% endif %} mb-3">
                             {{ time }}

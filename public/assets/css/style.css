@@ -16,7 +16,12 @@
     --navbarHeight: 80px;
     --font-text: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
+    --btn-bg-color: whitesmoke;
+    --btn-color : darkred;
+    --card-title-color:#F1F1F5;
     --card-background-color : rgba(18, 24, 43, 0.65);
+    --btn-bg-color: whitesmoke;
+    --btn-color : darkred;
 }
 
 * {
@@ -95,6 +100,10 @@ h1, h2, h3 {
     padding-bottom: var(--spacing);
 }
 
+.alert:empty {
+    display: none;
+}
+
 .contact h2 {
     text-align: center;
     color: var(--title-color);
@@ -136,7 +145,12 @@ h1, h2, h3 {
 }
 
 .card-inverse .card-img-overlay {
-    background-color: rgba(18, 24, 43, 0.65);
+    background-color: var(--card-background-color)
+}
+
+.bikes .card-title {
+    color: var(--card-title-color);
+    background-color: var(--card-background-color);
 }
 
 .bikes .card-title {
@@ -224,8 +238,19 @@ table {
 table .btn:hover {
     opacity: 0.8;
     cursor: pointer;
-    background-color: whitesmoke;
-    color: darkred;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-color);
+}
+
+.alert:empty {
+    display: none;
+}
+
+.container a:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-color)
 }
 
 .contact-details {
@@ -249,7 +274,8 @@ table .btn:hover {
 .horaire-title {
     margin-bottom: 70px;
 }
-@media screen and (max-width: 600px){
+
+@media screen and (max-width: 600px) {
     .horaire-title {
         margin-bottom: 0;
     }
