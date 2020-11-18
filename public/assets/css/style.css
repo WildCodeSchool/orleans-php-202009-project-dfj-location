@@ -15,6 +15,7 @@
     --spacing-4:calc(var(--spacing) * 4);
     --spacing-form: 500px;
     --navbarHeight: 80px;
+    --footerHeight: 160px;
     --font-text: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
     --card-background-color : rgba(18, 24, 43, 0.65);
@@ -30,7 +31,7 @@ body {
 }
 
 section {
-    min-height: 72.7582292849vh;
+    min-height: calc(100vh - var(--navbarHeight) - var(--footerHeight));
     padding-top: var(--navbarHeight);
 }
 
