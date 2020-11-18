@@ -17,14 +17,31 @@ class AdminBicycleController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-
-    public function editBike(int $id)
+    public function index()
     {
-        $categoryManager = new CategoryManager();
-        $categories = $categoryManager->selectAll();
+        $error = "";
+        $adminBikeManager = new BicycleManager();
+        $bikes = $adminBikeManager->selectAllWithCategories();
+        $error = $this->remove();
+        return $this->twig->render('Admin/bikes.html.twig', ['error' => $error, 'bikes' => $bikes]);
+    }
 
-        $adminBicycleManager = new AdminBicycleManager();
-        $editBike = $adminBicycleManager->selectOneById($id);
+    public function remove()
+    {
+        $error = "";
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = array_map('trim', $_POST);
+            $reservationManager = new ReservationManager();
+            if ($reservationManager->isReservedBike((int)$data['id'])) {
+                $error = "Ce vélo est réservé, il est donc impossible de le supprimer !";
+            } else {
+                $bicycleManager = new BicycleManager();
+                $bicycleManager->delete((int)$data['id']);
+                header('Location:/AdminBicycle/index');
+            }
+            return $error;
+        }
+    }
 
     public function addBike()
     {
@@ -36,14 +53,6 @@ class AdminBicycleController extends AbstractController
             $errors = $this->validateBike($bike);
 
             if (empty($errors)) {
-                $adminBicycleManager->update($bike, $id);
-                header("location:/AdminBicycle/index");
-            }
-        }
-        return $this->twig->render('Admin/editor-bike.html.twig', ['errors' => $errors ?? [],
-            'bike' => $editBike, 'categories' => $categories
-        ]);
-    }
                 $adminBicycleManager = new AdminBicycleManager();
                 $adminBicycleManager->insert($bike);
                 header("location:/AdminBicycle/index");
@@ -53,6 +62,33 @@ class AdminBicycleController extends AbstractController
             'bike' => $bike, 'categories' => $categories
         ]);
     }
+
+
+    public function editBike(int $id)
+    {
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAll();
+
+        $adminBicycleManager = new AdminBicycleManager();
+        $editBike = $adminBicycleManager->selectOneById($id);
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $bike = array_map('trim', $_POST);
+            $errors = $this->validateBike($bike);
+
+            if (empty($errors)) {
+                $adminBicycleManager = new AdminBicycleManager();
+                $adminBicycleManager->update($bike, $id);
+                header("location:/AdminBicycle/index");
+            }
+        }
+
+        return $this->twig->render('Admin/editor-bike.html.twig', ['errors' => $errors ?? [],
+            'bike' => $editBike, 'categories' => $categories ]);
+    }
+
+
+
+
 
     /**
      * @SuppressWarnings(PHPMD)
@@ -87,67 +123,5 @@ class AdminBicycleController extends AbstractController
             $errors[] = 'L\'image doit être une URL valide et le champs ne doit pas être vide.';
         }
         return $errors;
-    }
-
-
-    /**
-     * @SuppressWarnings(PHPMD)
-     * @param array $bike
-     * @return array
-     */
-
-    private function validateBike(array $bike)
-    {
-
-        $errors = [];
-        if (empty($bike['name'])) {
-            $errors[] = 'Le nom du vélo est obligatoire.';
-        }
-        $length = 100;
-        if (strlen($bike['name']) > $length) {
-            $errors[] = 'Le nom du vélo ne doit pas dépasser ' . $length . ' caractères.';
-        }
-
-        if (empty($bike['weight']) || $bike['weight'] < 0) {
-            $errors[] = 'Le poids du vélo est obligatoire et doit être positif.';
-        }
-
-        if (empty($bike['stock']) || $bike['stock'] < 0) {
-            $errors[] = 'le nombre de vélo ne peut être inférieur à 0';
-        }
-
-        if (!empty($bike['category_id'] === 'catégorie')) {
-            $errors[] = 'La selection de la catégorie est obligatoire.';
-        }
-
-        if (empty($bike['image']) || !filter_var($bike['image'], FILTER_VALIDATE_URL)) {
-            $errors[] = 'L\'image doit être une URL valide et le champs ne doit pas être vide.';
-        }
-
-        return $errors;
-
-        $error = "";
-        $adminBikeManager = new BicycleManager();
-        $bikes = $adminBikeManager->selectAllWithCategories();
-        $error = $this->remove();
-
-        return $this->twig->render('Admin/bikes.html.twig', ['error' => $error, 'bikes' => $bikes]);
-    }
-
-    public function remove()
-    {
-        $error = "";
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = array_map('trim', $_POST);
-            $reservationManager = new ReservationManager();
-            if ($reservationManager->isReservedBike((int)$data['id'])) {
-                $error = "Ce vélo est réservé, il est donc impossible de le supprimer !";
-            } else {
-                $bicycleManager = new BicycleManager();
-                $bicycleManager->delete((int)$data['id']);
-                header('Location:/AdminBicycle/index');
-            }
-            return $error;
-        }
     }
 }

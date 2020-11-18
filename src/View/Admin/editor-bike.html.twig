@@ -28,7 +28,7 @@
                 <label for="category_id">Catégorie</label>
                 <select class="form-control" id="category_id" name="category_id" required
                         value="{{ bike.category.id }}">
-                    <option>catégorie</option>
+                    <option></option>
                     {% for category in categories %}
                         <option{{ category == category.id ? 'selected' }} value="{{ category.id }}">
                             {{ category.name }}
