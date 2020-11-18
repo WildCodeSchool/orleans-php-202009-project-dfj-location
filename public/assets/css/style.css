@@ -7,6 +7,7 @@
     --secondary-color: #f7f7fc;
     --button-bg-color : #8C9DB0;
     --light : #e8ecf0;
+    --dark : #151717;
     --title-color: #0d446d;
     --spacing:8px;
     --spacing-2:calc(var(--spacing) * 2);
@@ -191,7 +192,7 @@ footer a {
 }
 
 footer a:hover {
-    color: black;
+    color: var(--dark);
     text-decoration: none;
 }
 
