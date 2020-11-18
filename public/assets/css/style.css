@@ -206,6 +206,16 @@ footer a {
     opacity: 30%;
 }
 
+@media screen and (max-width: 500px){
+    #carouselExampleCaptions .carousel-inner {
+        height: 300px;
+    }
+}
+
+.carousel-inner .carousel-item{
+    height: 850px;
+}
+
 table td {
     max-width: 200px;
     text-align: center;
@@ -241,3 +251,14 @@ table .btn:hover {
     font-size: 1.75rem;
 }
 
+.vertical-line {
+    border-left: 2px solid #000;
+    display: inline-block;
+    height: 600px;
+}
+
+@media screen and (max-width: 600px) {
+    .vertical-line {
+        display: none;
+    }
+}
