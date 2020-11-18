@@ -23,12 +23,6 @@ class CategoryManager extends AbstractManager
      */
     public const TABLE = 'category';
 
-    public const ID_TANDEM = 3;
-    public const TANDEM = 'tandem';
-
-    public const ID_ELECTRIC = 4;
-    public const ELECTRIC = 'vélo électrique';
-
     /**
      *  Initializes this class.
      */
