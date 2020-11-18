@@ -30,6 +30,7 @@ body {
 
 section {
     min-height: 72.7582292849vh;
+    padding-top: var(--navbarHeight);
 }
 
 nav {
