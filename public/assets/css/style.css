@@ -16,6 +16,9 @@
     --navbarHeight: 80px;
     --font-text: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
+    --btn-bg-color: whitesmoke;
+    --btn-color : darkred;
+    --card-title-color:#F1F1F5;
     --card-background-color : rgba(18, 24, 43, 0.65);
     --btn-bg-color: whitesmoke;
     --btn-color : darkred;
@@ -38,6 +41,10 @@ nav {
 .navbar {
     padding: 0;
     z-index: 2;
+}
+
+section {
+    padding-top: var(--navbarHeight);
 }
 
 .category .card {
@@ -138,6 +145,11 @@ h1, h2, h3 {
 }
 
 .card-inverse .card-img-overlay {
+    background-color: var(--card-background-color)
+}
+
+.bikes .card-title {
+    color: var(--card-title-color);
     background-color: var(--card-background-color);
 }
 
@@ -218,6 +230,17 @@ table .btn:hover {
     cursor: pointer;
     background-color: var(--btn-bg-color);
     color: var(--btn-color);
+}
+
+.alert:empty {
+    display: none;
+}
+
+.container a:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-color)
 }
 
 .contact-details {
