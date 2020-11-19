@@ -20,6 +20,8 @@
     --btn-color : darkred;
     --card-title-color:#F1F1F5;
     --card-background-color : rgba(18, 24, 43, 0.65);
+    --btn-bg-color: whitesmoke;
+    --btn-color : darkred;
 }
 
 * {
@@ -29,6 +31,11 @@
 body {
     font-family: var(--font-text);
     background-color: var(--secondary-color);
+    background-image: url(../images/background.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 nav {
@@ -98,6 +105,10 @@ h1, h2, h3 {
     padding-bottom: var(--spacing);
 }
 
+.alert:empty {
+    display: none;
+}
+
 .contact h2 {
     text-align: center;
     color: var(--title-color);
@@ -165,6 +176,16 @@ h1, h2, h3 {
     display: none;
 }
 
+.aboutUs-images {
+    width: 600px;
+}
+
+.aboutUs-paragraph {
+    width: 600px;
+    font-size: 20px;
+    padding: 0 var(--spacing-3);
+}
+
 footer {
     font-family: 'Overpass', sans-serif;
     background-color: var(--primary-color);
@@ -198,12 +219,27 @@ footer a {
     color: var(--light);
 }
 
+.admin {
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
 .instagramImage:hover, .facebookImage:hover {
     transform: scale(1.2);
 }
 
 .instagramImage:active, .facebookImage:active {
     opacity: 30%;
+}
+
+@media screen and (max-width: 500px){
+    #carouselExampleCaptions .carousel-inner {
+        height: 300px;
+    }
+}
+
+.carousel-inner .carousel-item{
+    height: 850px;
 }
 
 table td {
@@ -239,5 +275,17 @@ table .btn:hover {
 
 .contact-details {
     font-size: 1.75rem;
+}
+
+.vertical-line {
+    border-left: 2px solid #000;
+    display: inline-block;
+    height: 600px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.horaire-title {
+    margin-bottom: 70px;
 }
 
