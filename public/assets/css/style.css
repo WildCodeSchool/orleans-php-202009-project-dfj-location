@@ -171,6 +171,16 @@ h1, h2, h3 {
     display: none;
 }
 
+.aboutUs-images {
+    width: 600px;
+}
+
+.aboutUs-paragraph {
+    width: 600px;
+    font-size: 20px;
+    padding: 0 var(--spacing-3);
+}
+
 footer {
     font-family: 'Overpass', sans-serif;
     background-color: var(--primary-color);
@@ -202,6 +212,11 @@ footer a {
     font-family:'Overpass', sans-serif;
     text-decoration: none;
     color: var(--light);
+}
+
+.admin {
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
 }
 
 .instagramImage:hover, .facebookImage:hover {
@@ -261,10 +276,11 @@ table .btn:hover {
     border-left: 2px solid #000;
     display: inline-block;
     height: 600px;
+    padding-left: 20px;
+    margin-bottom: 20px;
 }
 
-@media screen and (max-width: 600px) {
-    .vertical-line {
-        display: none;
-    }
+.horaire-title {
+    margin-bottom: 70px;
 }
+
