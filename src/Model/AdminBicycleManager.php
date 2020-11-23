@@ -22,7 +22,7 @@ class AdminBicycleManager extends AbstractManager
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
         "(name, weight,stock, category_id, image, maximum_charge, autonomy, frame_size, created_date) 
-        VALUES (:name, :weight,:stock, :category_id, :image, :maximum_charge, :autonomy,:frame_size, :created_date)");
+        VALUES (:name, :weight,:stock, :category_id, :image, :maximum_charge, :autonomy,:frame_size, NOW())");
         $statement->bindValue('name', $bike['name'], \PDO::PARAM_STR);
         $statement->bindValue('weight', $bike['weight']);
         $statement->bindValue('stock', $bike['stock'], \PDO::PARAM_INT);
@@ -33,6 +33,7 @@ class AdminBicycleManager extends AbstractManager
         $statement->bindValue('frame_size', $bike['frame_size'], \PDO::PARAM_STR);
         $statement->bindValue('stock', $bike['stock'], \PDO::PARAM_INT);
         $statement->bindValue('created_date', $bike['created_date']);
+
         $statement->execute();
     }
 
