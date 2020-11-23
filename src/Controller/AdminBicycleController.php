@@ -19,27 +19,23 @@ class AdminBicycleController extends AbstractController
      */
     public function index()
     {
-        $error = "";
         $adminBikeManager = new BicycleManager();
         $bikes = $adminBikeManager->selectAllWithCategories();
-        $error = $this->remove();
-        return $this->twig->render('Admin/bikes.html.twig', ['error' => $error, 'bikes' => $bikes]);
+        $reservationManager = new ReservationManager();
+        $nbBikesReservations = $reservationManager->numberOfBikeReservation();
+        return $this->twig->render('Admin/bikes.html.twig', ['nbBikeReservations' => $nbBikesReservations,
+            'bikes' => $bikes]);
     }
 
     public function remove()
     {
-        $error = "";
+        $reservationManager = new ReservationManager();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
-            $reservationManager = new ReservationManager();
-            if ($reservationManager->isReservedBike((int)$data['id'])) {
-                $error = "Ce vélo est réservé, il est donc impossible de le supprimer !";
-            } else {
-                $bicycleManager = new BicycleManager();
-                $bicycleManager->delete((int)$data['id']);
-                header('Location:/AdminBicycle/index');
-            }
-            return $error;
+            $reservationManager->isReservedBike((int)$data['id']);
+            $bicycleManager = new BicycleManager();
+            $bicycleManager->delete((int)$data['id']);
+            header('Location:/AdminBicycle/index');
         }
     }
 
@@ -83,11 +79,8 @@ class AdminBicycleController extends AbstractController
         }
 
         return $this->twig->render('Admin/editor-bike.html.twig', ['errors' => $errors ?? [],
-            'bike' => $editBike, 'categories' => $categories ]);
+            'bike' => $editBike, 'categories' => $categories]);
     }
-
-
-
 
 
     /**
