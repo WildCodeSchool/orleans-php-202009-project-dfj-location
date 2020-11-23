@@ -7,7 +7,7 @@
 {% block content %}
     <h1 class="my-5 text-center"> Administrer les catégories </h1>
     <main class="container-fluid justify-content-center col-5 pb-5">
-        <a class="btn btn-info mb-3" title="ajouter une catégorie" href="/AdminCategory/add" role="button">
+        <a class="btn btn-info mb-3" title="Ajouter une catégorie" href="/AdminCategory/add" role="button">
             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
                  xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0
@@ -25,8 +25,8 @@
             {% for category in categories %}
             <tr>
                 <td scope="row">{{ category.name }}</td>
-                <td class="text-center d-flex justify-content-center">
-                    <a href="/AdminCategory/edit/{{ category.id }}" title="modifier" class="btn btn-info mr-2">
+                <td class=" d-flex justify-content-center col-12">
+                    <a href="/AdminCategory/edit/{{ category.id }}" title="Modifier" class="btn btn-info mr-2">
                         <svg width="1em" height="1em" viewBox="0 0 16 16"
                              class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -42,7 +42,7 @@
                             {% if nbBike.nb_bike == 0 %}
                                 <form action="/AdminCategory/remove" method="post">
                                     <input type="hidden" name="id" value="{{ category.id }}">
-                                    <button title="supprimer" class="btn btn-danger">
+                                    <button title="Supprimer" class="btn btn-danger">
                                         <svg width="1em" height="1em"
                                              viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -69,3 +69,4 @@
         </table>
     </main>
 {% endblock %}
+
