@@ -10,7 +10,7 @@ use App\Model\BicycleManager;
 
 class ReservationController extends AbstractController
 {
-    public function booking()
+    public function booking(int $idBicycle = null)
     {
         $bikeManager = new BicycleManager();
         $bikes = $bikeManager->selectAllWithCategories();
@@ -33,12 +33,14 @@ class ReservationController extends AbstractController
                 header("Location:/reservation/done/" . $id);
             }
         }
+
         return $this->twig->render('Reservation/reservation.html.twig', [
           'errors' => $errors ?? [],
           'data' => $data ,
           'categories' => $categories,
           'bikes' => $bikes,
-          'durations' => $durations
+          'durations' => $durations,
+          'selectionnedBike' => $idBicycle
         ]);
     }
 
