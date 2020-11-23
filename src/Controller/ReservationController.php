@@ -7,7 +7,6 @@ use App\Model\DurationManager;
 use App\Model\PriceManager;
 use App\Model\ReservationManager;
 use App\Model\BicycleManager;
-use Nette\Utils\DateTime;
 
 class ReservationController extends AbstractController
 {
@@ -50,6 +49,12 @@ class ReservationController extends AbstractController
         return $this->twig->render('Reservation/thanks.html.twig', ['data' => $reservation]);
     }
 
+    public function select()
+    {
+        $select = new ReservationManager();
+        $id = $select->selectAll();
+        return $this->twig->render('Reservation/reservation.html.twig', ['data' => $id]);
+    }
     /**
      * @SuppressWarnings(PHPMD)
      * @param array $data
@@ -84,6 +89,10 @@ class ReservationController extends AbstractController
         }
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $errors[] = "le format de l'email est invalide";
+        }
+        $today = date('Y-m-d');
+        if ($data['date'] < $today) {
+            $errors[] = "La date selectionnée ne peut être inférieure à la date actuelle";
         }
         if (empty($data['bike'])) {
             $errors[] = "Le choix du vélo est obligatoire";
