@@ -35,4 +35,9 @@ class HomeController extends AbstractController
     {
         return $this->twig->render('Home/legal-mentions.html.twig');
     }
+
+    public function aboutus()
+    {
+        return $this->twig->render('Home/aboutus.html.twig');
+    }
 }
