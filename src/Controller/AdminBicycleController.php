@@ -79,7 +79,7 @@ class AdminBicycleController extends AbstractController
         $editBike = $adminBicycleManager->selectOneById($id);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $bike = array_map('trim', $_POST);
-            $errors = $this->validateBike($bike);
+            $errors = $this->validateBike($bike, $_FILES['image']);
 
             if (empty($errors)) {
                 $adminBicycleManager = new AdminBicycleManager();

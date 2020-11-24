@@ -22,7 +22,8 @@ class AdminBicycleManager extends AbstractManager
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
             "(name, weight, stock, category_id, image, maximum_charge, autonomy, frame_size, created_date, description) 
-        VALUES (:name, :weight, :stock, :category_id, :image, :maximum_charge, :autonomy, :frame_size, NOW(), :description)");
+        VALUES (:name, :weight, :stock, :category_id, 
+        :image, :maximum_charge, :autonomy, :frame_size,NOW(), :description)");
         $statement->bindValue('name', $bike['name'], \PDO::PARAM_STR);
         $statement->bindValue('weight', $bike['weight']);
         $statement->bindValue('stock', $bike['stock'], \PDO::PARAM_INT);
