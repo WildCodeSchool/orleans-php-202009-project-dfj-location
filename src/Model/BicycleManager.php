@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-use mysql_xdevapi\Statement;
-
 class BicycleManager extends AbstractManager
 {
     public const TABLE = 'bike';
