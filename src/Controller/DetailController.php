@@ -19,7 +19,6 @@ class DetailController extends AbstractController
     {
         $bicycleManager = new BicycleManager();
         $bicycles = $bicycleManager->selectOneById($id);
-        $bicycleManager = new BicycleManager();
         $prices = $bicycleManager->duration($id);
         return $this->twig->render('Bicycle/detailsBike.html.twig', ['bicycles' => $bicycles, 'prices' => $prices
         ]);
