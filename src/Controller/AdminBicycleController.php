@@ -9,6 +9,10 @@ use App\Model\ReservationManager;
 
 class AdminBicycleController extends AbstractController
 {
+
+    public const MAX_FILE_SIZE = 1000000;
+    public const AUTHORIZED_MIMES = ['image/jpeg', 'image/png'];
+
     /**
      * Display item creation page
      *
@@ -46,9 +50,15 @@ class AdminBicycleController extends AbstractController
         $bike = [];
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $bike = array_map('trim', $_POST);
-            $errors = $this->validateBike($bike);
+            $errors = $this->validateBike($bike, $_FILES['image']);
 
             if (empty($errors)) {
+                $category = $categoryManager->selectOneById((int)$bike['category_id']);
+                $uploadDirectory = 'assets/images/' . $category['name'];
+                $filename = $_FILES['image']['name'];
+                move_uploaded_file($_FILES['image']['tmp_name'], $uploadDirectory . '/' . $filename);
+                $bike['image'] = $filename;
+
                 $adminBicycleManager = new AdminBicycleManager();
                 $adminBicycleManager->insert($bike);
                 header("location:/AdminBicycle/index");
@@ -69,7 +79,7 @@ class AdminBicycleController extends AbstractController
         $editBike = $adminBicycleManager->selectOneById($id);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $bike = array_map('trim', $_POST);
-            $errors = $this->validateBike($bike);
+            $errors = $this->validateBike($bike, $_FILES['image']);
 
             if (empty($errors)) {
                 $adminBicycleManager = new AdminBicycleManager();
@@ -89,7 +99,7 @@ class AdminBicycleController extends AbstractController
      * @return array
      */
 
-    private function validateBike(array $bike)
+    private function validateBike(array $bike, array $file)
     {
         $errors = [];
         if (empty($bike['name'])) {
@@ -112,9 +122,17 @@ class AdminBicycleController extends AbstractController
             $errors[] = 'La selection de la catégorie est obligatoire.';
         }
 
-        if (empty($bike['image']) || !filter_var($bike['image'], FILTER_VALIDATE_URL)) {
-            $errors[] = 'L\'image doit être une URL valide et le champs ne doit pas être vide.';
+        if ($file['size'] > self::MAX_FILE_SIZE) {
+            $errors[] = 'Le fichier ne doit pas excéder ' . self::MAX_FILE_SIZE / 1000000 . ' Mo';
         }
+        if (!empty($file['tmp_name']) && !in_array(mime_content_type($file['tmp_name']), self::AUTHORIZED_MIMES)) {
+            $errors[] = 'Ce type de fichier n\'est pas valide';
+        }
+
+        if (empty($bike['description'])) {
+            $errors[] = 'La description du vélo est obligatoire.';
+        }
+
         return $errors;
     }
 }
