@@ -2,34 +2,52 @@
 
 namespace App\Controller;
 
+use App\Model\CategoryManager;
+use App\Model\DurationManager;
+use App\Model\PriceManager;
 use App\Model\ReservationManager;
 use App\Model\BicycleManager;
 
 class ReservationController extends AbstractController
 {
-    public function booking()
+    public function booking(int $idBicycle = null)
     {
         $bikeManager = new BicycleManager();
         $bikes = $bikeManager->selectAllWithCategories();
+
+        $durationManager = new DurationManager();
+        $durations = $durationManager->selectAll();
+
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAll();
+
         $errors = [];
         $data = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
-            $errors = $this->validate($data);
+            $idCategory = $bikeManager->getCategory((int)$data['bike']);
+            $errors = $this->validate($data, (int)$idCategory['category_id']);
             if (empty($errors)) {
                 $reservationManager = new ReservationManager();
                 $id = $reservationManager->insert($data);
                 header("Location:/reservation/done/" . $id);
             }
         }
-        return $this->twig->render('Reservation/reservation.html.twig', ['errors' => $errors ?? [],
-            'data' => $data , 'bikes' => $bikes]);
+
+        return $this->twig->render('Reservation/reservation.html.twig', [
+          'errors' => $errors ?? [],
+          'data' => $data ,
+          'categories' => $categories,
+          'bikes' => $bikes,
+          'durations' => $durations,
+          'selectionnedBike' => $idBicycle
+        ]);
     }
 
     public function done(int $id)
     {
         $reservationManager = new ReservationManager();
-        $reservation = $reservationManager->selectOneById($id);
+        $reservation = $reservationManager->selectWithPrice($id);
         return $this->twig->render('Reservation/thanks.html.twig', ['data' => $reservation]);
     }
 
@@ -42,9 +60,10 @@ class ReservationController extends AbstractController
     /**
      * @SuppressWarnings(PHPMD)
      * @param array $data
+     * @param int $idCategory
      * @return array
      */
-    private function validate(array $data)
+    private function validate(array $data, int $idCategory)
     {
         $errors = [];
         if (empty($data['lastname'])) {
@@ -57,12 +76,12 @@ class ReservationController extends AbstractController
             $errors[] = "Le numéro de telephone est obligatoire pour réserver";
         }
         $nameMaxLength = 100;
-        if ($data['firstname'] || $data['lastname'] > $nameMaxLength) {
-            $errors[] = "le nom et le prénom ne doivent pas dépasser 100 caractères";
+        if (strlen($data['firstname']) > $nameMaxLength || strlen($data['lastname']) > $nameMaxLength) {
+            $errors[] = "le nom et le prénom ne doivent pas dépasser $nameMaxLength caractères";
         }
         $phoneMaxLength = 20;
-        if ($data['tel'] > $phoneMaxLength) {
-            $errors[] = "le numero de télephone ne doit pas contenir plus de 20 caractères";
+        if (strlen($data['tel']) > $phoneMaxLength) {
+            $errors[] = "le numero de télephone ne doit pas contenir plus de $phoneMaxLength caractères";
         }
         if (empty($data['tel'])) {
             $errors[] = "Le numéro de télephone est obligatoire pour réserver";
@@ -73,11 +92,21 @@ class ReservationController extends AbstractController
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $errors[] = "le format de l'email est invalide";
         }
+        $today = date('Y-m-d');
+        if ($data['date'] < $today) {
+            $errors[] = "La date selectionnée ne peut être inférieure à la date actuelle";
+        }
         if (empty($data['bike'])) {
             $errors[] = "Le choix du vélo est obligatoire";
         }
         if (empty($data['number'] && $data['number'] >= 0)) {
             $errors[] = "Le nombre doit être positif";
+        }
+        if (empty($data['duration'])) {
+            $errors[] = "Le choix de la durée est obligatoire";
+        }
+        if (!(new PriceManager())->hasPrice((int)$data['duration'], (int)$idCategory)) {
+            $errors[] = "Le vélo sélectionné ne peut être réservé pour la durée sélectionnée";
         }
         return $errors;
     }

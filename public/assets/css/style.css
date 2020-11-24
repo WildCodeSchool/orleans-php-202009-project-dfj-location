@@ -7,6 +7,7 @@
     --secondary-color: #f7f7fc;
     --button-bg-color : #8C9DB0;
     --light : #e8ecf0;
+    --dark : #151717;
     --title-color: #0d446d;
     --spacing:8px;
     --spacing-2:calc(var(--spacing) * 2);
@@ -14,9 +15,15 @@
     --spacing-4:calc(var(--spacing) * 4);
     --spacing-form: 500px;
     --navbarHeight: 80px;
+    --footerHeight: 160px;
     --font-text: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
+    --btn-bg-color: whitesmoke;
+    --btn-color : darkred;
+    --card-title-color:#F1F1F5;
     --card-background-color : rgba(18, 24, 43, 0.65);
+    --btn-bg-color: whitesmoke;
+    --btn-color : darkred;
 }
 
 * {
@@ -26,6 +33,16 @@
 body {
     font-family: var(--font-text);
     background-color: var(--secondary-color);
+    background-image: url(../images/background.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section {
+    min-height: calc(100vh - var(--navbarHeight) - var(--footerHeight));
+    padding-top: var(--navbarHeight);
 }
 
 nav {
@@ -36,6 +53,10 @@ nav {
 .navbar {
     padding: 0;
     z-index: 2;
+}
+
+section {
+    padding-top: var(--navbarHeight);
 }
 
 .category .card {
@@ -91,6 +112,10 @@ h1, h2, h3 {
     padding-bottom: var(--spacing);
 }
 
+.alert:empty {
+    display: none;
+}
+
 .contact h2 {
     text-align: center;
     color: var(--title-color);
@@ -132,7 +157,11 @@ h1, h2, h3 {
 }
 
 .card-inverse .card-img-overlay {
-    background-color: rgba(18, 24, 43, 0.65);
+    background-color: var(--card-background-color)
+}
+
+.bikes .card-title {
+    color: var(--card-title-color);
 }
 
 .bikes .card-title {
@@ -153,12 +182,21 @@ h1, h2, h3 {
     display: none;
 }
 
+.aboutUs-images {
+    width: 600px;
+}
+
+.aboutUs-paragraph {
+    width: 600px;
+    font-size: 20px;
+    padding: 0 var(--spacing-3);
+}
+
 footer {
     font-family: 'Overpass', sans-serif;
     background-color: var(--primary-color);
-    height: 160px;
-    margin: 0;
     padding: 0;
+    height: 160px;
     color: var(--light);
 }
 
@@ -186,12 +224,32 @@ footer a {
     color: var(--light);
 }
 
+footer a:hover {
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.admin {
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
 .instagramImage:hover, .facebookImage:hover {
     transform: scale(1.2);
 }
 
 .instagramImage:active, .facebookImage:active {
     opacity: 30%;
+}
+
+@media screen and (max-width: 500px){
+    #carouselExampleCaptions .carousel-inner {
+        height: 300px;
+    }
+}
+
+.carousel-inner .carousel-item{
+    height: 850px;
 }
 
 table td {
@@ -210,12 +268,35 @@ table {
 table .btn:hover {
     opacity: 0.8;
     cursor: pointer;
-    background-color: whitesmoke;
-    color: darkred;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-color);
+}
+
+.alert:empty {
+    display: none;
+}
+
+.container a:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-color)
 }
 
 .contact-details {
     font-size: 1.75rem;
+}
+
+.vertical-line {
+    border-left: 2px solid #000;
+    display: inline-block;
+    height: 600px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.horaire-title {
+    margin-bottom: 70px;
 }
 
 
