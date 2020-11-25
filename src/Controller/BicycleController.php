@@ -25,4 +25,12 @@ class BicycleController extends AbstractController
         $bicycles = $bicycleManager->selectByCategory($category);
         return $this->twig->render('Bicycle/index.html.twig', ['bicycles' => $bicycles]);
     }
+    public function show(int $id)
+    {
+        $bicycleManager = new BicycleManager();
+        $bicycles = $bicycleManager->selectOneById($id);
+        $prices = $bicycleManager->duration($id);
+        return $this->twig->render('Bicycle/detailsBike.html.twig', ['bicycles' => $bicycles, 'prices' => $prices
+        ]);
+    }
 }
