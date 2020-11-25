@@ -18,9 +18,12 @@ class AdminCategoryController extends AbstractController
 
     public function index()
     {
+
         $adminCategoryManager = new CategoryManager();
         $categories = $adminCategoryManager->selectAll();
-        return $this->twig->render('Admin/indexCategory.html.twig', ['categories' => $categories]);
+        $nbBikes = $adminCategoryManager->numberOfBikeInCategory();
+        return $this->twig->render('Admin/indexCategory.html.twig', ['nbBikes' => $nbBikes,
+            'categories' => $categories]);
     }
 
     public function add()
@@ -72,5 +75,14 @@ class AdminCategoryController extends AbstractController
             'errors' => $errors ?? [],
             'category' => $category ?? [],
         ]);
+    }
+
+    public function remove()
+    {
+        $categoryManager = new CategoryManager();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $categoryManager->delete((int)$_POST['id']);
+            header('Location:/AdminCategory/index');
+        }
     }
 }

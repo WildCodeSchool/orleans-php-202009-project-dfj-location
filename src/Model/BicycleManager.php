@@ -32,6 +32,26 @@ class BicycleManager extends AbstractManager
         return $statement->fetchAll();
     }
 
+    public function selectOneById(int $id)
+    {
+        $statement = $this->pdo->prepare('SELECT * FROM ' . CategoryManager::TABLE . ' RIGHT JOIN ' . self::TABLE .
+            ' ON category.id = category_id WHERE bike.id = :id ');
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
+    public function duration(int $id)
+    {
+        $statement = $this->pdo->prepare('SELECT duration.name, price FROM duration JOIN prices 
+        ON prices.duration_id = duration.id JOIN bike ON prices.category_id = bike.category_id  WHERE bike.id = :id 
+        ORDER BY duration.id');
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
     public function getCategory(int $bicycle)
     {
         $statement = $this->pdo->prepare('SELECT category_id FROM ' . self::TABLE . ' WHERE id=:id');

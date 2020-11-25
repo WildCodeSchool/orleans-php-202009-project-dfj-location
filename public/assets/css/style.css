@@ -7,6 +7,7 @@
     --secondary-color: #f7f7fc;
     --button-bg-color : #8C9DB0;
     --light : #e8ecf0;
+    --dark : #151717;
     --title-color: #0d446d;
     --spacing:8px;
     --spacing-2:calc(var(--spacing) * 2);
@@ -14,6 +15,7 @@
     --spacing-4:calc(var(--spacing) * 4);
     --spacing-form: 500px;
     --navbarHeight: 80px;
+    --footerHeight: 160px;
     --font-text: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
     --btn-bg-color: whitesmoke;
@@ -36,6 +38,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+section {
+    min-height: calc(100vh - var(--navbarHeight) - var(--footerHeight));
+    padding-top: var(--navbarHeight);
 }
 
 nav {
@@ -155,7 +162,6 @@ h1, h2, h3 {
 
 .bikes .card-title {
     color: var(--card-title-color);
-    background-color: var(--card-background-color);
 }
 
 .bikes .card-title {
@@ -189,9 +195,8 @@ h1, h2, h3 {
 footer {
     font-family: 'Overpass', sans-serif;
     background-color: var(--primary-color);
-    height: 160px;
-    margin: 0;
     padding: 0;
+    height: 160px;
     color: var(--light);
 }
 
@@ -217,6 +222,11 @@ footer a {
     font-family:'Overpass', sans-serif;
     text-decoration: none;
     color: var(--light);
+}
+
+footer a:hover {
+    color: var(--dark);
+    text-decoration: none;
 }
 
 .admin {
@@ -288,4 +298,3 @@ table .btn:hover {
 .horaire-title {
     margin-bottom: 70px;
 }
-

@@ -45,4 +45,19 @@ class CategoryManager extends AbstractManager
         $statement->bindValue('name', $category['name'], \PDO::PARAM_STR);
         $statement->execute();
     }
+
+    public function delete(int $id)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    }
+
+    public function numberOfBikeInCategory()
+    {
+        return $this->pdo->query('SELECT ' . self::TABLE . '.id as id,COUNT(bike.id) as nb_bike FROM '
+            . BicycleManager::TABLE . ' RIGHT JOIN ' . self::TABLE . ' ON ' . self::TABLE . '.id=category_id GROUP BY '
+            . self::TABLE . '.name;')->fetchAll();
+    }
 }

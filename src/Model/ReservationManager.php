@@ -109,4 +109,11 @@ class ReservationManager extends AbstractManager
 
         return $statement->rowCount() > 0;
     }
+
+    public function numberOfBikeReservation()
+    {
+        return $this->pdo->query('SELECT ' . BicycleManager::TABLE . '.id AS id, COUNT(reservation.id) 
+        AS reservationBike FROM ' . self::TABLE . ' RIGHT JOIN ' . BicycleManager::TABLE . ' ON '
+            . BicycleManager::TABLE . '.id=' . self::TABLE . '.bike_id GROUP BY bike.id;')->fetchAll();
+    }
 }

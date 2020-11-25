@@ -1,34 +1,34 @@
 {% extends 'layoutAdmin.html.twig' %}
-{% block title %} {{ parent() }} | Ajouter Un Vélo{% endblock %}
+{% block title %} {{ parent() }} | Editer Un Vélo{% endblock %}
 {% block content %}
-    <h2 class="text-center my-5">Ajouter un Vélo</h2>
+    <h2 class="text-center my-5">Editer un vélo</h2>
     <div class="container pb-5">
         <ul class="mt-3 alert alert-danger">
             {%- for error in errors -%}
                 <li>{{ error }}</li>
             {%- endfor -%}
         </ul>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" novalidate>
             <div class="form-group">
                 <label for="name">Nom du vélo</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Rockrider 5.1 Homme" required
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nom" required
                        value="{{ bike.name }}">
             </div>
             <div class="form-group">
                 <label for="weight">Poids</label>
-                <input type="number" class="form-control" id="weight" name="weight" placeholder="15" required
-                value="{{ bike.weight }}">
+                <input type="number" step="0.01" class="form-control" id="weight" name="weight" placeholder="Poids" required
+                       value="{{ bike.weight }}">
             </div>
             <div class="form-group">
                 <label for="stock">Nombre de vélo</label>
                 <input type="number" class="form-control" id="stock" name="stock"
-                       placeholder="2" required value="{{ bike.stock }}">
+                       placeholder="Nombre de vélo" required value="{{ bike.stock }}">
             </div>
             <div class="form-group">
                 <label for="category_id">Catégorie</label>
                 <select class="form-control" id="category_id" name="category_id" required
                         value="{{ bike.category.id }}">
-                    <option value=""></option>
+                    <option></option>
                     {% for category in categories %}
                         <option{{ category == category.id ? 'selected' }} value="{{ category.id }}">
                             {{ category.name }}
@@ -36,38 +36,28 @@
                     {% endfor %}
                 </select>
             </div>
-
             <div class="form-group">
-                <label for="maximum_charge">Charge maximale (optionnel)</label>
+                <label for="maximum_charge">Charge maximal (optionnel)</label>
                 <input type="text" class="form-control" id="maximum_charge" name="maximum_charge"
-                       placeholder="100" value="{{ bike.maximum_charge }}">
+                       placeholder="Charge maximum" value="{{ bike.maximum_charge }}">
             </div>
-
             <div class="form-group">
                 <label for="autonomy">Autonomie (optionnel)</label>
                 <input type="text" class="form-control" id="autonomy" name="autonomy"
-                       placeholder="Autonomie de la batterie " value="{{ bike.autonomy }}">
+                       placeholder="Autonomie " value="{{ bike.autonomy }}">
             </div>
-
             <div class="form-group">
                 <label for="frame_size">Taille du cadre (optionnel)</label>
                 <input type="text" class="form-control" id="frame_size" name="frame_size"
-                       placeholder="S, M, L ..." value="{{ bike.frame_size }}">
+                       placeholder="Taille du cadre" value="{{ bike.frame_size }}">
             </div>
-
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" class="form-control" id="image" name="image" required>
+                <input type="text" class="form-control" id="image" name="image"
+                       placeholder="https://exemple.com/image.jpg" required value="{{ bike.image }}">
             </div>
-
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea type="text" class="form-control" id="description" name="description" required
-                       placeholder="Ce Vélo est muni de ..." ></textarea>
-            </div>
-
             <div class=" form-group text-center">
-                <button class=" btn btn-info ">Ajouter</button>
+                <button class=" btn btn-info ">Modifier</button>
             </div>
         </form>
     </div>

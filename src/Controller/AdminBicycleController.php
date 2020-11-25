@@ -9,17 +9,40 @@ use App\Model\ReservationManager;
 
 class AdminBicycleController extends AbstractController
 {
+
     public const MAX_FILE_SIZE = 1000000;
     public const AUTHORIZED_MIMES = ['image/jpeg', 'image/png'];
 
     /**
-     * Display bicycle creation page
+     * Display item creation page
      *
      * @return string
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
+    public function index()
+    {
+        $adminBikeManager = new BicycleManager();
+        $bikes = $adminBikeManager->selectAllWithCategories();
+        $reservationManager = new ReservationManager();
+        $bikesReservations = $reservationManager->numberOfBikeReservation();
+        return $this->twig->render('Admin/bikes.html.twig', ['BikesReservations' => $bikesReservations,
+            'bikes' => $bikes]);
+    }
+
+    public function remove()
+    {
+        $reservationManager = new ReservationManager();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = array_map('trim', $_POST);
+            $reservationManager->isReservedBike((int)$data['id']);
+            $bicycleManager = new BicycleManager();
+            $bicycleManager->delete((int)$data['id']);
+            header('Location:/AdminBicycle/index');
+        }
+    }
+
     public function addBike()
     {
         $categoryManager = new CategoryManager();
@@ -45,6 +68,30 @@ class AdminBicycleController extends AbstractController
             'bike' => $bike, 'categories' => $categories
         ]);
     }
+
+
+    public function editBike(int $id)
+    {
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAll();
+
+        $adminBicycleManager = new AdminBicycleManager();
+        $editBike = $adminBicycleManager->selectOneById($id);
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $bike = array_map('trim', $_POST);
+            $errors = $this->validateBike($bike, $_FILES['image']);
+
+            if (empty($errors)) {
+                $adminBicycleManager = new AdminBicycleManager();
+                $adminBicycleManager->update($bike, $id);
+                header("location:/AdminBicycle/index");
+            }
+        }
+
+        return $this->twig->render('Admin/editor-bike.html.twig', ['errors' => $errors ?? [],
+            'bike' => $editBike, 'categories' => $categories]);
+    }
+
 
     /**
      * @SuppressWarnings(PHPMD)
@@ -81,33 +128,11 @@ class AdminBicycleController extends AbstractController
         if (!empty($file['tmp_name']) && !in_array(mime_content_type($file['tmp_name']), self::AUTHORIZED_MIMES)) {
             $errors[] = 'Ce type de fichier n\'est pas valide';
         }
-        return $errors;
-    }
 
-    public function index()
-    {
-        $error = "";
-        $adminBikeManager = new BicycleManager();
-        $bikes = $adminBikeManager->selectAllWithCategories();
-        $error = $this->remove();
-
-        return $this->twig->render('Admin/bikes.html.twig', ['error' => $error, 'bikes' => $bikes]);
-    }
-
-    public function remove()
-    {
-        $error = "";
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = array_map('trim', $_POST);
-            $reservationManager = new ReservationManager();
-            if ($reservationManager->isReservedBike((int)$data['id'])) {
-                $error = "Ce vélo est réservé, il est donc impossible de le supprimer !";
-            } else {
-                $bicycleManager = new BicycleManager();
-                $bicycleManager->delete((int)$data['id']);
-                header('Location:/AdminBicycle/index');
-            }
-            return $error;
+        if (empty($bike['description'])) {
+            $errors[] = 'La description du vélo est obligatoire.';
         }
+
+        return $errors;
     }
 }
