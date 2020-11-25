@@ -41,7 +41,7 @@ body {
 }
 
 section {
-    min-height: calc(100vh - var(--navbarHeight) - var(--footerHeight));
+    min-height: calc(100vh - var(--footerHeight));
     padding-top: var(--navbarHeight);
 }
 
