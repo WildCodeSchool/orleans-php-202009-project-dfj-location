@@ -8,12 +8,14 @@
         <div class="row bikes pb-5">
             {% for bicycle in bicycles %}
                 <div class="col-sm-6 col-md-6 col-lg-3">
+                    <a href="/bicycle/show/{{ bicycle.id }}">
                     <div class="card bg-dark text-white card-inverse">
                         <img src="{{ bicycle.image }}" class="card-img" alt="{{ bicycle.name }}">
                         <div class="card-img-overlay d-flex">
                             <h2 class="card-title text-truncate align-self-center mx-auto">{{ bicycle.name }}</h2>
                         </div>
                     </div>
+                    </a>
                 </div>
             {% endfor %}
         </div>
