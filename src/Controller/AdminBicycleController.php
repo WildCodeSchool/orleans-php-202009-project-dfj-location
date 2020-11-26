@@ -27,7 +27,7 @@ class AdminBicycleController extends AbstractController
         $bikes = $adminBikeManager->selectAllWithCategories();
         $reservationManager = new ReservationManager();
         $bikesReservations = $reservationManager->numberOfBikeReservation();
-        return $this->twig->render('Admin/bikes.html.twig', ['BikesReservations' => $bikesReservations,
+        return $this->twig->render('Admin/bikes.html.twig', ['bikesReservations' => $bikesReservations,
             'bikes' => $bikes]);
     }
 
