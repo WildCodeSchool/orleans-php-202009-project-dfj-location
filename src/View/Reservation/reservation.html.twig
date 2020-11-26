@@ -1,8 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}
-    {{ parent() }} | Reservation
-{% endblock %}
+{% block title %}{{ parent() }} | Reservation{% endblock %}
 
 {% block stylesheet %}
     <link rel="stylesheet" href="/assets/css/form.css">
@@ -30,7 +28,7 @@
             <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Nicolas" required value="{{ data.firstname }}">
         </div>
         <div class="form-group">
-            <label for="tel">Télephone</label>
+            <label for="tel">Téléphone</label>
             <input class="form-control" type="tel" name="tel" id="tel" placeholder="06.35.47.14.96" required value="{{ data.tel }}">
         </div>
         <div class="form-group">
@@ -76,6 +74,6 @@
     <div class="info-form">
         <p class="form-star">* : 1 Journée - Dimanche et jours fériés retrait ou retour = 4€ supplémentaires.
             Pour tout retrait la veille ou restitution le lendemain, il faudra vous acquitter
-            d'un supplément de 4,00€ par vélo. </p>
+            d'un supplément de 4€ par vélo. </p>
     </div>
 {% endblock %}

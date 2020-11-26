@@ -1,7 +1,7 @@
 {% extends 'layoutAdmin.html.twig' %}
-{% block title %} {{ parent() }} | Editer Un Vélo{% endblock %}
+{% block title %} {{ parent() }} | Éditer Un vélo{% endblock %}
 {% block content %}
-    <h2 class="text-center my-5">Editer un vélo</h2>
+    <h2 class="text-center my-5">Éditer un vélo</h2>
     <div class="container pb-5">
         <ul class="mt-3 alert alert-danger">
             {%- for error in errors -%}
@@ -20,7 +20,7 @@
                        value="{{ bike.weight }}">
             </div>
             <div class="form-group">
-                <label for="stock">Nombre de vélo</label>
+                <label for="stock">Nombre de vélo(s)</label>
                 <input type="number" class="form-control" id="stock" name="stock"
                        placeholder="10" required value="{{ bike.stock }}">
             </div>
@@ -36,7 +36,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="maximum_charge">Charge maximal (optionnel)</label>
+                <label for="maximum_charge">Charge maximale (optionnel)</label>
                 <input type="text" class="form-control" id="maximum_charge" name="maximum_charge"
                        placeholder="100" value="{{ bike.maximum_charge }}">
             </div>
@@ -61,7 +61,7 @@
                           placeholder="Ce Vélo est muni de ..." >{{ bike.description }}</textarea>
             </div>
             <div class=" form-group text-center">
-                <button class=" btn btn-info ">Modifier</button>
+                <button class="btn btn-info ">Modifier</button>
             </div>
         </form>
     </div>
