@@ -93,10 +93,6 @@ nav > div > ul > .link {
     font-weight: bolder;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: var(--light);
-}
-
 h1, h2, h3 {
     font-family: var(--font-title);
     color: var(--title-color);
@@ -141,10 +137,9 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
-.bikes .card-img-bottom {
-    padding-left: var(--spacing-2);
-    padding-right: var(--spacing-2);
-    padding-bottom: var(--spacing-2);
+.card-inverse .card-img {
+    max-width: calc(var(--spacing-4) * 11.8);
+    max-height: calc(var(--spacing-4) * 11.8);
 }
 
 .bikes .card {
@@ -232,6 +227,14 @@ footer a:hover {
 .admin {
     border: 2px solid var(--secondary-color);
     border-radius: 10px;
+    padding-left: var(--spacing);
+    padding-right: var(--spacing);
+    text-decoration: none;
+    color: var(--light);
+}
+
+.admin:hover {
+    color: var(--dark);
 }
 
 .instagramImage:hover, .facebookImage:hover {
@@ -243,7 +246,7 @@ footer a:hover {
 }
 
 @media screen and (max-width: 500px){
-    #carouselExampleCaptions .carousel-inner {
+   .carousel-inner {
         height: 300px;
     }
 }
@@ -297,6 +300,14 @@ table .btn:hover {
 
 .horaire-title {
     margin-bottom: 70px;
+}
+
+.carousel-caption {
+    z-index: 1;
+}
+
+.carousel-indicators {
+    z-index: 1;
 }
 
 .bicycle {

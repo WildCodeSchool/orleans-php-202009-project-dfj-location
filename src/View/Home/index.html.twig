@@ -54,18 +54,19 @@
             <div class="bikes row pb-5">
                 {% for newBike in newBikes %}
                     <div class="col-sm-6 col-md-6 col-lg-3 {{ loop.index>2 ? 'd-none' }} d-sm-block">
+                      <a href="/bicycle/show/{{ newBike.id }}">
                         <div class="card bg-dark text-white card-inverse">
-                            <img src="{{ newBike.image }}" class="card-img" alt="{{ newBike.name }}">
+                            <img src="/uploads/bikes/{{ newBike.image }}" class="card-img" alt="{{ newBike.name }}">
                             <div class="card-img-overlay d-flex">
                                 <h2 class="card-title text-truncate align-self-center mx-auto">{{ newBike.name }}</h2>
                             </div>
                         </div>
+                       </a>
                     </div>
                 {% endfor %}
             </div>
         </div>
     </div>
-
     <div class="contact container-fluid">
         <div class="row pb-5">
             <div class="col-12 col-md-6 d-flex justify-content-center">
@@ -86,7 +87,6 @@
                 </div>
             </div>
             <span class="vertical-line d-none d-lg-block d-xl-block"></span>
-
             <!-- Récupération du jour courant -->
             {% set now = "now"|date("l") %}
             <!-- Récupération des horaires -->
@@ -98,7 +98,6 @@
             <div class="col-12 col-md-5">
                 <h2 class="horaire-title mb-xs-0">Horaires</h2>
                 <ul class="time d-flex flex-column align-items-center mt-5">
-
                     {% for time in nowTranscription %}
                         <li class="{% if time == nowFrench %} currentDay {% endif %} mb-3">
                             {{ time }}
