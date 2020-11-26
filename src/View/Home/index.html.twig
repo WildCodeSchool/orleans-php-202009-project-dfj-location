@@ -1,5 +1,9 @@
 {% extends 'layout.html.twig' %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/home.css">
+{% endblock %}
+
 {% block content %}
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators d-sm-none d-md-none d-lg-flex">
@@ -50,28 +54,29 @@
             <div class="bikes row pb-5">
                 {% for newBike in newBikes %}
                     <div class="col-sm-6 col-md-6 col-lg-3 {{ loop.index>2 ? 'd-none' }} d-sm-block">
+                      <a href="/bicycle/show/{{ newBike.id }}">
                         <div class="card bg-dark text-white card-inverse">
-                            <img src="{{ newBike.image }}" class="card-img" alt="{{ newBike.name }}">
+                            <img src="/uploads/bikes/{{ newBike.image }}" class="card-img" alt="{{ newBike.name }}">
                             <div class="card-img-overlay d-flex">
                                 <h2 class="card-title text-truncate align-self-center mx-auto">{{ newBike.name }}</h2>
                             </div>
                         </div>
+                       </a>
                     </div>
                 {% endfor %}
             </div>
         </div>
     </div>
-
     <div class="contact container-fluid">
         <div class="row pb-5">
-            <div class="col-12 col-md-6 d-flex">
+            <div class="col-12 col-md-6 d-flex justify-content-center">
                 <div class="row">
                     <div class="col-12">
                         <h2 class="mb-3">Contact</h2>
                         <p>Téléphone: 02 38 81 23 00 </p>
                         <p>95 rue du Faubourg Bannier 45000 ORLEANS</p>
                     </div>
-                    <div class="col-12 mb-5 ml-1">
+                    <div class="col-12 mb-5 pb-5">
                         <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=1.8985506892204287%2C47.91220726474316%2C1.9007930159568789%2C47.9134585186023&amp;layer=mapnik&amp;marker=47.912832811183776%2C1.8996720726136118" style="border: 1px solid black">
                         </iframe>
                         <br/>
@@ -82,7 +87,6 @@
                 </div>
             </div>
             <span class="vertical-line d-none d-lg-block d-xl-block"></span>
-
             <!-- Récupération du jour courant -->
             {% set now = "now"|date("l") %}
             <!-- Récupération des horaires -->
@@ -94,7 +98,6 @@
             <div class="col-12 col-md-5">
                 <h2 class="horaire-title mb-xs-0">Horaires</h2>
                 <ul class="time d-flex flex-column align-items-center mt-5">
-
                     {% for time in nowTranscription %}
                         <li class="{% if time == nowFrench %} currentDay {% endif %} mb-3">
                             {{ time }}

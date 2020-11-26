@@ -44,7 +44,7 @@ class AdminBicycleManager extends AbstractManager
         // prepared request
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name = :name, weight = :weight,
         category_id = :category_id, image = :image, maximum_charge = :maximum_charge, autonomy = :autonomy,
-        frame_size = :frame_size, stock = :stock  WHERE id=:id");
+        frame_size = :frame_size, stock = :stock, description = :description  WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->bindValue('name', $bike['name'], \PDO::PARAM_STR);
         $statement->bindValue('weight', $bike['weight']);
@@ -54,6 +54,7 @@ class AdminBicycleManager extends AbstractManager
         $statement->bindValue('autonomy', $bike['autonomy'], \PDO::PARAM_STR);
         $statement->bindValue('frame_size', $bike['frame_size'], \PDO::PARAM_STR);
         $statement->bindValue('stock', $bike['stock'], \PDO::PARAM_INT);
+        $statement->bindValue('description', $bike['description'], \PDO::PARAM_STR);
 
         return $statement->execute();
     }
