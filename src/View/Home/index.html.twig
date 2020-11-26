@@ -50,12 +50,14 @@
             <div class="bikes row pb-5">
                 {% for newBike in newBikes %}
                     <div class="col-sm-6 col-md-6 col-lg-3 {{ loop.index>2 ? 'd-none' }} d-sm-block">
-                        <div class="card bg-dark text-white card-inverse">
+                        <a href="/bicycle/show/{{ newBike.id }}">
+                            <div class="card bg-dark text-white card-inverse">
                             <img src="{{ newBike.image }}" class="card-img" alt="{{ newBike.name }}">
                             <div class="card-img-overlay d-flex">
                                 <h2 class="card-title text-truncate align-self-center mx-auto">{{ newBike.name }}</h2>
                             </div>
                         </div>
+                        </a>
                     </div>
                 {% endfor %}
             </div>

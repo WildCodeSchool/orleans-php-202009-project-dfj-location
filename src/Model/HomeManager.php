@@ -33,7 +33,7 @@ class HomeManager extends AbstractManager
 
     public function selectNewestBikes()
     {
-        return $this->pdo->query('SELECT name, image FROM ' . self::TABLE .
+        return $this->pdo->query('SELECT id, name, image FROM ' . self::TABLE .
             ' ORDER BY created_date DESC LIMIT ' . self::BIKE_LIMIT)->fetchAll();
     }
 }
