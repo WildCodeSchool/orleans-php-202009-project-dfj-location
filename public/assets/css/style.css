@@ -20,8 +20,9 @@
     --font-title: 'Righteous', cursive;
     --btn-bg-color: whitesmoke;
     --btn-color : darkred;
-    --card-title-color:#F1F1F5;
+    --card-title-color: #f1f1f5;
     --card-background-color : rgba(18, 24, 43, 0.65);
+    --card-background-board : rgba(241, 241, 245, 0.65);
     --btn-bg-color: whitesmoke;
     --btn-color : darkred;
 }
@@ -298,3 +299,15 @@ table .btn:hover {
 .horaire-title {
     margin-bottom: 70px;
 }
+
+.bicycle {
+    width: 400px;
+    height: auto;
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+.board {
+    background-color:var(--card-background-board);
+}
+
