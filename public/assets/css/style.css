@@ -20,8 +20,9 @@
     --font-title: 'Righteous', cursive;
     --btn-bg-color: whitesmoke;
     --btn-color : darkred;
-    --card-title-color:#F1F1F5;
+    --card-title-color: #f1f1f5;
     --card-background-color : rgba(18, 24, 43, 0.65);
+    --card-background-board : rgba(241, 241, 245, 0.65);
 }
 
 * {
@@ -92,10 +93,6 @@ nav > div > ul > .link {
     font-weight: bolder;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: var(--light);
-}
-
 h1, h2, h3 {
     font-family: var(--font-title);
     color: var(--title-color);
@@ -138,6 +135,20 @@ h1, h2, h3 {
 
 .currentDay {
     font-weight: bold;
+}
+
+.category-container {
+    padding: var(--spacing-4);
+}
+
+.category .card-body {
+    padding: var(--spacing-2);
+}
+
+.category p {
+    font-family: var(--font-text);
+    font-size: 1.25rem;
+    margin: 0;
 }
 
 .bikes .card-img-bottom {
@@ -231,6 +242,14 @@ footer a:hover {
 .admin {
     border: 2px solid var(--secondary-color);
     border-radius: 10px;
+    padding-left: var(--spacing);
+    padding-right: var(--spacing);
+    text-decoration: none;
+    color: var(--light);
+}
+
+.admin:hover {
+    color: var(--dark);
 }
 
 .instagramImage:hover, .facebookImage:hover {
@@ -242,7 +261,7 @@ footer a:hover {
 }
 
 @media screen and (max-width: 500px){
-    #carouselExampleCaptions .carousel-inner {
+   .carousel-inner {
         height: 300px;
     }
 }
@@ -297,3 +316,28 @@ table .btn:hover {
 .horaire-title {
     margin-bottom: 70px;
 }
+
+.carousel-caption {
+    z-index: 1;
+}
+
+.carousel-indicators {
+    z-index: 1;
+}
+
+.bicycle {
+    width: 400px;
+    height: auto;
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+.board {
+    background-color:var(--card-background-board);
+}
+
+.btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
