@@ -20,10 +20,9 @@
     --font-title: 'Righteous', cursive;
     --btn-bg-color: whitesmoke;
     --btn-color : darkred;
-    --card-title-color:#F1F1F5;
+    --card-title-color: #f1f1f5;
     --card-background-color : rgba(18, 24, 43, 0.65);
-    --btn-bg-color: whitesmoke;
-    --btn-color : darkred;
+    --card-background-board : rgba(241, 241, 245, 0.65);
 }
 
 * {
@@ -41,7 +40,7 @@ body {
 }
 
 section {
-    min-height: calc(100vh - var(--navbarHeight) - var(--footerHeight));
+    min-height: calc(100vh - var(--footerHeight));
     padding-top: var(--navbarHeight);
 }
 
@@ -53,10 +52,6 @@ nav {
 .navbar {
     padding: 0;
     z-index: 2;
-}
-
-section {
-    padding-top: var(--navbarHeight);
 }
 
 .category .card {
@@ -182,11 +177,16 @@ h1, h2, h3 {
     display: none;
 }
 
-.aboutUs-images {
+.about-us {
+    padding-top: calc(var(--spacing-4) * 2);
+    padding-bottom: calc(var(--spacing-4) * 2);
+}
+
+.about-us-images {
     width: 600px;
 }
 
-.aboutUs-paragraph {
+.about-us-paragraph {
     width: 600px;
     font-size: 20px;
     padding: 0 var(--spacing-3);
@@ -305,5 +305,16 @@ table .btn:hover {
 
 .carousel-indicators {
     z-index: 1;
+}
+
+.bicycle {
+    width: 400px;
+    height: auto;
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+.board {
+    background-color:var(--card-background-board);
 }
 
