@@ -93,10 +93,6 @@ nav > div > ul > .link {
     font-weight: bolder;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: var(--light);
-}
-
 h1, h2, h3 {
     font-family: var(--font-title);
     color: var(--title-color);
@@ -231,6 +227,14 @@ footer a:hover {
 .admin {
     border: 2px solid var(--secondary-color);
     border-radius: 10px;
+    padding-left: var(--spacing);
+    padding-right: var(--spacing);
+    text-decoration: none;
+    color: var(--light);
+}
+
+.admin:hover {
+    color: var(--dark);
 }
 
 .instagramImage:hover, .facebookImage:hover {
