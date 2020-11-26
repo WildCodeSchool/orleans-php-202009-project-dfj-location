@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %} {{ parent() }} {% endblock %}
+{% block title %} {{ parent() }} | {{ bicycle.name }}{% endblock %}
 {% block stylesheet %}
     <link rel="stylesheet" href="/assets/css/form.css">
 {% endblock %}
@@ -59,7 +59,7 @@
                 {% for price in prices %}
                     <tr>
                         <td>{{ price.name }} </td>
-                        <td>{{ price.price }} €</td>
+                        <td>{{ price.price }}€</td>
                     </tr>
                 {% endfor %}
                 </tbody>

@@ -1,14 +1,14 @@
 {% extends 'layoutAdmin.html.twig' %}
-{% block title %} {{ parent() }} | Editer Un Vélo{% endblock %}
+{% block title %} {{ parent() }} | Éditer Un vélo{% endblock %}
 {% block content %}
-    <h2 class="text-center my-5">Editer un vélo</h2>
+    <h2 class="text-center my-5">Éditer un vélo</h2>
     <div class="container pb-5">
         <ul class="mt-3 alert alert-danger">
             {%- for error in errors -%}
                 <li>{{ error }}</li>
             {%- endfor -%}
         </ul>
-        <form action="" method="POST" novalidate>
+        <form action="" method="POST">
             <div class="form-group">
                 <label for="name">Nom du vélo</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Nom" required
@@ -20,7 +20,7 @@
                        value="{{ bike.weight }}">
             </div>
             <div class="form-group">
-                <label for="stock">Nombre de vélo</label>
+                <label for="stock">Nombre de vélo(s)</label>
                 <input type="number" class="form-control" id="stock" name="stock"
                        placeholder="Nombre de vélo" required value="{{ bike.stock }}">
             </div>
@@ -37,7 +37,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="maximum_charge">Charge maximal (optionnel)</label>
+                <label for="maximum_charge">Charge maximale (optionnel)</label>
                 <input type="text" class="form-control" id="maximum_charge" name="maximum_charge"
                        placeholder="Charge maximum" value="{{ bike.maximum_charge }}">
             </div>
@@ -57,7 +57,7 @@
                        placeholder="https://exemple.com/image.jpg" required value="{{ bike.image }}">
             </div>
             <div class=" form-group text-center">
-                <button class=" btn btn-info ">Modifier</button>
+                <button class="btn btn-info ">Modifier</button>
             </div>
         </form>
     </div>

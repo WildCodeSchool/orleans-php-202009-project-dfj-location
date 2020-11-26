@@ -1,7 +1,7 @@
 {% extends 'layoutAdmin.html.twig' %}
-{% block title %} {{ parent() }} | Ajouter Un Vélo{% endblock %}
+{% block title %} {{ parent() }} | Admin - Ajouter un vélo{% endblock %}
 {% block content %}
-    <h2 class="text-center my-5">Ajouter un Vélo</h2>
+    <h2 class="text-center my-5">Ajouter un vélo</h2>
     <div class="container pb-5">
         <ul class="mt-3 alert alert-danger">
             {%- for error in errors -%}
@@ -11,7 +11,7 @@
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Nom du vélo</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Rockrider 5.1 Homme" required
+                <input type="text" class="form-control" id="name" name="name" placeholder="Rockrider 5.1 homme" required
                        value="{{ bike.name }}">
             </div>
             <div class="form-group">
@@ -46,13 +46,13 @@
             <div class="form-group">
                 <label for="autonomy">Autonomie (optionnel)</label>
                 <input type="text" class="form-control" id="autonomy" name="autonomy"
-                       placeholder="Autonomie de la batterie " value="{{ bike.autonomy }}">
+                       placeholder="Autonomie de la batterie" value="{{ bike.autonomy }}">
             </div>
 
             <div class="form-group">
                 <label for="frame_size">Taille du cadre (optionnel)</label>
                 <input type="text" class="form-control" id="frame_size" name="frame_size"
-                       placeholder="S, M, L ..." value="{{ bike.frame_size }}">
+                       placeholder="S, M, L..." value="{{ bike.frame_size }}">
             </div>
 
             <div class="form-group">
@@ -63,11 +63,11 @@
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea type="text" class="form-control" id="description" name="description" required
-                       placeholder="Ce Vélo est muni de ..." ></textarea>
+                       placeholder="Ce vélo est muni de..." ></textarea>
             </div>
 
-            <div class=" form-group text-center">
-                <button class=" btn btn-info ">Ajouter</button>
+            <div class="form-group text-center">
+                <button class="btn btn-info">Ajouter</button>
             </div>
         </form>
     </div>
