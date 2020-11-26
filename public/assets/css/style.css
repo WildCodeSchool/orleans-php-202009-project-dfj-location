@@ -137,6 +137,26 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
+.category-container {
+    padding: var(--spacing-4);
+}
+
+.category .card-body {
+    padding: var(--spacing-2);
+}
+
+.category p {
+    font-family: var(--font-text);
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.bikes .card-img-bottom {
+    padding-left: var(--spacing-2);
+    padding-right: var(--spacing-2);
+    padding-bottom: var(--spacing-2);
+}
+
 .bikes .card {
     margin-bottom: var(--spacing-3);
 }
