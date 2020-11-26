@@ -53,12 +53,7 @@ class AdminBicycleController extends AbstractController
             $errors = $this->validateBike($bike, $_FILES['image']);
 
             if (empty($errors)) {
-                $category = $categoryManager->selectOneById((int)$bike['category_id']);
-                $uploadDirectory = 'assets/images/' . $category['name'];
-                $filename = $_FILES['image']['name'];
-                move_uploaded_file($_FILES['image']['tmp_name'], $uploadDirectory . '/' . $filename);
-                $bike['image'] = $filename;
-
+                $bike['image'] = $this->uploadImage($_FILES['image'], (int)$bike['category_id']);
                 $adminBicycleManager = new AdminBicycleManager();
                 $adminBicycleManager->insert($bike);
                 header("location:/AdminBicycle/index");
@@ -82,6 +77,11 @@ class AdminBicycleController extends AbstractController
             $errors = $this->validateBike($bike, $_FILES['image']);
 
             if (empty($errors)) {
+                if (!empty($_FILES['image'])) {
+                    $bike['image'] = $this->uploadImage($_FILES['image'], (int)$bike['category_id']);
+                } else {
+                    $bike['image'] = $editBike['image'];
+                }
                 $adminBicycleManager = new AdminBicycleManager();
                 $adminBicycleManager->update($bike, $id);
                 header("location:/AdminBicycle/index");
@@ -93,9 +93,21 @@ class AdminBicycleController extends AbstractController
     }
 
 
+    private function uploadImage(array $file, int $categoryId)
+    {
+        $categoryManager = new CategoryManager();
+        $category = $categoryManager->selectOneById($categoryId);
+        $uploadDirectory = 'assets/images/' . $category['name'];
+        $filename = $uploadDirectory . '/' . $file['name'];
+        move_uploaded_file($file['tmp_name'], $filename);
+
+        return '/' . $filename;
+    }
+
     /**
      * @SuppressWarnings(PHPMD)
      * @param array $bike
+     * @param array $file
      * @return array
      */
 
