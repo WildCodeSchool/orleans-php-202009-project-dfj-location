@@ -51,7 +51,8 @@
                 {% for newBike in newBikes %}
                     <div class="col-sm-6 col-md-6 col-lg-3 {{ loop.index>2 ? 'd-none' }} d-sm-block">
                         <div class="card bg-dark text-white card-inverse">
-                            <img src="{{ newBike.image }}" class="card-img" alt="{{ newBike.name }}">
+                            <img src="{{ newBike.image }}" class="card-img" alt="{{ newBike.name }}"
+                                 onerror="this.onerror=null;this.alt='Image non disponible';">
                             <div class="card-img-overlay d-flex">
                                 <h2 class="card-title text-truncate align-self-center mx-auto">{{ newBike.name }}</h2>
                             </div>
