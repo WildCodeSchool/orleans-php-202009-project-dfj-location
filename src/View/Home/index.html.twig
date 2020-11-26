@@ -1,5 +1,4 @@
 {% extends 'layout.html.twig' %}
-
 {% block content %}
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators d-sm-none d-md-none d-lg-flex">
@@ -63,7 +62,6 @@
             </div>
         </div>
     </div>
-
     <div class="contact container-fluid">
         <div class="row pb-5">
             <div class="col-12 col-md-6 d-flex justify-content-center">
@@ -84,7 +82,6 @@
                 </div>
             </div>
             <span class="vertical-line d-none d-lg-block d-xl-block"></span>
-
             <!-- Récupération du jour courant -->
             {% set now = "now"|date("l") %}
             <!-- Récupération des horaires -->
@@ -96,7 +93,6 @@
             <div class="col-12 col-md-5">
                 <h2 class="horaire-title mb-xs-0">Horaires</h2>
                 <ul class="time d-flex flex-column align-items-center mt-5">
-
                     {% for time in nowTranscription %}
                         <li class="{% if time == nowFrench %} currentDay {% endif %} mb-3">
                             {{ time }}
