@@ -142,7 +142,7 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
-#category-container {
+.category-container {
     padding: var(--spacing-4);
 }
 
