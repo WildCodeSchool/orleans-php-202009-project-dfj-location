@@ -17,6 +17,7 @@ CREATE TABLE `dfj_location`.`bike` (
   `frame_size` VARCHAR(3),
   `created_date` DATE DEFAULT NULL,
   `stock` INT NOT NULL DEFAULT 0,
+  `description` TEXT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT FK_CategoryBike FOREIGN KEY (category_id)
   REFERENCES category(id));

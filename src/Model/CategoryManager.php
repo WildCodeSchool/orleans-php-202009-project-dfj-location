@@ -58,6 +58,6 @@ class CategoryManager extends AbstractManager
     {
         return $this->pdo->query('SELECT ' . self::TABLE . '.id as id,COUNT(bike.id) as nb_bike FROM '
             . BicycleManager::TABLE . ' RIGHT JOIN ' . self::TABLE . ' ON ' . self::TABLE . '.id=category_id GROUP BY '
-            . self::TABLE . '.name;')->fetchAll();
+            . self::TABLE . '.id;')->fetchAll();
     }
 }
