@@ -1,9 +1,9 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %} {{ parent() }}Réservations{% endblock %}
+{% block title %} {{ parent() }} Réservations{% endblock %}
 
 {% block content %}
-    <h1 class="my-5 text-center">Bienvenue admin !</h1>
+    <h1 class="my-5 text-center">Bienvenue Admin !</h1>
     <main class="container">
         <h2 class="my-5 text-center pt-5">Réservations à valider</h2>
         <table class="table table-striped table-light table-bordered table-hover">
@@ -13,7 +13,7 @@
                 <th scope="col">Modèle</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Stock</th>
-                <th scope="col">Etat</th>
+                <th scope="col">État</th>
             </tr>
             </thead>
             <tbody>
@@ -24,7 +24,7 @@
                 <td scope="row">{{ reservation.number_bike }}</td>
                 <td scope="row">{{ reservation.stock }}</td>
                 <td scope="row" class="text-info">
-                    <a href="/adminReservation/reservation/{{ reservation.id }}">A valider</a></td>
+                    <a href="/adminReservation/reservation/{{ reservation.id }}">À valider</a></td>
             </tr>
             </tbody>
             {% endfor %}
@@ -37,7 +37,7 @@
                 <th scope="col">Modèle</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Stock</th>
-                <th scope="col">Etat</th>
+                <th scope="col">État</th>
             </tr>
             </thead>
 
