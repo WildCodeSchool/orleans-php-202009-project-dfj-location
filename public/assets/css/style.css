@@ -55,10 +55,6 @@ nav {
     z-index: 2;
 }
 
-section {
-    padding-top: var(--navbarHeight);
-}
-
 .category .card {
     background-color: var(--primary-color);
 }
@@ -144,6 +140,20 @@ h1, h2, h3 {
 
 .currentDay {
     font-weight: bold;
+}
+
+#category-container {
+    padding: var(--spacing-4);
+}
+
+.category .card-body {
+    padding: var(--spacing-2);
+}
+
+.category p {
+    font-family: var(--font-text);
+    font-size: 1.25rem;
+    margin: 0;
 }
 
 .bikes .card-img-bottom {
