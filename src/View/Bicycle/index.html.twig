@@ -9,7 +9,7 @@
             {% for bicycle in bicycles %}
                 <div class="col-sm-6 col-md-6 col-lg-3">
                     <div class="card bg-dark text-white card-inverse">
-                        <img src="{{ bicycle.image }}" class="card-img" alt="{{ bicycle.name }}">
+                        <img src="/uploads/bikes/{{ bicycle.image }}" class="card-img" alt="{{ bicycle.name }}">
                         <div class="card-img-overlay d-flex">
                             <h2 class="card-title text-truncate align-self-center mx-auto">{{ bicycle.name }}</h2>
                         </div>

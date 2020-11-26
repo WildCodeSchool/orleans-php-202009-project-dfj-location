@@ -53,7 +53,8 @@ class AdminBicycleController extends AbstractController
             $errors = $this->validateBike($bike, $_FILES['image']);
 
             if (empty($errors)) {
-                $bike['image'] = $this->uploadImage($_FILES['image'], (int)$bike['category_id']);
+                $this->uploadImage($_FILES['image']);
+                $bike['image'] = $_FILES['image']['name'];
                 $adminBicycleManager = new AdminBicycleManager();
                 $adminBicycleManager->insert($bike);
                 header("location:/AdminBicycle/index");
@@ -78,7 +79,8 @@ class AdminBicycleController extends AbstractController
 
             if (empty($errors)) {
                 if (!empty($_FILES['image'])) {
-                    $bike['image'] = $this->uploadImage($_FILES['image'], (int)$bike['category_id']);
+                    $this->uploadImage($_FILES['image']);
+                    $bike['image'] = $_FILES['image']['name'];
                 } else {
                     $bike['image'] = $editBike['image'];
                 }
@@ -93,15 +95,11 @@ class AdminBicycleController extends AbstractController
     }
 
 
-    private function uploadImage(array $file, int $categoryId)
+    private function uploadImage(array $file)
     {
-        $categoryManager = new CategoryManager();
-        $category = $categoryManager->selectOneById($categoryId);
-        $uploadDirectory = 'assets/images/' . $category['name'];
-        $filename = $uploadDirectory . '/' . $file['name'];
+        $uploadDirectory = 'uploads/bikes/';
+        $filename = $uploadDirectory . $file['name'];
         move_uploaded_file($file['tmp_name'], $filename);
-
-        return '/' . $filename;
     }
 
     /**
