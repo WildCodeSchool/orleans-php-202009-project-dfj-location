@@ -43,7 +43,7 @@ class BicycleManager extends AbstractManager
 
     public function duration(int $id)
     {
-        $statement = $this->pdo->prepare('SELECT duration.name, price FROM duration JOIN price
+        $statement = $this->pdo->prepare('SELECT duration.name, price FROM duration JOIN price 
         ON price.duration_id = duration.id JOIN bike ON price.category_id = bike.category_id  WHERE bike.id = :id 
         ORDER BY duration.id');
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
