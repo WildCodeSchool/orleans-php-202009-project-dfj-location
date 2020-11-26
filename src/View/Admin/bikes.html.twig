@@ -44,7 +44,7 @@
                         {% for bikesReservation in bikesReservations %}
                             {% if bike.id == bikesReservation.id %}
                                 {% if bikesReservation.reservationBike == 0 %}
-                                    <form action="" method="post">
+                                    <form action="/AdminBicycle/remove" method="post">
                                         <input type="hidden" name="id" value="{{ bike.id }}">
                                         <button title="supprimer" class="btn btn-danger">
                                             <svg width="1em" height="1em"
