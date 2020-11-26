@@ -27,10 +27,9 @@
             <div class="form-group">
                 <label for="category_id">Catégorie</label>
                 <select class="form-control" id="category_id" name="category_id" required
-                        value="{{ bike.category.id }}">
-                    <option value=""></option>
+                        value="{{ bike.category_id }}">
                     {% for category in categories %}
-                        <option{{ category == category.id ? 'selected' }} value="{{ category.id }}">
+                        <option {{ category == category.id ? 'selected' }} value="{{ category.id }}">
                             {{ category.name }}
                         </option>
                     {% endfor %}
@@ -46,7 +45,7 @@
             <div class="form-group">
                 <label for="autonomy">Autonomie (optionnel)</label>
                 <input type="text" class="form-control" id="autonomy" name="autonomy"
-                       placeholder="Autonomie de la batterie" value="{{ bike.autonomy }}">
+                       placeholder="200wh" value="{{ bike.autonomy }}">
             </div>
 
             <div class="form-group">
