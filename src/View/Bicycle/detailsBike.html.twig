@@ -13,41 +13,42 @@
             <span class="border-bottom-dark">
                 <h1 class=" text-center my-5">{{ bicycle.name }}</h1>
             </span>
-
-            <div class=" d-flex justify-content-center">
-                <img class="h-50 w-50 justify-content-center " src="{{ bicycle.image }}" alt="{{ bicycle.name }}">
+            <div class="d-flex justify-content-center">
+                <img class="bicycle" src="{{ bicycle.image }}" alt="{{ bicycle.name }}">
             </div>
-            <div class="col-12 offset-3 col-md-7 pt-3">{{ bicycle.description }}</div>
+            <div class="col-12 col-md-6 offset-md-3 pt-3">
+                <p>{{ bicycle.description }}</p>
+            </div>
         </div>
         <div class="col-12 col-md-6">
-        <h2 class="text-center pt-5 pb-3">Caractéristiques</h2>
-        <table class="table table-striped table-bordered table-hover">
-            <tbody>
-            <tr>
-                <th scope="row">Poids</th>
-                <td>{{ bicycle.weight }} kg</td>
-            </tr>
-            <tr>
-                <th scope="row">Charge maximal</th>
-                <td>{{ bicycle.maximum_charge }}</td>
-            </tr>
-            <tr>
-                <th scope="row">Autonomie</th>
-                <td>{{ bicycle.autonomy }}</td>
-            </tr>
-            <tr>
-                <th scope="row">Taille du cadre</th>
-                <td>{{ bicycle.frame_size }}</td>
-            </tr>
-            <tr>
+            <h2 class="text-center pt-5 pb-3">Caractéristiques</h2>
+            <table class="table table-striped table-bordered table-hover board">
+                <tbody>
+                <tr>
+                    <th scope="row">Poids</th>
+                    <td>{{ bicycle.weight }} kg</td>
+                </tr>
+                <tr>
+                    <th scope="row">Charge maximale</th>
+                    <td>{{ bicycle.maximum_charge }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Autonomie</th>
+                    <td>{{ bicycle.autonomy }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Taille du cadre</th>
+                    <td>{{ bicycle.frame_size }}</td>
+                </tr>
+                <tr>
 
-            </tr>
-            </tbody>
-        </table>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <div class="col-12 col-md-6">
             <h2 class="text-center pt-5 pb-3">Tarifs</h2>
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table-bordered table-hover board">
                 <thead>
                 <tr>
                     <th scope="col">Durée</th>
@@ -70,6 +71,4 @@
         </div>
         </div>
     {% endfor %}
-    </div>
-    </div>
 {% endblock %}
